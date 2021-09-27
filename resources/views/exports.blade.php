@@ -1,5 +1,12 @@
 @extends('layouts.master')
 @section('css')
+<!-- Internal Data table css -->
+<link href="{{URL::asset('assets/plugins/datatable/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" />
+<link href="{{URL::asset('assets/plugins/datatable/css/buttons.bootstrap4.min.css')}}" rel="stylesheet">
+<link href="{{URL::asset('assets/plugins/datatable/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" />
+<link href="{{URL::asset('assets/plugins/datatable/css/jquery.dataTables.min.css')}}" rel="stylesheet">
+<link href="{{URL::asset('assets/plugins/datatable/css/responsive.dataTables.min.css')}}" rel="stylesheet">
+<link href="{{URL::asset('assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
 @endsection
 @section('page-header')
 				<!-- breadcrumb -->
@@ -11,34 +18,11 @@
 					</div>
 					<div class="d-flex my-xl-auto right-content">
 						<div class="pr-1 mb-3 mb-xl-0">
-							<button type="button" class="btn btn-info btn-icon ml-2"><i class="mdi mdi-filter-variant"></i></button>
+							<a class="modal-effect btn btn-success-gradient btn-with-icon btn-block" data-effect="effect-scale" data-toggle="modal" href="#modaldemo8"><i class="typcn typcn-edit"></i> Create</a>
 						</div>
 						<div class="pr-1 mb-3 mb-xl-0">
-							<button type="button" class="btn btn-danger btn-icon ml-2"><i class="mdi mdi-star"></i></button>
+							<button class="btn btn-danger-gradient btn-with-icon btn-block"><i class="las la-trash"></i> Delete All</button>
 						</div>
-						<div class="pr-1 mb-3 mb-xl-0">
-							<button type="button" class="btn btn-warning  btn-icon ml-2"><i class="mdi mdi-refresh"></i></button>
-						</div>
-                        <div class="dropdown">
-                            <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-info-gradient"
-                            data-toggle="dropdown" id="dropdownMenuButton" type="button">Month <i class="fas fa-caret-down ml-1"></i></button>
-                            <div  class="dropdown-menu tx-13">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-                        
-                        <div class="dropdown mg-r-10">
-                            <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-info-gradient"
-                            data-toggle="dropdown" id="dropdownMenuButton" type="button">Reason <i class="fas fa-caret-down ml-1"></i></button>
-                            <div  class="dropdown-menu tx-13">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-
 					</div>
 				</div>
 				<!-- breadcrumb -->
@@ -47,6 +31,25 @@
 				<!-- row -->
 				<div class="row">
                     <div class="col-xl-12">
+						<!-- Modal effects -->
+						<div class="modal" id="modaldemo8">
+							<div class="modal-dialog modal-dialog-centered" role="document">
+								<div class="modal-content modal-content-demo">
+									<div class="modal-header">
+										<h6 class="modal-title">Modal Header</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+									</div>
+									<div class="modal-body">
+										<h6>Modal Body</h6>
+										<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+									</div>
+									<div class="modal-footer">
+										<button class="btn ripple btn-primary" type="button">Save changes</button>
+										<button class="btn ripple btn-secondary" data-dismiss="modal" type="button">Close</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- End Modal effects-->
 						<div class="card">
 							<div class="card-header pb-0">
 								<div class="d-flex justify-content-between">
@@ -57,7 +60,7 @@
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">
-									<table class="table table-striped mg-b-0 text-md-nowrap">
+									<table class="table text-md-nowrap" id="example1">
 										<thead>
 											<tr>
 												<th>ID</th>
@@ -65,7 +68,7 @@
 												<th>Cost</th>
 												<th>Reason</th>
 												<th>Date</th>
-												<th>#</th>
+												<th>Actions</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -73,61 +76,109 @@
 												<th scope="row">1</th>
 												<td>Joan Powell</td>
 												<td>450 $</td>
-												<td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et molestias porro soluta expedita sed</td>
+												<td>Lorem, ipsum dolor </td>
 												<td>14-10-2020</td>
 												<td>
-                                                    <button class="btn btn-success btn-block">Print</button>
-                                                </td>
+													<a href="#" class="btn btn-md btn-primary-gradient">
+														<i class="typcn typcn-briefcase"></i>
+													</a>
+													<a href="#" class="btn btn-md btn-info-gradient">
+														<i class="las la-pen"></i>
+													</a>
+													<a href="#" class="btn btn-md btn-danger-gradient">
+														<i class="las la-trash"></i>
+													</a>
+												</td>
 											</tr>
 											<tr>
 												<th scope="row">1</th>
 												<td>Joan Powell</td>
 												<td>450 $</td>
-												<td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et molestias porro soluta expedita sed</td>
+												<td>Lorem, ipsum dolor </td>
 												<td>14-10-2020</td>
                                                 <td>
-                                                    <button class="btn btn-success btn-block">Print</button>
-                                                </td>
+													<a href="#" class="btn btn-md btn-primary-gradient">
+														<i class="typcn typcn-briefcase"></i>
+													</a>
+													<a href="#" class="btn btn-md btn-info-gradient">
+														<i class="las la-pen"></i>
+													</a>
+													<a href="#" class="btn btn-md btn-danger-gradient">
+														<i class="las la-trash"></i>
+													</a>
+												</td>
 											</tr>
 											<tr>
 												<th scope="row">1</th>
 												<td>Joan Powell</td>
 												<td>450 $</td>
-												<td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et molestias porro soluta expedita sed</td>
+												<td>Lorem, ipsum dolor </td>
 												<td>14-10-2020</td>
                                                 <td>
-                                                    <button class="btn btn-success btn-block">Print</button>
-                                                </td>
+													<a href="#" class="btn btn-md btn-primary-gradient">
+														<i class="typcn typcn-briefcase"></i>
+													</a>
+													<a href="#" class="btn btn-md btn-info-gradient">
+														<i class="las la-pen"></i>
+													</a>
+													<a href="#" class="btn btn-md btn-danger-gradient">
+														<i class="las la-trash"></i>
+													</a>
+												</td>
 											</tr>
                                             <tr>
 												<th scope="row">1</th>
 												<td>Joan Powell</td>
 												<td>450 $</td>
-												<td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et molestias porro soluta expedita sed</td>
+												<td>Lorem, ipsum dolor </td>
 												<td>14-10-2020</td>
 												<td>
-                                                    <button class="btn btn-success btn-block">Print</button>
-                                                </td>
+													<a href="#" class="btn btn-md btn-primary-gradient">
+														<i class="typcn typcn-briefcase"></i>
+													</a>
+													<a href="#" class="btn btn-md btn-info-gradient">
+														<i class="las la-pen"></i>
+													</a>
+													<a href="#" class="btn btn-md btn-danger-gradient">
+														<i class="las la-trash"></i>
+													</a>
+												</td>
 											</tr>
 											<tr>
 												<th scope="row">1</th>
 												<td>Joan Powell</td>
 												<td>450 $</td>
-												<td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et molestias porro soluta expedita sed</td>
+												<td>Lorem, ipsum dolor </td>
 												<td>14-10-2020</td>
                                                 <td>
-                                                    <button class="btn btn-success btn-block">Print</button>
-                                                </td>
+													<a href="#" class="btn btn-md btn-primary-gradient">
+														<i class="typcn typcn-briefcase"></i>
+													</a>
+													<a href="#" class="btn btn-md btn-info-gradient">
+														<i class="las la-pen"></i>
+													</a>
+													<a href="#" class="btn btn-md btn-danger-gradient">
+														<i class="las la-trash"></i>
+													</a>
+												</td>
 											</tr>
 											<tr>
 												<th scope="row">1</th>
 												<td>Joan Powell</td>
 												<td>450 $</td>
-												<td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et molestias porro soluta expedita sed</td>
+												<td>Lorem, ipsum dolor </td>
 												<td>14-10-2020</td>
                                                 <td>
-                                                    <button class="btn btn-success btn-block">Print</button>
-                                                </td>
+													<a href="#" class="btn btn-md btn-primary-gradient">
+														<i class="typcn typcn-briefcase"></i>
+													</a>
+													<a href="#" class="btn btn-md btn-info-gradient">
+														<i class="las la-pen"></i>
+													</a>
+													<a href="#" class="btn btn-md btn-danger-gradient">
+														<i class="las la-trash"></i>
+													</a>
+												</td>
 											</tr>
 										</tbody>
 									</table>
@@ -143,22 +194,25 @@
 		<!-- main-content closed -->
 @endsection
 @section('js')
-<!--Internal  Datepicker js -->
-<script src="{{URL::asset('assets/plugins/jquery-ui/ui/widgets/datepicker.js')}}"></script>
-<!--Internal  jquery.maskedinput js -->
-<script src="{{URL::asset('assets/plugins/jquery.maskedinput/jquery.maskedinput.js')}}"></script>
-<!--Internal  spectrum-colorpicker js -->
-<script src="{{URL::asset('assets/plugins/spectrum-colorpicker/spectrum.js')}}"></script>
-<!-- Internal Select2.min js -->
-<script src="{{URL::asset('assets/plugins/select2/js/select2.min.js')}}"></script>
-<!--Internal Ion.rangeSlider.min js -->
-<script src="{{URL::asset('assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js')}}"></script>
-<!--Internal  jquery-simple-datetimepicker js -->
-<script src="{{URL::asset('assets/plugins/amazeui-datetimepicker/js/amazeui.datetimepicker.min.js')}}"></script>
-<!-- Ionicons js -->
-<script src="{{URL::asset('assets/plugins/jquery-simple-datetimepicker/jquery.simple-dtpicker.js')}}"></script>
-<!--Internal  pickerjs js -->
-<script src="{{URL::asset('assets/plugins/pickerjs/picker.min.js')}}"></script>
-<!-- Internal form-elements js -->
-<script src="{{URL::asset('assets/js/form-elements.js')}}"></script>
+<!-- Internal Data tables -->
+<script src="{{URL::asset('assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/dataTables.dataTables.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/responsive.dataTables.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/jquery.dataTables.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/dataTables.bootstrap4.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/dataTables.buttons.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/buttons.bootstrap4.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/jszip.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/pdfmake.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/vfs_fonts.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/buttons.html5.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/buttons.print.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/buttons.colVis.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/responsive.bootstrap4.min.js')}}"></script>
+<!--Internal  Datatable js -->
+<script src="{{URL::asset('assets/js/table-data.js')}}"></script>
+<!-- Internal Modal js-->
+<script src="{{URL::asset('assets/js/modal.js')}}"></script>
 @endsection
