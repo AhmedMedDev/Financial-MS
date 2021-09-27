@@ -29,3 +29,4 @@ Route::get('/{page}', function ($page) {
     return view('404');
 });
 
+
