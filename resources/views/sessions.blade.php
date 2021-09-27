@@ -18,34 +18,11 @@
 					</div>
 					<div class="d-flex my-xl-auto right-content">
 						<div class="pr-1 mb-3 mb-xl-0">
-							<button type="button" class="btn btn-info btn-icon ml-2"><i class="mdi mdi-filter-variant"></i></button>
+							<button class="btn btn-success-gradient btn-with-icon btn-block"><i class="typcn typcn-edit"></i> Create</button>
 						</div>
 						<div class="pr-1 mb-3 mb-xl-0">
-							<button type="button" class="btn btn-danger btn-icon ml-2"><i class="mdi mdi-star"></i></button>
+							<button class="btn btn-danger-gradient btn-with-icon btn-block"><i class="las la-trash"></i> Delete All</button>
 						</div>
-						<div class="pr-1 mb-3 mb-xl-0">
-							<button type="button" class="btn btn-warning  btn-icon ml-2"><i class="mdi mdi-refresh"></i></button>
-						</div>
-                        <div class="dropdown">
-                            <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-info-gradient"
-                            data-toggle="dropdown" id="dropdownMenuButton" type="button">Month <i class="fas fa-caret-down ml-1"></i></button>
-                            <div  class="dropdown-menu tx-13">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-                        
-                        <div class="dropdown mg-r-10">
-                            <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-info-gradient"
-                            data-toggle="dropdown" id="dropdownMenuButton" type="button">Children <i class="fas fa-caret-down ml-1"></i></button>
-                            <div  class="dropdown-menu tx-13">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-
 					</div>
 				</div>
 				<!-- breadcrumb -->
@@ -74,7 +51,7 @@
 												<th>Remaining</th>
 												<th>Receipt</th>
 												<th>Date</th>
-												<th>#</th>
+												<th>Actions</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -87,11 +64,19 @@
 												<td>001625</td>
 												<td>14-10-2020</td>
 												<td>
-                                                    <button class="btn btn-success btn-block">Print</button>
-                                                </td>
+													<a href="#" class="btn btn-md btn-primary-gradient">
+														<i class="typcn typcn-briefcase"></i>
+													</a>
+													<a href="#" class="btn btn-md btn-info-gradient">
+														<i class="las la-pen"></i>
+													</a>
+													<a href="#" class="btn btn-md btn-danger-gradient">
+														<i class="las la-trash"></i>
+													</a>
+												</td>
 											</tr>
 											<tr>
-												<th scope="row">1</th>
+												<th scope="row">2</th>
 												<td>Joan Powell</td>
 												<td>MR .Bahaa</td>
 												<td>450 $</td>
@@ -99,11 +84,19 @@
 												<td>001625</td>
 												<td>14-10-2020</td>
 												<td>
-                                                    <button class="btn btn-success btn-block">Print</button>
-                                                </td>
+													<a href="#" class="btn btn-md btn-primary-gradient">
+														<i class="typcn typcn-briefcase"></i>
+													</a>
+													<a href="#" class="btn btn-md btn-info-gradient">
+														<i class="las la-pen"></i>
+													</a>
+													<a href="#" class="btn btn-md btn-danger-gradient">
+														<i class="las la-trash"></i>
+													</a>
+												</td>
 											</tr>
 											<tr>
-												<th scope="row">1</th>
+												<th scope="row">3</th>
 												<td>Joan Powell</td>
 												<td>MR .Bahaa</td>
 												<td>450 $</td>
@@ -111,11 +104,19 @@
 												<td>001625</td>
 												<td>14-10-2020</td>
 												<td>
-                                                    <button class="btn btn-success btn-block">Print</button>
-                                                </td>
+													<a href="#" class="btn btn-md btn-primary-gradient">
+														<i class="typcn typcn-briefcase"></i>
+													</a>
+													<a href="#" class="btn btn-md btn-info-gradient">
+														<i class="las la-pen"></i>
+													</a>
+													<a href="#" class="btn btn-md btn-danger-gradient">
+														<i class="las la-trash"></i>
+													</a>
+												</td>
 											</tr>
 											<tr>
-												<th scope="row">1</th>
+												<th scope="row">4</th>
 												<td>Joan Powell</td>
 												<td>MR .Bahaa</td>
 												<td>450 $</td>
@@ -123,32 +124,56 @@
 												<td>001625</td>
 												<td>14-10-2020</td>
 												<td>
-                                                    <button class="btn btn-success btn-block">Print</button>
-                                                </td>
+													<a href="#" class="btn btn-md btn-primary-gradient">
+														<i class="typcn typcn-briefcase"></i>
+													</a>
+													<a href="#" class="btn btn-md btn-info-gradient">
+														<i class="las la-pen"></i>
+													</a>
+													<a href="#" class="btn btn-md btn-danger-gradient">
+														<i class="las la-trash"></i>
+													</a>
+												</td>
 											</tr>
 											<tr>
-												<th scope="row">1</th>
+												<th scope="row">5</th>
 												<td>Joan Powell</td>
 												<td>MR .Bahaa</td>
 												<td>450 $</td>
 												<td>0.00</td>
 												<td>001625</td>
-												<td>14-10-2020</td>
+												<td>15-9-2020</td>
 												<td>
-                                                    <button class="btn btn-success btn-block">Print</button>
-                                                </td>
+													<a href="#" class="btn btn-md btn-primary-gradient">
+														<i class="typcn typcn-briefcase"></i>
+													</a>
+													<a href="#" class="btn btn-md btn-info-gradient">
+														<i class="las la-pen"></i>
+													</a>
+													<a href="#" class="btn btn-md btn-danger-gradient">
+														<i class="las la-trash"></i>
+													</a>
+												</td>
 											</tr>
 											<tr>
-												<th scope="row">1</th>
+												<th scope="row">6</th>
 												<td>Joan Powell</td>
 												<td>MR .Bahaa</td>
 												<td>450 $</td>
 												<td>0.00</td>
 												<td>001625</td>
-												<td>14-10-2020</td>
+												<td>16-9-2020</td>
 												<td>
-                                                    <button class="btn btn-success btn-block">Print</button>
-                                                </td>
+													<a href="#" class="btn btn-md btn-primary-gradient">
+														<i class="typcn typcn-briefcase"></i>
+													</a>
+													<a href="#" class="btn btn-md btn-info-gradient">
+														<i class="las la-pen"></i>
+													</a>
+													<a href="#" class="btn btn-md btn-danger-gradient">
+														<i class="las la-trash"></i>
+													</a>
+												</td>
 											</tr>
 										</tbody>
 									</table>
