@@ -43,7 +43,7 @@
 										<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
 									</div>
 									<div class="modal-footer">
-										<button class="btn ripple btn-primary" type="button">Save changes</button>
+										<button class="btn ripple btn-primary" data-dismiss="modal" type="button">Save changes</button>
 										<button class="btn ripple btn-secondary" data-dismiss="modal" type="button">Close</button>
 									</div>
 								</div>
@@ -72,12 +72,14 @@
 											</tr>
 										</thead>
 										<tbody>
+										{{--  --}}
+										@foreach ($exports as $item)
 											<tr>
-												<th scope="row">1</th>
-												<td>Joan Powell</td>
-												<td>450 $</td>
-												<td>Lorem, ipsum dolor </td>
-												<td>14-10-2020</td>
+												<th scope="row">{{$item->id}}</th>
+												<td>{{$item->client}}</td>
+												<td>{{$item->amount}}</td>
+												<td>{{$item->reason}} </td>
+												<td>{{$item->date}}</td>
 												<td>
 													<a href="#" class="btn btn-md btn-primary-gradient">
 														<i class="typcn typcn-briefcase"></i>
@@ -90,96 +92,8 @@
 													</a>
 												</td>
 											</tr>
-											<tr>
-												<th scope="row">1</th>
-												<td>Joan Powell</td>
-												<td>450 $</td>
-												<td>Lorem, ipsum dolor </td>
-												<td>14-10-2020</td>
-                                                <td>
-													<a href="#" class="btn btn-md btn-primary-gradient">
-														<i class="typcn typcn-briefcase"></i>
-													</a>
-													<a href="#" class="btn btn-md btn-info-gradient">
-														<i class="las la-pen"></i>
-													</a>
-													<a href="#" class="btn btn-md btn-danger-gradient">
-														<i class="las la-trash"></i>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<th scope="row">1</th>
-												<td>Joan Powell</td>
-												<td>450 $</td>
-												<td>Lorem, ipsum dolor </td>
-												<td>14-10-2020</td>
-                                                <td>
-													<a href="#" class="btn btn-md btn-primary-gradient">
-														<i class="typcn typcn-briefcase"></i>
-													</a>
-													<a href="#" class="btn btn-md btn-info-gradient">
-														<i class="las la-pen"></i>
-													</a>
-													<a href="#" class="btn btn-md btn-danger-gradient">
-														<i class="las la-trash"></i>
-													</a>
-												</td>
-											</tr>
-                                            <tr>
-												<th scope="row">1</th>
-												<td>Joan Powell</td>
-												<td>450 $</td>
-												<td>Lorem, ipsum dolor </td>
-												<td>14-10-2020</td>
-												<td>
-													<a href="#" class="btn btn-md btn-primary-gradient">
-														<i class="typcn typcn-briefcase"></i>
-													</a>
-													<a href="#" class="btn btn-md btn-info-gradient">
-														<i class="las la-pen"></i>
-													</a>
-													<a href="#" class="btn btn-md btn-danger-gradient">
-														<i class="las la-trash"></i>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<th scope="row">1</th>
-												<td>Joan Powell</td>
-												<td>450 $</td>
-												<td>Lorem, ipsum dolor </td>
-												<td>14-10-2020</td>
-                                                <td>
-													<a href="#" class="btn btn-md btn-primary-gradient">
-														<i class="typcn typcn-briefcase"></i>
-													</a>
-													<a href="#" class="btn btn-md btn-info-gradient">
-														<i class="las la-pen"></i>
-													</a>
-													<a href="#" class="btn btn-md btn-danger-gradient">
-														<i class="las la-trash"></i>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<th scope="row">1</th>
-												<td>Joan Powell</td>
-												<td>450 $</td>
-												<td>Lorem, ipsum dolor </td>
-												<td>14-10-2020</td>
-                                                <td>
-													<a href="#" class="btn btn-md btn-primary-gradient">
-														<i class="typcn typcn-briefcase"></i>
-													</a>
-													<a href="#" class="btn btn-md btn-info-gradient">
-														<i class="las la-pen"></i>
-													</a>
-													<a href="#" class="btn btn-md btn-danger-gradient">
-														<i class="las la-trash"></i>
-													</a>
-												</td>
-											</tr>
+										@endforeach
+										{{--  --}}
 										</tbody>
 									</table>
 								</div><!-- bd -->
