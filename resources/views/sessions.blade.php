@@ -62,7 +62,7 @@
 												<td>450 $</td>
 												<td>0.00</td>
 												<td>001625</td>
-												<td>14-10-2020</td>
+												<td>2006-10-6</td>
 												<td>
 													<a href="#" class="btn btn-md btn-primary-gradient">
 														<i class="typcn typcn-briefcase"></i>
@@ -82,7 +82,7 @@
 												<td>450 $</td>
 												<td>0.00</td>
 												<td>001625</td>
-												<td>14-10-2020</td>
+												<td>2006-10-1</td>
 												<td>
 													<a href="#" class="btn btn-md btn-primary-gradient">
 														<i class="typcn typcn-briefcase"></i>
@@ -102,7 +102,7 @@
 												<td>450 $</td>
 												<td>0.00</td>
 												<td>001625</td>
-												<td>14-10-2020</td>
+												<td>2006-10-25</td>
 												<td>
 													<a href="#" class="btn btn-md btn-primary-gradient">
 														<i class="typcn typcn-briefcase"></i>
@@ -122,7 +122,7 @@
 												<td>450 $</td>
 												<td>0.00</td>
 												<td>001625</td>
-												<td>14-10-2020</td>
+												<td>2006-10-15</td>
 												<td>
 													<a href="#" class="btn btn-md btn-primary-gradient">
 														<i class="typcn typcn-briefcase"></i>
@@ -142,7 +142,7 @@
 												<td>450 $</td>
 												<td>0.00</td>
 												<td>001625</td>
-												<td>15-9-2020</td>
+												<td>2006-10-8</td>
 												<td>
 													<a href="#" class="btn btn-md btn-primary-gradient">
 														<i class="typcn typcn-briefcase"></i>
@@ -162,7 +162,7 @@
 												<td>450 $</td>
 												<td>0.00</td>
 												<td>001625</td>
-												<td>16-9-2020</td>
+												<td>2006-12-17</td>
 												<td>
 													<a href="#" class="btn btn-md btn-primary-gradient">
 														<i class="typcn typcn-briefcase"></i>
