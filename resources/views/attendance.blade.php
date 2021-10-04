@@ -63,12 +63,13 @@
 											</tr>
 										</thead>
 										<tbody>
+											@foreach (DB::table('employees')->get() as $item)
 											<tr>
-												<th scope="row">1</th>
+												<th scope="row">{{$item->id}}</th>
 												<td>
                                                     <img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="http://127.0.0.1:8000/assets/img/photos/1.jpg">
                                                 </td>
-												<td>Joan Powell</td>
+												<td>{{$item->name}}</td>
 												<td>
                                                     <div class="main-toggle main-toggle-success on">
                                                         <span></span>
@@ -78,63 +79,10 @@
                                                     <input type="number" class="form-control required" placeholder="Mins">
                                                 </td>
                                                 <td>
-                                                    <button class="btn btn-success-gradient btn-block">Success</button>
+                                                    <button class="btn btn-success-gradient btn-block">save</button>
                                                 </td>
 											</tr>
-											<tr>
-												<th scope="row">1</th>
-												<td>
-                                                    <img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="http://127.0.0.1:8000/assets/img/photos/1.jpg">
-                                                </td>
-												<td>Joan Powell</td>
-												<td>
-                                                    <div class="main-toggle main-toggle-success on">
-                                                        <span></span>
-                                                    </div>
-                                                </td>
-												<td>
-                                                    <input type="number" class="form-control required" placeholder="Mins">
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-success-gradient btn-block">Success</button>
-                                                </td>
-											</tr>
-											<tr>
-												<th scope="row">1</th>
-												<td>
-                                                    <img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="http://127.0.0.1:8000/assets/img/photos/1.jpg">
-                                                </td>
-												<td>Joan Powell</td>
-												<td>
-                                                    <div class="main-toggle main-toggle-success on">
-                                                        <span></span>
-                                                    </div>
-                                                </td>
-												<td>
-                                                    <input type="number" class="form-control required" placeholder="Mins">
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-success-gradient btn-block">Success</button>
-                                                </td>
-											</tr>
-											<tr>
-												<th scope="row">1</th>
-												<td>
-                                                    <img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="http://127.0.0.1:8000/assets/img/photos/1.jpg">
-                                                </td>
-												<td>Joan Powell</td>
-												<td>
-                                                    <div class="main-toggle main-toggle-success on">
-                                                        <span></span>
-                                                    </div>
-                                                </td>
-												<td>
-                                                    <input type="number" class="form-control required" placeholder="Mins">
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-success-gradient btn-block">Success</button>
-                                                </td>
-											</tr>
+											@endforeach
 										</tbody>
 									</table>
 								</div><!-- bd -->

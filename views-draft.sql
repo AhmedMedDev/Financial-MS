@@ -26,9 +26,11 @@ ADD COLUMN month int GENERATED ALWAYS AS (MONTH(date))
 
 SELECT * FROM employees 
 LEFT JOIN total_changes ON (employees.id = total_changes.employee_id) 
-LEFT JOIN total_delaies2 ON (employees.id = total_delaies2.employee_id)
-
+WHERE month = MONTH(CURDATE())
 
 CREATE VIEW delay_deductions AS 
 SELECT * FROM salary_changes 
 WHERE month = MONTH(CURDATE()) AND reason = 'delay deduction'
+
+
+SELECT employees.*, total_changes.*, (SELECT SUM(amount) FROM salary_changes WHERE salary_changes.employee_id = employees.id AND salary_changes.status = 1) AS total_extra, (SELECT SUM(amount) FROM salary_changes WHERE salary_changes.employee_id = employees.id AND salary_changes.status = 0) AS total_deduction FROM employees LEFT JOIN total_changes ON (employees.id = total_changes.employee_id)

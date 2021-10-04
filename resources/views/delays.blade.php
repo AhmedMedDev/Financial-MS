@@ -1,5 +1,11 @@
 @extends('layouts.master')
 @section('css')
+<!-- Internal Data table css -->
+<link href="{{URL::asset('assets/plugins/datatable/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" />
+<link href="{{URL::asset('assets/plugins/datatable/css/buttons.bootstrap4.min.css')}}" rel="stylesheet">
+<link href="{{URL::asset('assets/plugins/datatable/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" />
+<link href="{{URL::asset('assets/plugins/datatable/css/jquery.dataTables.min.css')}}" rel="stylesheet">
+<link href="{{URL::asset('assets/plugins/datatable/css/responsive.dataTables.min.css')}}" rel="stylesheet">
 @endsection
 @section('page-header')
 				<!-- breadcrumb -->
@@ -47,78 +53,36 @@
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">
-									<table class="table table-striped mg-b-0 text-md-nowrap">
+									<table class="table text-md-nowrap" id="example1">
 										<thead>
 											<tr>
-												<th>ID</th>
+												<th>Emp ID</th>
+												<th>avatar</th>
 												<th>Employee</th>
-												<th>Num Minus</th>
+												<th>delay's minutes</th>
 												<th>Deduction</th>
-												<th>Date</th>
-												<th>#</th>
+												<th>for month</th>
+												<th>Action</th>
 											</tr>
 										</thead>
 										<tbody>
+											@foreach (DB::select('SELECT * FROM employees JOIN total_delaies ON (employees.id = total_delaies.employee_id)') as $item)
 											<tr>
-												<th scope="row">1</th>
-												<td>Joan Powell</td>
-												<td>45</td>
-												<td>128</td>
-												<td>14-10-2020</td>
+												<th scope="row">{{$item->employee_id}}</th>
+												<td>
+                                                    <img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="http://127.0.0.1:8000/assets/img/photos/1.jpg">
+                                                </td>
+												<td>{{$item->name}}</td>
+												<td>{{$item->total_delay}}</td>
+												<td> 
+													{{($item->total_delay / 120 ) * $item->day_price}}
+												</td>
+												<td>{{$item->month}}</td>
 												<td>
                                                     <button class="btn btn-danger-gradient btn-block">Deduction from salary</button>
                                                 </td>
 											</tr>
-											<tr>
-												<th scope="row">1</th>
-												<td>Joan Powell</td>
-												<td>45</td>
-												<td>128</td>
-												<td>14-10-2020</td>
-												<td>
-                                                    <button class="btn btn-danger-gradient btn-block">Deduction from salary</button>
-                                                </td>
-											</tr>
-											<tr>
-												<th scope="row">1</th>
-												<td>Joan Powell</td>
-												<td>45</td>
-												<td>128</td>
-												<td>14-10-2020</td>
-												<td>
-                                                    <button class="btn btn-danger-gradient btn-block">Deduction from salary</button>
-                                                </td>
-											</tr>
-											<tr>
-												<th scope="row">1</th>
-												<td>Joan Powell</td>
-												<td>45</td>
-												<td>128</td>
-												<td>14-10-2020</td>
-												<td>
-                                                    <button class="btn btn-danger-gradient btn-block">Deduction from salary</button>
-                                                </td>
-											</tr>
-											<tr>
-												<th scope="row">1</th>
-												<td>Joan Powell</td>
-												<td>45</td>
-												<td>128</td>
-												<td>14-10-2020</td>
-												<td>
-                                                    <button class="btn btn-danger-gradient btn-block">Deduction from salary</button>
-                                                </td>
-											</tr>
-											<tr>
-												<th scope="row">1</th>
-												<td>Joan Powell</td>
-												<td>45</td>
-												<td>128</td>
-												<td>14-10-2020</td>
-												<td>
-                                                    <button class="btn btn-danger-gradient btn-block">Deduction from salary</button>
-                                                </td>
-											</tr>
+											@endforeach
 										</tbody>
 									</table>
 								</div><!-- bd -->
@@ -133,22 +97,23 @@
 		<!-- main-content closed -->
 @endsection
 @section('js')
-<!--Internal  Datepicker js -->
-<script src="{{URL::asset('assets/plugins/jquery-ui/ui/widgets/datepicker.js')}}"></script>
-<!--Internal  jquery.maskedinput js -->
-<script src="{{URL::asset('assets/plugins/jquery.maskedinput/jquery.maskedinput.js')}}"></script>
-<!--Internal  spectrum-colorpicker js -->
-<script src="{{URL::asset('assets/plugins/spectrum-colorpicker/spectrum.js')}}"></script>
-<!-- Internal Select2.min js -->
-<script src="{{URL::asset('assets/plugins/select2/js/select2.min.js')}}"></script>
-<!--Internal Ion.rangeSlider.min js -->
-<script src="{{URL::asset('assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js')}}"></script>
-<!--Internal  jquery-simple-datetimepicker js -->
-<script src="{{URL::asset('assets/plugins/amazeui-datetimepicker/js/amazeui.datetimepicker.min.js')}}"></script>
-<!-- Ionicons js -->
-<script src="{{URL::asset('assets/plugins/jquery-simple-datetimepicker/jquery.simple-dtpicker.js')}}"></script>
-<!--Internal  pickerjs js -->
-<script src="{{URL::asset('assets/plugins/pickerjs/picker.min.js')}}"></script>
-<!-- Internal form-elements js -->
-<script src="{{URL::asset('assets/js/form-elements.js')}}"></script>
+<!-- Internal Data tables -->
+<script src="{{URL::asset('assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/dataTables.dataTables.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/responsive.dataTables.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/jquery.dataTables.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/dataTables.bootstrap4.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/dataTables.buttons.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/buttons.bootstrap4.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/jszip.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/pdfmake.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/vfs_fonts.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/buttons.html5.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/buttons.print.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/buttons.colVis.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/responsive.bootstrap4.min.js')}}"></script>
+<!--Internal  Datatable js -->
+<script src="{{URL::asset('assets/js/table-data.js')}}"></script>
 @endsection

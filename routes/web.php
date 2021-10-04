@@ -22,15 +22,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
-Route::get('/exports', function () {
-    
-
-    $exports = DB::table('financial_operations')->where('status',1)->get();
-
-
-    return view('exports')->with('exports',$exports);
-});
+Route::resource('employees', 'EmployeeController');
 
 Route::get('/{page}', function ($page) {
 

@@ -1,13 +1,11 @@
 @extends('layouts.master')
 @section('css')
-<!-- Internal Select2 css -->
-<link href="{{URL::asset('assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
 <!--Internal  Datetimepicker-slider css -->
 <link href="{{URL::asset('assets/plugins/amazeui-datetimepicker/css/amazeui.datetimepicker.css')}}" rel="stylesheet">
 <link href="{{URL::asset('assets/plugins/jquery-simple-datetimepicker/jquery.simple-dtpicker.css')}}" rel="stylesheet">
 <link href="{{URL::asset('assets/plugins/pickerjs/picker.min.css')}}" rel="stylesheet">
-<!-- Internal Spectrum-colorpicker css -->
-<link href="{{URL::asset('assets/plugins/spectrum-colorpicker/spectrum.css')}}" rel="stylesheet">
+<!---Internal Fileupload css-->
+<link href="{{URL::asset('assets/plugins/fileuploads/css/fileupload.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('page-header')
 				<!-- breadcrumb -->
@@ -57,48 +55,48 @@
 							<div class="card-body pt-0">
 								<form >
 									<div class="">
+										{{-- Name --}}
 										<div class="form-group">
-											<div class="mb-4">
-                                                <p class="mg-b-10">Single Select</p>
-                                                <select name="somename" class="form-control select2" onclick="console.log($(this).val())" onchange="console.log('change is firing')">
-                                                    <!--placeholder-->
-                                                    <option title="Volvo is a car"  value="volvo">Volvo</option>
-                                                    <option value="saab">Saab</option>
-                                                    <option value="mercedes">Mercedes</option>
-                                                    <option value="audi">Audi</option>
-                                                </select>
-                                            </div>
+											<label for="amount">Employee's Name</label>
+											<input type="number" class="form-control" id="amount" placeholder="Enter Name">
 										</div>
+										{{-- Postion --}}
 										<div class="form-group">
-											<div class="mb-4">
-                                                <p class="mg-b-10">Single Select</p>
-                                                <select name="somename" class="form-control select2" onclick="console.log($(this).val())" onchange="console.log('change is firing')">
-                                                    <!--placeholder-->
-                                                    <option title="Volvo is a car"  value="volvo">Volvo</option>
-                                                    <option value="saab">Saab</option>
-                                                    <option value="mercedes">Mercedes</option>
-                                                    <option value="audi">Audi</option>
-                                                </select>
-                                            </div>
+											<label for="amount">Employee's Postion</label>
+											<input type="number" class="form-control" id="amount" placeholder="Enter Postion">
 										</div>
+										{{-- Phone --}}
 										<div class="form-group">
-											<label for="amount">Email address</label>
+											<label for="amount">Employee's Phone</label>
+											<input type="number" class="form-control" id="amount" placeholder="Enter Phone">
+										</div>
+										
+										{{-- Salary --}}
+										<div class="form-group">
+											<label for="amount">Employee's Salary</label>
+											<input type="number" class="form-control" id="amount" placeholder="Enter Salary">
+										</div>
+										{{-- Email --}}
+										<div class="form-group">
+											<label for="amount">Employee's Email</label>
 											<input type="number" class="form-control" id="amount" placeholder="Enter Amount">
 										</div>
+										{{-- sart_date--}}
                                         <div class="form-group">
-											<label for="amount">Email address</label>
-											<input type="number" class="form-control" id="amount" placeholder="Enter Amount">
-										</div>
-                                        <div class="form-group">
+											<label for="amount">Employee's sart date</label>
                                             <div class="row row-sm">
-                                                <div class="input-group col-md-4">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            <i class="typcn typcn-calendar-outline tx-24 lh--9 op-6"></i>
-                                                        </div>
-                                                    </div><input class="form-control" id="datetimepicker2" type="text" value="2018-12-20 21:05">
-                                                </div>
+                                                <div class="input-group col-md-12">
+													<div class="input-group-prepend">
+														<div class="input-group-text">
+															<i class="typcn typcn-calendar-outline tx-24 lh--9 op-6"></i>
+														</div>
+													</div><input class="form-control fc-datepicker" placeholder="MM/DD/YYYY" type="text">
+												</div>
                                             </div>
+										</div>
+										{{-- Avatar --}}
+										<div class="col-sm-12 col-md-8">
+											<input type="file" class="dropify" data-height="200" />
 										</div>
 									</div>
 									<button type="submit" class="btn btn-primary mt-3 mb-0">Submit</button>
@@ -114,10 +112,13 @@
 		<!-- main-content closed -->
 @endsection
 @section('js')
-<!--Internal  Datepicker js -->
-<script src="{{URL::asset('assets/plugins/jquery-ui/ui/widgets/datepicker.js')}}"></script>
+<!--Internal Fileuploads js-->
+<script src="{{URL::asset('assets/plugins/fileuploads/js/fileupload.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/fileuploads/js/file-upload.js')}}"></script>
 <!--Internal  jquery.maskedinput js -->
 <script src="{{URL::asset('assets/plugins/jquery.maskedinput/jquery.maskedinput.js')}}"></script>
+<!--Internal  Datepicker js -->
+<script src="{{URL::asset('assets/plugins/jquery-ui/ui/widgets/datepicker.js')}}"></script>
 <!--Internal  spectrum-colorpicker js -->
 <script src="{{URL::asset('assets/plugins/spectrum-colorpicker/spectrum.js')}}"></script>
 <!-- Internal Select2.min js -->
@@ -132,4 +133,5 @@
 <script src="{{URL::asset('assets/plugins/pickerjs/picker.min.js')}}"></script>
 <!-- Internal form-elements js -->
 <script src="{{URL::asset('assets/js/form-elements.js')}}"></script>
+
 @endsection

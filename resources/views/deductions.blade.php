@@ -63,8 +63,9 @@
 									<table class="table text-md-nowrap" id="example">
 										<thead>
 											<tr>
-												<th>Receipt ID</th>
-												<th>Clinet</th>
+												<th>ID</th>
+												<th>Avatar</th>
+												<th>Employee</th>
 												<th>Amount</th>
 												<th>Reason</th>
 												<th>Date</th>
@@ -72,17 +73,18 @@
 											</tr>
 										</thead>
 										<tbody>
-											@foreach (DB::select('SELECT * FROM `financial_operations` WHERE financial_operations.status = 1') as $item)
+											@foreach (DB::select('SELECT * FROM employees JOIN salary_changes ON (employees.id = salary_changes.employee_id) WHERE salary_changes.status = 0
+											') as $item)
 											<tr>
-												<th scope="row">{{$item->id}}</th>
-												<td>{{$item->client}}</td>
+												<th scope="row">{{$item->employee_id}}</th>
+												<td>
+													<img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="http://127.0.0.1:8000/assets/img/photos/1.jpg">
+												</td>
+												<td>{{$item->name}}</td>
 												<td>{{$item->amount}}</td>
 												<td>{{$item->reason}}</td>
 												<td>{{$item->date}}</td>
 												<td>
-													<a href="#" class="btn btn-md btn-primary-gradient">
-														<i class="typcn typcn-briefcase"></i>
-													</a>
 													<a href="#" class="btn btn-md btn-info-gradient">
 														<i class="las la-pen"></i>
 													</a>

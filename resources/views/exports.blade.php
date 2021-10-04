@@ -43,7 +43,7 @@
 										<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
 									</div>
 									<div class="modal-footer">
-										<button class="btn ripple btn-primary" data-dismiss="modal" type="button">Save changes</button>
+										<button class="btn ripple btn-primary" type="button">Save changes</button>
 										<button class="btn ripple btn-secondary" data-dismiss="modal" type="button">Close</button>
 									</div>
 								</div>
@@ -60,25 +60,24 @@
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">
-									<table class="table text-md-nowrap" id="example1">
+									<table class="table text-md-nowrap" id="example">
 										<thead>
 											<tr>
-												<th>ID</th>
-												<th>Clinet</th>
-												<th>Cost</th>
+												<th>Receipt ID</th>
+												<th>Employee</th>
+												<th>Amount</th>
 												<th>Reason</th>
 												<th>Date</th>
 												<th>Actions</th>
 											</tr>
 										</thead>
 										<tbody>
-										{{--  --}}
-										@foreach ($exports as $item)
+											@foreach (DB::select('SELECT * FROM `financial_operations` WHERE financial_operations.status = 0') as $item)
 											<tr>
 												<th scope="row">{{$item->id}}</th>
 												<td>{{$item->client}}</td>
 												<td>{{$item->amount}}</td>
-												<td>{{$item->reason}} </td>
+												<td>{{$item->reason}}</td>
 												<td>{{$item->date}}</td>
 												<td>
 													<a href="#" class="btn btn-md btn-primary-gradient">
@@ -92,8 +91,7 @@
 													</a>
 												</td>
 											</tr>
-										@endforeach
-										{{--  --}}
+											@endforeach
 										</tbody>
 									</table>
 								</div><!-- bd -->

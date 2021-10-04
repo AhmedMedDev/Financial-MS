@@ -6,7 +6,6 @@
 <link href="{{URL::asset('assets/plugins/datatable/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" />
 <link href="{{URL::asset('assets/plugins/datatable/css/jquery.dataTables.min.css')}}" rel="stylesheet">
 <link href="{{URL::asset('assets/plugins/datatable/css/responsive.dataTables.min.css')}}" rel="stylesheet">
-<link href="{{URL::asset('assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
 @endsection
 @section('page-header')
 				<!-- breadcrumb -->
@@ -60,37 +59,40 @@
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">
-									<table class="table text-md-nowrap" id="example">
+									<table class="table text-md-nowrap" id="example1">
 										<thead>
 											<tr>
-												<th>Receipt ID</th>
-												<th>Clinet</th>
-												<th>Amount</th>
-												<th>Reason</th>
-												<th>Date</th>
+												<th>ID</th>
+												<th>name</th>
+												<th>avatar</th>
+												<th>position</th>
+												<th>phone</th>
+												<th>salary</th>
+												<th>start_date</th>
 												<th>Actions</th>
 											</tr>
 										</thead>
 										<tbody>
-											@foreach (DB::select('SELECT * FROM `financial_operations` WHERE financial_operations.status = 1') as $item)
-											<tr>
-												<th scope="row">{{$item->id}}</th>
-												<td>{{$item->client}}</td>
-												<td>{{$item->amount}}</td>
-												<td>{{$item->reason}}</td>
-												<td>{{$item->date}}</td>
-												<td>
-													<a href="#" class="btn btn-md btn-primary-gradient">
-														<i class="typcn typcn-briefcase"></i>
-													</a>
-													<a href="#" class="btn btn-md btn-info-gradient">
-														<i class="las la-pen"></i>
-													</a>
-													<a href="#" class="btn btn-md btn-danger-gradient">
-														<i class="las la-trash"></i>
-													</a>
-												</td>
-											</tr>
+											@foreach ($employees as $employee)
+												<tr>
+													<th scope="row">{{$employee->id}}</th>
+													<td>{{$employee->name}}</td>
+													<td>
+														<img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="http://127.0.0.1:8000/assets/img/photos/1.jpg">
+													</td>
+													<td>{{$employee->position}}</td>
+													<td>{{$employee->phone}}</td>
+													<td>{{$employee->salary}}</td>
+													<td>{{$employee->start_date}}</td>
+													<td>
+														<a href="#" class="btn btn-md btn-info-gradient mg-t-2">
+															<i class="las la-pen"></i>
+														</a>
+														<a href="#" class="btn btn-md btn-danger-gradient mg-t-2">
+															<i class="las la-trash"></i>
+														</a>
+													</td>
+												</tr>
 											@endforeach
 										</tbody>
 									</table>

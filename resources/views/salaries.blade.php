@@ -51,76 +51,38 @@
 										<thead>
 											<tr>
 												<th>ID</th>
+												<th>Avatar</th>
 												<th>Employee</th>
-												<th>Salary</th>
+												<th>Main Salary</th>
 												<th>Deduction</th>
 												<th>Extra</th>
 												<th>Total</th>
-												<th>Date</th>
-												<th>#</th>
+												<th>For Month</th>
+												<th>Actions</th>
 											</tr>
 										</thead>
 										<tbody>
+											@php
+												$month = DB::select('SELECT CURDATE() AS curMonth');
+											@endphp
+											@foreach (DB::select('SELECT employees.*, total_changes.*, (SELECT SUM(amount) FROM salary_changes WHERE salary_changes.employee_id = employees.id AND salary_changes.status = 1) AS total_extra, (SELECT SUM(amount) FROM salary_changes WHERE salary_changes.employee_id = employees.id AND salary_changes.status = 0) AS total_deduction FROM employees LEFT JOIN total_changes ON (employees.id = total_changes.employee_id)
+											') as $item)
 											<tr>
-												<th scope="row">1</th>
-												<td>Joan Powell</td>
-												<td>3500</td>
-												<td>180</td>
-												<td>0.00</td>
-												<td>3320</td>
-												<td>14-10-2020</td>
+												<th scope="row">{{$item->id}}</th>
+												<td>
+													<img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="http://127.0.0.1:8000/assets/img/photos/1.jpg">
+												</td>
+												<td>{{$item->name}}</td>
+												<td>{{$item->salary}}</td>
+												<td>{{$item->total_deduction}}</td>
+												<td>{{$item->total_extra}}</td>
+												<td>{{$item->salary + $item->total_change}}</td>
+												<td> {{ $month[0]->curMonth }} </td>
 												<td>
                                                     <button class="btn btn-info-gradient btn-block">receive salary</button>
                                                 </td>
 											</tr>
-											<tr>
-												<th scope="row">1</th>
-												<td>Joan Powell</td>
-												<td>3500</td>
-												<td>180</td>
-												<td>0.00</td>
-												<td>3320</td>
-												<td>14-10-2020</td>
-												<td>
-                                                    <button class="btn btn-info-gradient btn-block">receive salary</button>
-                                                </td>
-											</tr>
-											<tr>
-												<th scope="row">1</th>
-												<td>Joan Powell</td>
-												<td>3500</td>
-												<td>180</td>
-												<td>0.00</td>
-												<td>3320</td>
-												<td>14-10-2020</td>
-												<td>
-                                                    <button class="btn btn-info-gradient btn-block">receive salary</button>
-                                                </td>
-											</tr>
-											<tr>
-												<th scope="row">1</th>
-												<td>Joan Powell</td>
-												<td>3500</td>
-												<td>180</td>
-												<td>0.00</td>
-												<td>3320</td>
-												<td>14-10-2020</td>
-												<td>
-                                                    <button class="btn btn-info-gradient btn-block">receive salary</button>
-                                                </td>
-											</tr>
-											<tr>
-												<th scope="row">1</th>
-												<td>Joan Powell</td>
-												<td>3500</td>
-												<td>180</td>
-												<td>0.00</td>
-												<td>3320</td>
-												<td>14-10-2020</td>
-												<td>
-                                                    <button class="btn btn-info-gradient btn-block">receive salary</button>
-                                                </td>
-											</tr>
+											@endforeach
 										</tbody>
 									</table>
 								</div><!-- bd -->
