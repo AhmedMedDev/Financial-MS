@@ -42,6 +42,14 @@
 		<!-- main-content closed -->
 @endsection
 @section('js')
+<script>
+	window.livewire.on('export-added-successfully', () => {
+		$('#create_export').modal('hide');
+	})
+	window.livewire.on('export-updated-successfully', () => {
+		$('#edit_export').modal('hide');
+	})
+</script>
 <!-- Internal Data tables -->
 <script src="{{URL::asset('assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{URL::asset('assets/plugins/datatable/js/dataTables.dataTables.min.js')}}"></script>

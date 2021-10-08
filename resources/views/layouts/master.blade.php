@@ -29,12 +29,8 @@
 				@include('layouts.sidebar')
 				@include('layouts.models')
             	@include('layouts.footer')
-				@include('layouts.footer-scripts')	
-		@livewireScripts
-		<script>
-			window.livewire.on('export-added-successfully', () => {
-				$('#create_export').modal('hide');
-			})
-		</script>
+				@livewireScripts
+		@include('layouts.footer-scripts')	
+		
 	</body>
 </html>

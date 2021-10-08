@@ -38,9 +38,25 @@ class Exports extends Component
     {
         $export = DB::table('financial_operations')->where('id', $id)->first();
 
+        $this->ids = $export->id;
         $this->amount = $export->amount;
         $this->employee = $export->client;
         $this->reason = $export->reason;
+    }
+
+    public function update ()
+    {
+        DB::table('financial_operations')
+        ->where('id', $this->ids)
+        ->update([
+            'amount' => $this->amount,
+            'client' => $this->employee,
+            'reason' => $this->reason,
+        ]);
+
+        $this->resetFields();
+
+        $this->emit('export-updated-successfully');
     }
 
     public function render()

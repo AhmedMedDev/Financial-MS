@@ -9,9 +9,10 @@
           </button>
         </div>
         <div class="modal-body">
+          <input type="hidden" name="id" wire:model="ids">
             <div class="form-group">
                 <label for="amount">Employee</label>
-                <input type="text" class="form-control" id="employee" wire:model="employee" value="">
+                <input type="text" class="form-control" id="employee" wire:model="employee">
             </div>
             <div class="form-group">
                 <label for="amount">Amount</label>
@@ -35,7 +36,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" wire:click="store">Save changes</button>
+          <button type="button" class="btn btn-primary" wire:click="update">Edit</button>
         </div>
       </div>
     </div>
