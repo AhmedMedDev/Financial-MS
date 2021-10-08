@@ -8,6 +8,8 @@
 		<meta name="Author" content="Spruko Technologies Private Limited">
 		<meta name="Keywords" content="admin,admin dashboard,admin dashboard template,admin panel template,admin template,admin theme,bootstrap 4 admin template,bootstrap 4 dashboard,bootstrap admin,bootstrap admin dashboard,bootstrap admin panel,bootstrap admin template,bootstrap admin theme,bootstrap dashboard,bootstrap form template,bootstrap panel,bootstrap ui kit,dashboard bootstrap 4,dashboard design,dashboard html,dashboard template,dashboard ui kit,envato templates,flat ui,html,html and css templates,html dashboard template,html5,jquery html,premium,premium quality,sidebar bootstrap 4,template admin bootstrap 4"/>
 		@include('layouts.head')
+		@livewireStyles
+		
 	</head>
 
 	<body class="main-body app sidebar-mini">
@@ -28,5 +30,11 @@
 				@include('layouts.models')
             	@include('layouts.footer')
 				@include('layouts.footer-scripts')	
+		@livewireScripts
+		<script>
+			window.livewire.on('export-added-successfully', () => {
+				$('#create_export').modal('hide');
+			})
+		</script>
 	</body>
 </html>
