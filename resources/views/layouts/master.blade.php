@@ -29,8 +29,9 @@
 				@include('layouts.sidebar')
 				@include('layouts.models')
             	@include('layouts.footer')
-				@livewireScripts
+				
+		@livewireScripts	
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>	
 		@include('layouts.footer-scripts')	
-		
 	</body>
 </html>

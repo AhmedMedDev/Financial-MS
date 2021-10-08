@@ -6,7 +6,6 @@
 <link href="{{URL::asset('assets/plugins/datatable/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" />
 <link href="{{URL::asset('assets/plugins/datatable/css/jquery.dataTables.min.css')}}" rel="stylesheet">
 <link href="{{URL::asset('assets/plugins/datatable/css/responsive.dataTables.min.css')}}" rel="stylesheet">
-<link href="{{URL::asset('assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
 
 @endsection
 @section('page-header')
@@ -29,17 +28,13 @@
 				<!-- breadcrumb -->
 @endsection
 @section('content')
-				<!-- row -->
-				<div class="row">
-                    <div class="col-xl-12">
-						<livewire:exports />
-					</div>
-				</div>
-				<!-- row closed -->
+		<!-- row -->
+		<div class="row">
+			<div class="col-xl-12">
+				<livewire:exports />
 			</div>
-			<!-- Container closed -->
 		</div>
-		<!-- main-content closed -->
+		<!-- row closed -->
 @endsection
 @section('js')
 <script>

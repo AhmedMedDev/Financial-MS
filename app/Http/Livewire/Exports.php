@@ -4,9 +4,12 @@ namespace App\Http\Livewire;
 
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Exports extends Component
 {
+    use WithPagination;
+
     public $exports;
     public $ids;
     public $employee;
@@ -59,9 +62,15 @@ class Exports extends Component
         $this->emit('export-updated-successfully');
     }
 
+    function delete ($id)
+    {
+        DB::table('financial_operations')
+        ->where('id', $id)->delete();
+    }
+
     public function render()
     {
-        $this->exports = DB::select('SELECT * FROM `financial_operations` WHERE financial_operations.status = 0');
+        $this->exports = DB::table('financial_operations')->where('status',0)->get();
 
         return view('livewire.exports');
     }

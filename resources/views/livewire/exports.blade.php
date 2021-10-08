@@ -39,7 +39,7 @@
                                 <button class="btn btn-md btn-info-gradient" data-toggle="modal" data-target="#edit_export" wire:click.prevent="edit({{$item->id}})">
                                     <i class="las la-pen"></i>
                                 </button>
-                                <a href="#" class="btn btn-md btn-danger-gradient">
+                                <a href="#" class="btn btn-md btn-danger-gradient" wire:click.prevent="delete({{$item->id}})">
                                     <i class="las la-trash"></i>
                                 </a>
                             </td>
