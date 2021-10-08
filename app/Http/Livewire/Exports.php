@@ -4,11 +4,11 @@ namespace App\Http\Livewire;
 
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
-use Livewire\WithPagination;
 
 class Exports extends Component
 {
-    use WithPagination;
+
+    protected $listeners = ['deleteConfirmed' =>'deleteAppointment'];
 
     public $exports;
     public $ids;
@@ -16,6 +16,7 @@ class Exports extends Component
     public $amount;
     public $reason;
 
+    
     public function store ()
     {
         DB::table('financial_operations')->insert([
@@ -28,6 +29,7 @@ class Exports extends Component
         $this->resetFields();
 
         $this->emit('export-added-successfully');
+        $this->emit('Success-Alert');
     }
 
     public function resetFields ()
@@ -60,6 +62,19 @@ class Exports extends Component
         $this->resetFields();
 
         $this->emit('export-updated-successfully');
+        
+        $this->emit('Toast-Alert');
+    }
+
+    function confirmDelete ($id)
+    {
+        $this->emit('Are-You-Sure');
+        $this->ids = $id;
+    }
+
+    public function deleteAppointment ()
+    {
+        $this->delete($this->ids);
     }
 
     function delete ($id)
