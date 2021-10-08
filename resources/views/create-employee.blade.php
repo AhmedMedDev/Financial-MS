@@ -53,50 +53,86 @@
 								<p class="mb-2">It is Very Easy to Customize and it uses in your website apllication.</p>
 							</div>
 							<div class="card-body pt-0">
-								<form >
+								<form action="{{ url('employees')}}" method="POST">
+									@csrf
 									<div class="">
 										{{-- Name --}}
 										<div class="form-group">
-											<label for="amount">Employee's Name</label>
-											<input type="number" class="form-control" id="amount" placeholder="Enter Name">
+											<label>Employee's Name</label>
+											<input type="text" class="form-control @error('name') is-invalid @enderror " value="{{ old('name') }}" name="name" >
+											@error('name')
+												<span class="invalid-feedback" role="alert">
+													<strong>{{ $message }}</strong>
+												</span>
+											@enderror
 										</div>
 										{{-- Postion --}}
 										<div class="form-group">
-											<label for="amount">Employee's Postion</label>
-											<input type="number" class="form-control" id="amount" placeholder="Enter Postion">
+											<label>Employee's Position</label>
+											<input type="text" class="form-control @error('position') is-invalid @enderror " value="{{ old('position') }}" name="position" >
+											@error('position')
+												<span class="invalid-feedback" role="alert">
+													<strong>{{ $message }}</strong>
+												</span>
+											@enderror
 										</div>
 										{{-- Phone --}}
 										<div class="form-group">
-											<label for="amount">Employee's Phone</label>
-											<input type="number" class="form-control" id="amount" placeholder="Enter Phone">
+											<label>Employee's Phone</label>
+											<input type="text" class="form-control @error('phone') is-invalid @enderror " value="{{ old('phone') }}" name="phone" >
+											@error('phone')
+												<span class="invalid-feedback" role="alert">
+													<strong>{{ $message }}</strong>
+												</span>
+											@enderror
 										</div>
 										
 										{{-- Salary --}}
 										<div class="form-group">
-											<label for="amount">Employee's Salary</label>
-											<input type="number" class="form-control" id="amount" placeholder="Enter Salary">
+											<label>Employee's Salary</label>
+											<input type="number" class="form-control @error('salary') is-invalid @enderror " value="{{ old('salary') }}" name="salary" >
+											@error('salary')
+												<span class="invalid-feedback" role="alert">
+													<strong>{{ $message }}</strong>
+												</span>
+											@enderror
 										</div>
 										{{-- Email --}}
 										<div class="form-group">
-											<label for="amount">Employee's Email</label>
-											<input type="number" class="form-control" id="amount" placeholder="Enter Amount">
+											<label>Employee's Email</label>
+											<input type="email" class="form-control @error('email') is-invalid @enderror " value="{{ old('email') }}" name="email" >
+											@error('email')
+												<span class="invalid-feedback" role="alert">
+													<strong>{{ $message }}</strong>
+												</span>
+											@enderror
 										</div>
 										{{-- sart_date--}}
                                         <div class="form-group">
-											<label for="amount">Employee's sart date</label>
+											<label>Employee's sart date</label>
                                             <div class="row row-sm">
                                                 <div class="input-group col-md-12">
 													<div class="input-group-prepend">
 														<div class="input-group-text">
 															<i class="typcn typcn-calendar-outline tx-24 lh--9 op-6"></i>
 														</div>
-													</div><input class="form-control fc-datepicker" placeholder="MM/DD/YYYY" type="text">
+													</div><input class="form-control fc-datepicker @error('start_date') is-invalid @enderror " value="{{ old('start_date') }}" type="text" name="start_date">
 												</div>
                                             </div>
+											@error('start_date')
+												<span class="invalid-feedback" role="alert">
+													<strong>{{ $message }}</strong>
+												</span>
+											@enderror
 										</div>
 										{{-- Avatar --}}
 										<div class="col-sm-12 col-md-8">
-											<input type="file" class="dropify" data-height="200" />
+											<input type="file" class="dropify" data-height="200" name="avatar"/>
+											@error('avatar')
+												<span class="invalid-feedback" role="alert">
+													<strong>{{ $message }}</strong>
+												</span>
+											@enderror
 										</div>
 									</div>
 									<button type="submit" class="btn btn-primary mt-3 mb-0">Submit</button>

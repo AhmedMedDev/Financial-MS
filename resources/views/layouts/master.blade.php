@@ -33,6 +33,7 @@
 		@livewireScripts	
 		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>	
 		@include('layouts.footer-scripts')	
+		@include('include.alerts.alerts')
 
 		<script>
 			const Toast = Swal.mixin({

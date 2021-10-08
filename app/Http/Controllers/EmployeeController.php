@@ -2,12 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Employee\StoreEmployeeRequest;
 use App\Models\Employee;
+use App\Traits\ImgUpload;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class EmployeeController extends Controller
 {
+
+    /*
+    |--------------------------------------------------------------------------
+    | Images upload traits 
+    |--------------------------------------------------------------------------
+    |
+    | This Trait to save img in PC
+    |
+    */
+
+    use ImgUpload;
+
     /**
      * Display a listing of the resource.
      *
@@ -37,7 +51,26 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            $request = $request->toArray();
+
+            if (!is_null($request['avatar']))
+            {
+                $fileName = $this->saveImage($request['avatar'], 'uploads/employee/avatar');
+
+                $request['avatar'] = "uploads/employee/avatar/$fileName";
+                
+            } else {
+                $request['avatar'] = "uploads/employee/avatar/default.png";
+            }
+
+            $employee = Employee::create( $request );
+
+            return redirect()->back()->with(['successAlert' => 'success message']);
+
+        } catch (\Exception $ex) {
+            return redirect()->back()->with(['errorAlert' => 'error message']);
+        }
     }
     
     /**
