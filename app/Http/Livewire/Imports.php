@@ -5,48 +5,46 @@ namespace App\Http\Livewire;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
-class Exports extends Component
+class Imports extends Component
 {
-
     protected $listeners = ['deleteConfirmed' =>'delete'];
 
-    public $exports;
+    public $imports;
     public $ids;
-    public $employee;
+    public $client;
     public $amount;
     public $reason;
 
-    
+    public function resetFields ()
+    {
+        $this->amount   = '';
+        $this->client   = '';
+        $this->reason   = '';
+    }
+
     public function store ()
     {
         DB::table('financial_operations')->insert([
             'amount' => $this->amount,
-            'client' => $this->employee,
+            'client' => $this->client,
             'reason' => $this->reason,
-            'status' => 0,
+            'status' => 1,
         ]);
 
         $this->resetFields();
 
-        $this->emit('export-added-successfully');
+        $this->emit('added-successfully');
         $this->emit('Success-Alert');
-    }
-
-    public function resetFields ()
-    {
-        $this->amount = '';
-        $this->employee = '';
-        $this->reason = '';
     }
 
     public function edit ($id)
     {
         $export = DB::table('financial_operations')->where('id', $id)->first();
 
-        $this->ids = $export->id;
-        $this->amount = $export->amount;
-        $this->employee = $export->client;
-        $this->reason = $export->reason;
+        $this->ids      = $export->id;
+        $this->amount   = $export->amount;
+        $this->client   = $export->client;
+        $this->reason   = $export->reason;
     }
 
     public function update ()
@@ -55,13 +53,13 @@ class Exports extends Component
         ->where('id', $this->ids)
         ->update([
             'amount' => $this->amount,
-            'client' => $this->employee,
+            'client' => $this->client,
             'reason' => $this->reason,
         ]);
 
         $this->resetFields();
 
-        $this->emit('export-updated-successfully');
+        $this->emit('updated-successfully');
         
         $this->emit('Toast-Alert');
     }
@@ -80,9 +78,9 @@ class Exports extends Component
 
     public function render()
     {
-        $this->exports = DB::table('financial_operations')
-        ->where('status',0)->orderBy('id', 'desc')->get();
+        $this->imports = DB::table('financial_operations')
+        ->where('status', 1)->orderBy('id', 'desc')->get();      
 
-        return view('livewire.exports');
+        return view('livewire.imports');
     }
 }

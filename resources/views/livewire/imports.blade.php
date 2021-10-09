@@ -1,7 +1,7 @@
 <div>
     <!-- Modal effects -->
-    @include('livewire.create-export')
-    @include('livewire.update-export')
+    @include('livewire.create-import')
+    @include('livewire.update-import')
     <!-- End Modal effects-->
     <div class="card">
         <div class="card-header pb-0">
@@ -13,11 +13,11 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table wire:ignore.self class="table text-md-nowrap" id="">{{-- example1 --}}
+                <table wire:ignore.self class="table text-md-nowrap" id=""> {{-- example1 --}}
                     <thead>
                         <tr>
                             <th>Receipt ID</th>
-                            <th>Employee</th>
+                            <th>Client</th>
                             <th>Amount</th>
                             <th>Reason</th>
                             <th>Date</th>
@@ -25,7 +25,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($exports as $item)
+                        @foreach ($imports as $item)
                         <tr>
                             <th scope="row">{{$item->id}}</th>
                             <td>{{$item->client}}</td>
@@ -36,7 +36,7 @@
                                 <a href="#" class="btn btn-md btn-primary-gradient">
                                     <i class="typcn typcn-briefcase"></i>
                                 </a>
-                                <button class="btn btn-md btn-info-gradient" data-toggle="modal" data-target="#edit_export" wire:click.prevent="edit({{$item->id}})">
+                                <button class="btn btn-md btn-info-gradient" data-toggle="modal" data-target="#edit" wire:click.prevent="edit({{$item->id}})">
                                     <i class="las la-pen"></i>
                                 </button>
                                 <a href="#" class="btn btn-md btn-danger-gradient" wire:click.prevent="confirmDelete({{$item->id}})">
