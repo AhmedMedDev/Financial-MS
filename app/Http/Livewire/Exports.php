@@ -8,7 +8,7 @@ use Livewire\Component;
 class Exports extends Component
 {
 
-    protected $listeners = ['deleteConfirmed' =>'deleteAppointment'];
+    protected $listeners = ['deleteConfirmed' =>'delete'];
 
     public $exports;
     public $ids;
@@ -72,15 +72,10 @@ class Exports extends Component
         $this->ids = $id;
     }
 
-    public function deleteAppointment ()
-    {
-        $this->delete($this->ids);
-    }
-
-    function delete ($id)
+    function delete ()
     {
         DB::table('financial_operations')
-        ->where('id', $id)->delete();
+        ->where('id', $this->ids)->delete();
     }
 
     public function render()

@@ -94,7 +94,14 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-        //
+        try{
+            $employee = $employee->update( $request->toArray() );
+
+            return redirect('employees')->with(['successAlert' => 'success message']);
+
+        } catch (\Exception $ex) {
+            return redirect()->back()->with(['errorAlert' => 'error message']);
+        }
     }
 
     /**
@@ -105,6 +112,13 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee)
     {
-        //
+        try{
+            $employee = $employee->delete( $employee );
+
+            return redirect()->back()->with(['successAlert' => 'success message']);
+
+        } catch (\Exception $ex) {
+            return redirect()->back()->with(['errorAlert' => 'error message']);
+        }
     }
 }

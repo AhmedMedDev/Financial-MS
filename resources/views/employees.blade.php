@@ -85,13 +85,17 @@
 													<td>{{$employee->salary}}</td>
 													<td>{{$employee->start_date}}</td>
 													<td>
-														<a href="#" class="btn btn-md btn-info-gradient mg-t-2">
+														<a href="{{url("employees/$employee->id/edit")}}" class="btn btn-md btn-info-gradient mg-t-2" >
 															<i class="las la-pen"></i>
 														</a>
-														<a href="#" class="btn btn-md btn-danger-gradient mg-t-2">
+														<button class="btn btn-md btn-danger-gradient mg-t-2" onclick="confirmDelete('deleteEmp{{$employee->id}}')">
 															<i class="las la-trash"></i>
-														</a>
+														</button>
 													</td>
+													<form action="{{url("employees/$employee->id")}}" method="post" id="deleteEmp{{$employee->id}}">
+														@method('DELETE')
+														@csrf
+													</form>
 												</tr>
 											@endforeach
 										</tbody>
