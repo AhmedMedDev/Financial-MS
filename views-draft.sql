@@ -34,3 +34,9 @@ WHERE month = MONTH(CURDATE()) AND reason = 'delay deduction'
 
 
 SELECT employees.*, total_changes.*, (SELECT SUM(amount) FROM salary_changes WHERE salary_changes.employee_id = employees.id AND salary_changes.status = 1) AS total_extra, (SELECT SUM(amount) FROM salary_changes WHERE salary_changes.employee_id = employees.id AND salary_changes.status = 0) AS total_deduction FROM employees LEFT JOIN total_changes ON (employees.id = total_changes.employee_id)
+
+
+CREATE VIEW salary_changes_emp AS
+SELECT salary_changes.id AS extra_id, salary_changes.employee_id, employees.name,  employees.avatar, salary_changes.amount
+, salary_changes.reason, salary_changes.date, salary_changes.month, salary_changes.status
+FROM employees JOIN salary_changes ON (employees.id = salary_changes.employee_id) WHERE salary_changes.status = 1

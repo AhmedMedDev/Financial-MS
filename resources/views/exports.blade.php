@@ -39,10 +39,10 @@
 @section('js')
 <script>
 	window.livewire.on('export-added-successfully', () => {
-		$('#create_export').modal('hide');
+		$('#create').modal('hide');
 	})
 	window.livewire.on('export-updated-successfully', () => {
-		$('#edit_export').modal('hide');
+		$('#edit').modal('hide');
 	})
 </script>
 <!-- Internal Data tables -->

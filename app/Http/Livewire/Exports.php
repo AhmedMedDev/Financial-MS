@@ -28,7 +28,7 @@ class Exports extends Component
 
         $this->resetFields();
 
-        $this->emit('export-added-successfully');
+        $this->emit('added-successfully');
         $this->emit('Success-Alert');
     }
 
@@ -61,7 +61,7 @@ class Exports extends Component
 
         $this->resetFields();
 
-        $this->emit('export-updated-successfully');
+        $this->emit('updated-successfully');
         
         $this->emit('Toast-Alert');
     }
