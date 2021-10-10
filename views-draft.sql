@@ -37,6 +37,6 @@ SELECT employees.*, total_changes.*, (SELECT SUM(amount) FROM salary_changes WHE
 
 
 CREATE VIEW salary_changes_emp AS
-SELECT salary_changes.id AS extra_id, salary_changes.employee_id, employees.name,  employees.avatar, salary_changes.amount
+SELECT salary_changes.id AS change_id, salary_changes.employee_id, employees.name,  employees.avatar, salary_changes.amount
 , salary_changes.reason, salary_changes.date, salary_changes.month, salary_changes.status
-FROM employees JOIN salary_changes ON (employees.id = salary_changes.employee_id) WHERE salary_changes.status = 1
+FROM employees JOIN salary_changes ON (employees.id = salary_changes.employee_id) 
