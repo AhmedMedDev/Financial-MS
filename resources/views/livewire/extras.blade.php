@@ -28,7 +28,7 @@
                     <tbody>
                         @foreach ($extras as $item)
                         <tr>
-                            <th scope="row">{{$item->extra_id}}</th>
+                            <th scope="row">{{$item->change_id}}</th>
                             <td>
                                 <img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="http://127.0.0.1:8000/assets/img/photos/1.jpg">
                             </td>
@@ -40,10 +40,10 @@
                                 <a href="#" class="btn btn-md btn-primary-gradient">
                                     <i class="typcn typcn-briefcase"></i>
                                 </a>
-                                <button class="btn btn-md btn-info-gradient" data-toggle="modal" data-target="#edit" wire:click.prevent="edit({{$item->extra_id}})">
+                                <button class="btn btn-md btn-info-gradient" data-toggle="modal" data-target="#edit" wire:click.prevent="edit({{$item->change_id}})">
                                     <i class="las la-pen"></i>
                                 </button>
-                                <a href="#" class="btn btn-md btn-danger-gradient" wire:click.prevent="confirmDelete({{$item->extra_id}})">
+                                <a href="#" class="btn btn-md btn-danger-gradient" wire:click.prevent="confirmDelete({{$item->change_id}})">
                                     <i class="las la-trash"></i>
                                 </a>
                             </td>

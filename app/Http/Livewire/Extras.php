@@ -40,9 +40,9 @@ class Extras extends Component
 
     public function edit ($id)
     {
-        $extra = DB::table('salary_changes_emp')->where('extra_id', $id)->first();
+        $extra = DB::table('salary_changes_emp')->where('change_id', $id)->first();
 
-        $this->ids          = $extra->extra_id;
+        $this->ids          = $extra->change_id;
         $this->employee_id  = $extra->employee_id;
         $this->amount       = $extra->amount;
         $this->reason       = $extra->reason;
@@ -80,7 +80,7 @@ class Extras extends Component
     public function render()
     {
         $this->extras = DB::table('salary_changes_emp')
-        ->where('status', 1)->orderBy('extra_id', 'desc')->get();
+        ->where('status', 1)->orderBy('change_id', 'desc')->get();
 
         return view('livewire.extras');
     }
