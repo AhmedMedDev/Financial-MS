@@ -65,18 +65,17 @@
 											@php
 												$month = DB::select('SELECT CURDATE() AS curMonth');
 											@endphp
-											@foreach (DB::select('SELECT employees.*, total_changes.*, (SELECT SUM(amount) FROM salary_changes WHERE salary_changes.employee_id = employees.id AND salary_changes.status = 1) AS total_extra, (SELECT SUM(amount) FROM salary_changes WHERE salary_changes.employee_id = employees.id AND salary_changes.status = 0) AS total_deduction FROM employees LEFT JOIN total_changes ON (employees.id = total_changes.employee_id)
-											') as $item)
+											@foreach (DB::table('salaries')->get() as $item)
 											<tr>
-												<th scope="row">{{$item->id}}</th>
+												<th scope="row">{{$item->employee_id}}</th>
 												<td>
 													<img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="http://127.0.0.1:8000/assets/img/photos/1.jpg">
 												</td>
 												<td>{{$item->name}}</td>
-												<td>{{$item->salary}}</td>
+												<td>{{$item->main_salary}}</td>
 												<td>{{$item->total_deduction}}</td>
 												<td>{{$item->total_extra}}</td>
-												<td>{{$item->salary + $item->total_change}}</td>
+												<td>{{$item->main_salary + $item->total_extra - $item->total_deduction}}</td>
 												<td> {{ $month[0]->curMonth }} </td>
 												<td>
                                                     <button class="btn btn-info-gradient btn-block">receive salary</button>

@@ -40,3 +40,32 @@ CREATE VIEW salary_changes_emp AS
 SELECT salary_changes.id AS change_id, salary_changes.employee_id, employees.name,  employees.avatar, salary_changes.amount
 , salary_changes.reason, salary_changes.date, salary_changes.month, salary_changes.status
 FROM employees JOIN salary_changes ON (employees.id = salary_changes.employee_id) 
+
+
+SELECT 
+employees.id AS employee_id, 
+employees.avatar,
+employees.name,
+employees.position,
+employees.salary AS main_salary,
+(SELECT SUM(amount) FROM salary_changes WHERE salary_changes.employee_id = employees.id AND salary_changes.status = 1) AS total_extra,
+(SELECT SUM(amount) FROM salary_changes WHERE salary_changes.employee_id = employees.id AND salary_changes.status = 0) AS total_deduction
+FROM employees, financial_operations
+WHERE employees.name = financial_operations.client 
+AND financial_operations.status = 0
+AND financial_operations.reason = 'salary'
+AND financial_operations.month = (SELECT MONTH(CURDATE()))
+
+
+
+CREATE VIEW salaries AS
+SELECT 
+employees.id AS employee_id, 
+employees.avatar,
+employees.name,
+employees.position,
+employees.salary AS main_salary,
+(SELECT SUM(amount) FROM salary_changes WHERE salary_changes.employee_id = employees.id AND salary_changes.status = 1) AS total_extra,
+(SELECT SUM(amount) FROM salary_changes WHERE salary_changes.employee_id = employees.id AND salary_changes.status = 0) AS total_deduction
+FROM employees
+WHERE employees.id NOT IN (SELECT salaries_received.employee_id FROM salaries_received WHERE salaries_received.month = (SELECT MONTH(CURDATE())))
