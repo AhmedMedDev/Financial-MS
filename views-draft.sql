@@ -69,3 +69,18 @@ employees.salary AS main_salary,
 (SELECT SUM(amount) FROM salary_changes WHERE salary_changes.employee_id = employees.id AND salary_changes.status = 0) AS total_deduction
 FROM employees
 WHERE employees.id NOT IN (SELECT salaries_received.employee_id FROM salaries_received WHERE salaries_received.month = (SELECT MONTH(CURDATE())))
+
+
+
+CREATE VIEW sessions AS
+SELECT  
+individual_sessions.id AS session_id,
+individual_sessions.amount, 
+individual_sessions.remaining,
+individual_sessions.date, 
+individual_sessions.month,
+children_id, childrens.child_name,
+employee_id, employees.name AS emp_name
+FROM `individual_sessions`
+JOIN childrens ON (childrens.id = children_id) 
+JOIN employees ON (employees.id = employee_id)
