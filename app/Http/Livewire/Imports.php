@@ -15,15 +15,21 @@ class Imports extends Component
     public $amount;
     public $reason;
 
-    public function resetFields ()
+    protected $rules = [
+        'amount'      => 'required',
+        'client'      => 'required',
+        'reason'      => 'required',
+    ];
+
+    public function updated($propertyName)
     {
-        $this->amount   = '';
-        $this->client   = '';
-        $this->reason   = '';
+        $this->validateOnly($propertyName, $this->rules);
     }
 
     public function store ()
     {
+        $this->validate();
+
         DB::table('financial_operations')->insert([
             'amount' => $this->amount,
             'client' => $this->client,
@@ -35,6 +41,13 @@ class Imports extends Component
 
         $this->emit('added-successfully');
         $this->emit('Success-Alert');
+    }
+
+    public function resetFields ()
+    {
+        $this->amount   = '';
+        $this->client   = '';
+        $this->reason   = '';
     }
 
     public function edit ($id)
@@ -49,6 +62,8 @@ class Imports extends Component
 
     public function update ()
     {
+        $this->validate();
+
         DB::table('financial_operations')
         ->where('id', $this->ids)
         ->update([
