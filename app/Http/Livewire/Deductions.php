@@ -15,9 +15,21 @@ class Deductions extends Component
     public $amount;
     public $reason;
 
-    
+    protected $rules = [
+        'employee_id' => 'required',
+        'amount'      => 'required',
+        'reason'      => 'required',
+    ];
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName, $this->rules);
+    }
+
     public function store ()
     {
+        $this->validate();
+
         DB::table('salary_changes')->insert([
             'employee_id'   => $this->employee_id,
             'amount'        => $this->amount,
@@ -50,6 +62,8 @@ class Deductions extends Component
 
     public function update ()
     {
+        $this->validate();
+
         DB::table('salary_changes')
         ->where('id', $this->ids)
         ->update([
