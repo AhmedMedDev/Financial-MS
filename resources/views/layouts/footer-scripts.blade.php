@@ -47,7 +47,18 @@
 <!--Internal  Datatable js -->
 <script src="{{URL::asset('assets/js/table-data.js')}}"></script>
 
+<!--Internal Fileuploads js-->
+<script src="{{URL::asset('assets/plugins/fileuploads/js/fileupload.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/fileuploads/js/file-upload.js')}}"></script>
 
+<script>
+	window.livewire.on('added-successfully', () => {
+		$('#create').modal('hide');
+	})
+	window.livewire.on('updated-successfully', () => {
+		$('#edit').modal('hide');
+	})
+</script>
 
 <!-- Sticky js -->
 <script src="{{URL::asset('assets/js/sticky.js')}}"></script>

@@ -20,6 +20,9 @@
 <link href="{{URL::asset('assets/plugins/datatable/css/jquery.dataTables.min.css')}}" rel="stylesheet">
 <link href="{{URL::asset('assets/plugins/datatable/css/responsive.dataTables.min.css')}}" rel="stylesheet">
 
+<!---Internal Fileupload css-->
+<link href="{{URL::asset('assets/plugins/fileuploads/css/fileupload.css')}}" rel="stylesheet" type="text/css"/>
+
 
 <!--- Style css -->
 <link href="{{URL::asset('assets/css-rtl/style.css')}}" rel="stylesheet">

@@ -27,13 +27,3 @@
 		</div>
 		<!-- row closed -->
 @endsection
-@section('js')
-<script>
-	window.livewire.on('added-successfully', () => {
-		$('#create').modal('hide');
-	})
-	window.livewire.on('updated-successfully', () => {
-		$('#edit').modal('hide');
-	})
-</script>
-@endsection
