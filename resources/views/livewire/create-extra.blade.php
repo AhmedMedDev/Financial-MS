@@ -9,18 +9,30 @@
           </button>
         </div>
         <div class="modal-body">
+            {{-- Employee --}}
             <div class="form-group">
-                <label for="amount">Employee</label>
-                <input type="number" class="form-control" id="employee" wire:model="employee_id">
+              <label for="amount">Employee</label>
+              <select wire:model="employee_id" class="custom-select" id="inlineFormCustomSelectPref">
+                <option selected>Choose...</option>
+                @foreach (DB::table('employees')->orderByDesc('id')->get() as $item)
+                  <option value="{{$item->id}}" >{{$item->name}}</option>
+                @endforeach
+              </select>
+              @error('employee_id') <span class="error text-danger">{{ $message }}</span> @enderror
             </div>
+            {{-- Amount --}}
             <div class="form-group">
                 <label for="amount">Amount</label>
                 <input type="number" class="form-control" id="amount" wire:model="amount">
+                @error('amount') <span class="error text-danger">{{ $message }}</span> @enderror
             </div>
+            {{-- Reason --}}
             <div class="form-group">
                 <label for="amount">Reason</label>
                 <input type="text" class="form-control" id="reason" wire:model="reason">
+                @error('reason') <span class="error text-danger">{{ $message }}</span> @enderror
             </div>
+            {{-- Date --}}
             <div class="form-group">
                 <div class="row row-sm">
                     <div class="input-group col-md-12">
@@ -33,6 +45,7 @@
                     </div>
                 </div>
             </div>
+            {{--  --}}
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
