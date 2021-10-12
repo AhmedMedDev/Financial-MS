@@ -545,7 +545,8 @@
 								<p class="mg-b-20">It is Very Easy to Customize and it uses in your website apllication.</p>
 								<div class="row row-sm mg-b-20">
 									<div class="col-lg-4">
-										<p class="mg-b-10">Single Select</p><select class="form-control select2-no-search">
+										<p class="mg-b-10">Single Select</p>
+										<select class="form-control select2-no-search">
 											<option label="Choose one">
 											</option>
 											<option value="Firefox">

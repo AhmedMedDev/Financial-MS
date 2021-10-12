@@ -17,6 +17,18 @@ class Sessions extends Component
     public $remaining;
     public $date;
 
+    protected $rules = [
+        'children_id' => 'required',
+        'employee_id' => 'required',
+        'amount'      => 'required',
+        'remaining'   => 'required',
+    ];
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName, $this->rules);
+    }
+
     public function resetFields ()
     {
         $this->employee_id      = '';
@@ -28,6 +40,8 @@ class Sessions extends Component
 
     public function store ()
     {
+        $this->validate();
+
         DB::table('individual_sessions')->insert([
             'children_id'   => $this->children_id,
             'employee_id'   => $this->employee_id,
@@ -57,6 +71,8 @@ class Sessions extends Component
 
     public function update ()
     {
+        $this->validate();
+
         DB::table('individual_sessions')
         ->where('id', $this->ids)
         ->update([
