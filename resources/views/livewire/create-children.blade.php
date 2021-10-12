@@ -11,23 +11,27 @@
       <div class="modal-body">
           {{-- Child Name --}}
           <div class="form-group">
-            <label for="amount">Child's Name</label>
-            <input type="text" class="form-control" id="amount" placeholder="Enter Name" wire:model="child_name">
+            <label for="child_name">Child's Name</label>
+            <input type="text" class="form-control" id="child_name" wire:model="child_name">
+            @error('child_name') <span class="error text-danger">{{ $message }}</span> @enderror
           </div>
           {{-- Parent --}}
           <div class="form-group">
-            <label for="amount">Child's Parent</label>
-            <input type="text" class="form-control" id="amount" placeholder="Enter Postion" wire:model="parent">
+            <label for="parent">Child's Parent</label>
+            <input type="text" class="form-control" id="parent" wire:model="parent">
+            @error('parent') <span class="error text-danger">{{ $message }}</span> @enderror
           </div>
           {{-- Phone --}}
           <div class="form-group">
-            <label for="amount">Parent's Phone</label>
-            <input type="text" class="form-control" id="amount" placeholder="Enter Phone" wire:model="phone">
+            <label for="phone">Parent's Phone</label>
+            <input type="text" class="form-control" id="phone" wire:model="phone">
+            @error('phone') <span class="error text-danger">{{ $message }}</span> @enderror
           </div>
           {{-- notes--}}
           <div class="form-group">
             <label for="amount">Doc's Notes</label>
             <textarea class="form-control" placeholder="Textarea" rows="3" wire:model="notes"></textarea>
+            @error('notes') <span class="error text-danger">{{ $message }}</span> @enderror
           </div>
           {{-- Child Image --}}
           <div class="col-sm-12 col-md-12">

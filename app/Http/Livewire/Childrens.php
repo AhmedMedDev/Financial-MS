@@ -17,6 +17,13 @@ class Childrens extends Component
     public $phone;
     public $notes;
 
+    protected $rules = [
+        'child_name'    => 'required|min:6',
+        'parent'        => 'required|min:6',
+        'phone'         => 'required|max:11',
+        'notes'         => 'nullable|string',
+    ];
+
     public function resetFields ()
     {
         $this->child_name       = '';
@@ -26,8 +33,15 @@ class Childrens extends Component
         $this->notes            = '';
     }
 
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName, $this->rules);
+    }
+
     public function store ()
     {
+        $this->validate();
+
         DB::table('childrens')->insert([
             'child_name'    => $this->child_name,
             'parent'        => $this->parent,
@@ -54,6 +68,8 @@ class Childrens extends Component
 
     public function update ()
     {
+        $this->validate();
+        
         DB::table('childrens')
         ->where('id', $this->ids)
         ->update([
