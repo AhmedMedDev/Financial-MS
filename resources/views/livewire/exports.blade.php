@@ -36,7 +36,7 @@
                                 <a href="#" class="btn btn-md btn-primary-gradient">
                                     <i class="typcn typcn-briefcase"></i>
                                 </a>
-                                <button class="btn btn-md btn-info-gradient" data-toggle="modal" data-target="#edit_export" wire:click.prevent="edit({{$item->id}})">
+                                <button class="btn btn-md btn-info-gradient" data-toggle="modal" data-target="#edit" wire:click.prevent="edit({{$item->id}})">
                                     <i class="las la-pen"></i>
                                 </button>
                                 <a href="#" class="btn btn-md btn-danger-gradient" wire:click.prevent="confirmDelete({{$item->id}})">

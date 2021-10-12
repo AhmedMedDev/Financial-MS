@@ -12,16 +12,28 @@ class Exports extends Component
 
     public $exports;
     public $ids;
-    public $employee;
+    public $client;
     public $amount;
     public $reason;
 
-    
+    protected $rules = [
+        'amount'      => 'required',
+        'client'      => 'required',
+        'reason'      => 'required',
+    ];
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName, $this->rules);
+    }
+
     public function store ()
     {
+        $this->validate();
+
         DB::table('financial_operations')->insert([
             'amount' => $this->amount,
-            'client' => $this->employee,
+            'client' => $this->client,
             'reason' => $this->reason,
             'status' => 0,
         ]);
@@ -35,7 +47,7 @@ class Exports extends Component
     public function resetFields ()
     {
         $this->amount = '';
-        $this->employee = '';
+        $this->client = '';
         $this->reason = '';
     }
 
@@ -45,17 +57,19 @@ class Exports extends Component
 
         $this->ids = $export->id;
         $this->amount = $export->amount;
-        $this->employee = $export->client;
+        $this->client = $export->client;
         $this->reason = $export->reason;
     }
 
     public function update ()
     {
+        $this->validate();
+
         DB::table('financial_operations')
         ->where('id', $this->ids)
         ->update([
             'amount' => $this->amount,
-            'client' => $this->employee,
+            'client' => $this->client,
             'reason' => $this->reason,
         ]);
 
