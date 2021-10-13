@@ -27,43 +27,72 @@
 					<li class="side-item side-item-category">General</li>
 					{{--  --}}
 					<li class="slide">
-						<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='employees') }}"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 5H5v14h14V5zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" opacity=".3"/><path d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2zm2 0h14v14H5V5zm2 5h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg><span class="side-menu__label">Employees</span></a>
+						<a class="side-menu__item" href="{{ url('/' . $page='employees') }}">
+							<i class="mdi mdi-account-card-details side-menu__icon"></i>
+							<span class="side-menu__label center_vertically">Employees</span>
+						</a>
 					</li>
 					{{--  --}}
 					<li class="slide">
-						<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='childrens') }}"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 5H5v14h14V5zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" opacity=".3"/><path d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2zm2 0h14v14H5V5zm2 5h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg><span class="side-menu__label">Childrens</span></a>
+						<a class="side-menu__item" href="{{ url('/' . $page='childrens') }}">
+							<i class="mdi mdi-account-multiple side-menu__icon"></i>
+							<span class="side-menu__label center_vertically" >Childrens</span>
+						</a>
 					</li>
 					{{--  --}}
 					<li class="slide">
-						<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='sessions') }}"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 5H5v14h14V5zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" opacity=".3"/><path d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2zm2 0h14v14H5V5zm2 5h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg><span class="side-menu__label">Sessions</span></a>
+						<a class="side-menu__item" href="{{ url('/' . $page='sessions') }}">
+							<i class="far fa-clone side-menu__icon"></i>
+							<span class="side-menu__label center_vertically">Sessions</span></a>
 					</li>
 					{{--  --}}
 					<li class="slide">
-						<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='exports') }}"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 5H5v14h14V5zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" opacity=".3"/><path d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2zm2 0h14v14H5V5zm2 5h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg><span class="side-menu__label">Exports</span></a>
+						<a class="side-menu__item" href="{{ url('/' . $page='exports') }}">
+							<i class="si si-login side-menu__icon"></i>
+							<span class="side-menu__label center_vertically">Exports</span>
+						</a>
 					</li>
 					{{--  --}}
 					<li class="slide">
-						<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='imports') }}"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 5H5v14h14V5zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" opacity=".3"/><path d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2zm2 0h14v14H5V5zm2 5h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg><span class="side-menu__label">Imports</span></a>
+						<a class="side-menu__item" href="{{ url('/' . $page='imports') }}">
+							<i class="si si-logout side-menu__icon"></i>
+							<span class="side-menu__label center_vertically">Imports</span>
+						</a>
 					</li>
 					{{--  --}}
 					<li class="slide">
-						<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='extras') }}"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 5H5v14h14V5zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" opacity=".3"/><path d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2zm2 0h14v14H5V5zm2 5h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg><span class="side-menu__label">Extras</span></a>
+						<a class="side-menu__item" href="{{ url('/' . $page='extras') }}">
+							<i class="mdi mdi-account-plus side-menu__icon"></i>
+							<span class="side-menu__label center_vertically">Extras</span>
+						</a>
 					</li>
 					{{--  --}}
 					<li class="slide">
-						<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='deductions') }}"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 5H5v14h14V5zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" opacity=".3"/><path d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2zm2 0h14v14H5V5zm2 5h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg><span class="side-menu__label">Deductions</span></a>
+						<a class="side-menu__item" href="{{ url('/' . $page='deductions') }}">
+							<i class="mdi mdi-account-remove side-menu__icon"></i>
+							<span class="side-menu__label center_vertically">Deductions</span>
+						</a>
 					</li>
 					{{--  --}}
 					<li class="slide">
-						<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='attendance') }}"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 5H5v14h14V5zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" opacity=".3"/><path d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2zm2 0h14v14H5V5zm2 5h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg><span class="side-menu__label">Attendance</span></a>
+						<a class="side-menu__item" href="{{ url('/' . $page='attendance') }}">
+							<i class="typcn typcn-edit side-menu__icon"></i>
+							<span class="side-menu__label center_vertically">Attendance</span>
+						</a>
 					</li>
 					{{--  --}}
 					<li class="slide">
-						<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='delays') }}"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 5H5v14h14V5zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" opacity=".3"/><path d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2zm2 0h14v14H5V5zm2 5h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg><span class="side-menu__label">Delays</span></a>
+						<a class="side-menu__item" href="{{ url('/' . $page='delays') }}">
+							<i class="far fa-clock side-menu__icon"></i>
+							<span class="side-menu__label center_vertically">Delays</span>
+						</a>
 					</li>
 					{{--  --}}
 					<li class="slide">
-						<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='salaries') }}"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 5H5v14h14V5zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" opacity=".3"/><path d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2zm2 0h14v14H5V5zm2 5h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg><span class="side-menu__label">Salaries</span></a>
+						<a class="side-menu__item" href="{{ url('/' . $page='salaries') }}">
+							<i class="far fa-calendar-check side-menu__icon"></i>
+							<span class="side-menu__label center_vertically">Salaries</span>
+						</a>
 					</li>
 					{{--  --}}
 				</ul>

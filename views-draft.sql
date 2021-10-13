@@ -99,3 +99,6 @@ FROM employees
 JOIN total_delaies ON (employees.id = total_delaies.employee_id)
 WHERE total_delaies.total_delay != 0 
 AND employees.id NOT IN (SELECT delay_deductions.employee_id FROM delay_deductions WHERE delay_deductions.month = (SELECT MONTH(CURDATE())))
+
+
+SELECT * FROM `employees` WHERE id NOT IN (SELECT employee_id FROM `attendance_lists` WHERE DATE(date) = CURDATE())

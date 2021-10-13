@@ -30,3 +30,12 @@
 <link href="{{URL::asset('assets/css-rtl/style-dark.css')}}" rel="stylesheet">
 <!---Skinmodes css-->
 <link href="{{URL::asset('assets/css-rtl/skin-modes.css')}}" rel="stylesheet">
+
+
+<style>
+    .center_vertically
+    {
+        position: relative;
+        bottom: -6px;
+    }
+</style>
