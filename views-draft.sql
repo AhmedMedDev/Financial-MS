@@ -84,3 +84,18 @@ employee_id, employees.name AS emp_name
 FROM `individual_sessions`
 JOIN childrens ON (childrens.id = children_id) 
 JOIN employees ON (employees.id = employee_id)
+
+
+
+CREATE VIEW delaies AS
+SELECT 
+employees.id AS employee_id, 
+employees.avatar,
+employees.name,
+employees.day_price,
+total_delaies.total_delay,
+total_delaies.month
+FROM employees
+JOIN total_delaies ON (employees.id = total_delaies.employee_id)
+WHERE total_delaies.total_delay != 0 
+AND employees.id NOT IN (SELECT delay_deductions.employee_id FROM delay_deductions WHERE delay_deductions.month = (SELECT MONTH(CURDATE())))
