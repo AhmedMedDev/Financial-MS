@@ -82,6 +82,13 @@
 					</li>
 					{{--  --}}
 					<li class="slide">
+						<a class="side-menu__item" href="{{ url('/' . $page='absences') }}">
+							<i class="far fa-address-book side-menu__icon"></i>
+							<span class="side-menu__label center_vertically">Absences</span>
+						</a>
+					</li>
+					{{--  --}}
+					<li class="slide">
 						<a class="side-menu__item" href="{{ url('/' . $page='delays') }}">
 							<i class="far fa-clock side-menu__icon"></i>
 							<span class="side-menu__label center_vertically">Delays</span>

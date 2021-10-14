@@ -102,3 +102,63 @@ AND employees.id NOT IN (SELECT delay_deductions.employee_id FROM delay_deductio
 
 
 SELECT * FROM `employees` WHERE id NOT IN (SELECT employee_id FROM `attendance_lists` WHERE DATE(date) = CURDATE())
+
+SELECT * FROM `attendance_lists` 
+WHERE is_attende = 0 
+AND month = MONTH(CURDATE())
+AND employee_id NOT IN (SELECT employee_id FROM absences_deductions WHERE month = attendance_lists.month)
+
+
+SELECT 
+employees.id AS employee_id, 
+employees.avatar,
+employees.name,
+employees.day_price,
+employees.salary,
+attendance_lists.date,
+attendance_lists.month,
+attendance_lists.day,
+attendance_lists.time
+FROM employees
+JOIN attendance_lists ON (employees.id = employee_id) 
+WHERE is_attende = 0 
+AND month = MONTH(CURDATE())
+AND employee_id NOT IN (SELECT employee_id FROM absences_deductions WHERE month = attendance_lists.month)
+
+
+$dayofweek = date('D', strtotime('2021/10/03'));
+$dayofweek = date('l', strtotime('2021/10/03'));
+
+
+CREATE VIEW absences AS
+SELECT 
+employees.id AS employee_id, 
+employees.avatar,
+employees.name,
+employees.day_price,
+employees.salary,
+attendance_lists.date,
+attendance_lists.month,
+attendance_lists.day,
+attendance_lists.time
+FROM employees
+JOIN attendance_lists ON (employees.id = employee_id) 
+WHERE is_attende = 0 
+AND month = MONTH(CURDATE())
+AND employee_id NOT IN (SELECT employee_id FROM absences_deductions WHERE date = DATE(attendance_lists.date))
+
+CREATE VIEW absences AS
+SELECT 
+employees.id AS employee_id, 
+employees.avatar,
+employees.name,
+employees.day_price,
+employees.salary,
+DATE(attendance_lists.date) AS date,
+attendance_lists.month,
+attendance_lists.time
+FROM employees
+JOIN attendance_lists ON (employees.id = employee_id) 
+WHERE is_attende = 0 
+AND month = MONTH(CURDATE())
+AND employee_id NOT IN (SELECT employee_id FROM absences_deductions WHERE date = DATE(attendance_lists.date))
