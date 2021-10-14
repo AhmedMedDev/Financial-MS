@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('employees', 'EmployeeController');
+
+Route::post('attendance_lists', function (Request $request) {
+    return $request;
+});
 
 Route::get('/{page}', function ($page) {
 

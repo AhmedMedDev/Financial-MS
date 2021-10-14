@@ -64,8 +64,8 @@ function saveAttendance (empID)
 
     $.ajax({
         method : "POST",
-        url  : "cart",
-        data  : {product_id : product_id, user_id : user_id },
+        url  : "attendance_lists",
+        data  : {is_attende, delay_min},
         cache:false,
         success: function (data) {
             if(data.status)
