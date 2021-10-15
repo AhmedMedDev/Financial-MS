@@ -28,19 +28,25 @@ class Deductions extends Component
 
     public function store ()
     {
-        $this->validate();
+        try{    
+            $this->validate();
 
-        DB::table('salary_changes')->insert([
-            'employee_id'   => $this->employee_id,
-            'amount'        => $this->amount,
-            'reason'        => $this->reason,
-            'status'        => 0,
-        ]);
+            DB::table('salary_changes')->insert([
+                'employee_id'   => $this->employee_id,
+                'amount'        => -$this->amount,
+                'reason'        => $this->reason,
+                'status'        => 0,
+            ]);
 
-        $this->resetFields();
+            $this->resetFields();
 
-        $this->emit('added-successfully');
-        $this->emit('Success-Alert');
+            $this->emit('added-successfully');
+            $this->emit('Success-Alert');
+            
+        } catch (\Exception $ex) {
+            $this->emit('added-successfully');
+            $this->emit('Error-Alert');
+        }
     }
 
     public function resetFields ()
@@ -62,21 +68,26 @@ class Deductions extends Component
 
     public function update ()
     {
-        $this->validate();
+        try{ 
+            $this->validate();
 
-        DB::table('salary_changes')
-        ->where('id', $this->ids)
-        ->update([
-            'employee_id'   => $this->employee_id,
-            'amount'        => $this->amount,
-            'reason'        => $this->reason,
-        ]);
+            DB::table('salary_changes')
+            ->where('id', $this->ids)
+            ->update([
+                'employee_id'   => $this->employee_id,
+                'amount'        => $this->amount,
+                'reason'        => $this->reason,
+            ]);
 
-        $this->resetFields();
+            $this->resetFields();
 
-        $this->emit('updated-successfully');
-        
-        $this->emit('Toast-Alert');
+            $this->emit('updated-successfully');
+            $this->emit('Toast-Alert');
+
+        } catch (\Exception $ex) {
+            $this->emit('updated-successfully');
+            $this->emit('Error-Alert');
+        }
     }
 
     function confirmDelete ($id)
