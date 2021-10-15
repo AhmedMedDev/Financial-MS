@@ -36,7 +36,7 @@
                         <td>{{ $finalsalary = $item->main_salary + $item->total_extra + $item->total_deduction}}</td>
                         <td> {{$month}} </td>
                         <td>
-                            <button class="btn btn-info-gradient btn-block" wire:click.prevent="receivedSalary({{$item->employee_id}},{{$finalsalary}}, {{$month}})">receive salary</button>
+                            <button class="btn btn-info-gradient btn-block" wire:click.prevent="receivedSalary({{$item->employee_id}},'{{$item->name}}',{{$finalsalary}}, {{$month}})">receive salary</button>
                         </td>
                     </tr>
                     @endforeach
