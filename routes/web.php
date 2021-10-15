@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,7 +27,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('employees', 'EmployeeController');
 
 Route::post('attendance_lists', function (Request $request) {
-    return $request;
+
+    DB::table('attendance_lists')->insert([
+        'employee_id'   => $request->employee_id,
+        'is_attende'    => $request->is_attende,
+        'delay_min'     => $request->delay_min,
+    ]);
+
+     return response()->json(['status' => true]);
 });
 
 Route::get('/{page}', function ($page) {

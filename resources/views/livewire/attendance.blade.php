@@ -21,7 +21,7 @@
                 </thead>
                 <tbody>
                     @foreach ($attendance as $item)
-                    <tr>
+                    <tr id="attendance{{$item->id}}">
                         <th scope="row">{{$item->id}}</th>
                         <td>
                             <img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="http://127.0.0.1:8000/assets/img/photos/1.jpg">
@@ -58,25 +58,25 @@ function saveAttendance (empID)
     });
 
     var is_attende = ($(`#is_attende${empID}`).hasClass('on')) ? 1 : 0
-
     var delay_min = $(`#delay_min${empID}`).val()
-
+    var employee_id = empID
 
     $.ajax({
         method : "POST",
         url  : "attendance_lists",
-        data  : {is_attende, delay_min},
+        data  : {employee_id, is_attende, delay_min},
         cache:false,
         success: function (data) {
             if(data.status)
             {
-                Toast.fire({
-                    icon: 'success',
-                    title: 'Has Been Added To The Cart'
-                })
+                Swal.fire(
+					'Good job!',
+					'You clicked the button!',
+					'success'
+				)
                 // Delete From display
-                $(`#cart${cart_id}`).slideUp(600,function () {
-                    $(`#cart${cart_id}`).remove();
+                $(`#attendance${empID}`).slideUp(600,function () {
+                    $(`#attendance${empID}`).remove();
                 });
             }
         },
