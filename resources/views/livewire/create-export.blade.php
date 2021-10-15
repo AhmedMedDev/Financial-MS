@@ -14,8 +14,9 @@
             <label for="amount">Employee</label>
             <select  class="custom-select" id="inlineFormCustomSelectPref" wire:model="client">
               <option selected>Choose...</option>
+              <option value="other">other</option>
               @foreach (DB::table('employees')->orderByDesc('id')->get() as $item)
-                <option value="{{$item->id}}" >{{$item->name}}</option>
+                <option value="{{$item->name}}" >{{$item->name}}</option>
               @endforeach
             </select>
             @error('client') <span class="error text-danger">{{ $message }}</span> @enderror

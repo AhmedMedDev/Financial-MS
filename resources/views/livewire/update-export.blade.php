@@ -15,6 +15,7 @@
             <label for="amount">Employee</label>
             <select  class="custom-select" id="inlineFormCustomSelectPref" wire:model="client">
               <option selected>Choose...</option>
+              <option value="other">other</option>
               @foreach (DB::table('employees')->orderByDesc('id')->get() as $item)
                 <option value="{{$item->name}}" >{{$item->name}}</option>
               @endforeach
