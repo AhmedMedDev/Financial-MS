@@ -11,21 +11,27 @@ class Absences extends Component
 
     public function deductionFromSalary ($employee_id, $amount, $date, $month) 
     {
-        // Store at salary_changes
-        DB::table('salary_changes')->insert([
-            'employee_id'   => $employee_id,
-            'amount'        => -$amount,
-            'reason'        => "absences deductions for $date",
-            'status'        => 0,
-        ]);
+        try{    
+            // Store at salary_changes
+           DB::table('salary_changes')->insert([
+               'employee_id'   => $employee_id,
+               'amount'        => -$amount,
+               'reason'        => "absences deductions for $date",
+               'status'        => 0,
+           ]);
 
-        // Make salaries received 
-        DB::table('absences_deductions')->insert([
-            'employee_id' => $employee_id,
-            'date'        => $date
-        ]);
-
-        $this->emit('Success-Alert');
+           // Make salaries received 
+           DB::table('absences_deductions')->insert([
+               'employee_id' => $employee_id,
+               'date'        => $date
+           ]);
+           
+           $this->emit('Success-Alert');
+           
+       } catch (\Exception $ex) {
+           $this->emit('added-successfully');
+           $this->emit('Error-Alert');
+       }
     }
 
     public function render()
