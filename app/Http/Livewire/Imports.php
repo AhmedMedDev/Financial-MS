@@ -28,19 +28,25 @@ class Imports extends Component
 
     public function store ()
     {
-        $this->validate();
+        try{    
+            $this->validate();
 
-        DB::table('financial_operations')->insert([
-            'amount' => $this->amount,
-            'client' => $this->client,
-            'reason' => $this->reason,
-            'status' => 1,
-        ]);
+            DB::table('financial_operations')->insert([
+                'amount' => $this->amount,
+                'client' => $this->client,
+                'reason' => $this->reason,
+                'status' => 1,
+            ]);
 
-        $this->resetFields();
+            $this->resetFields();
 
-        $this->emit('added-successfully');
-        $this->emit('Success-Alert');
+            $this->emit('added-successfully');
+            $this->emit('Success-Alert');
+            
+        } catch (\Exception $ex) {
+            $this->emit('added-successfully');
+            $this->emit('Error-Alert');
+        }
     }
 
     public function resetFields ()
@@ -62,21 +68,26 @@ class Imports extends Component
 
     public function update ()
     {
-        $this->validate();
+        try{ 
+            $this->validate();
 
-        DB::table('financial_operations')
-        ->where('id', $this->ids)
-        ->update([
-            'amount' => $this->amount,
-            'client' => $this->client,
-            'reason' => $this->reason,
-        ]);
+            DB::table('financial_operations')
+            ->where('id', $this->ids)
+            ->update([
+                'amount' => $this->amount,
+                'client' => $this->client,
+                'reason' => $this->reason,
+            ]);
 
-        $this->resetFields();
+            $this->resetFields();
 
-        $this->emit('updated-successfully');
-        
-        $this->emit('Toast-Alert');
+            $this->emit('updated-successfully');
+            $this->emit('Toast-Alert');
+
+        } catch (\Exception $ex) {
+            $this->emit('updated-successfully');
+            $this->emit('Error-Alert');
+        }
     }
 
     function confirmDelete ($id)
