@@ -40,20 +40,26 @@ class Sessions extends Component
 
     public function store ()
     {
-        $this->validate();
+        try{    
+            $this->validate();
 
-        DB::table('individual_sessions')->insert([
-            'children_id'   => $this->children_id,
-            'employee_id'   => $this->employee_id,
-            'amount'        => $this->amount,
-            'remaining'     => $this->remaining,
-            // 'date'          => $this->date,
-        ]);
+            DB::table('individual_sessions')->insert([
+                'children_id'   => $this->children_id,
+                'employee_id'   => $this->employee_id,
+                'amount'        => $this->amount,
+                'remaining'     => $this->remaining,
+                // 'date'          => $this->date,
+            ]);
 
-        $this->resetFields();
+            $this->resetFields();
 
-        $this->emit('added-successfully');
-        $this->emit('Success-Alert');
+            $this->emit('added-successfully');
+            $this->emit('Success-Alert');
+            
+        } catch (\Exception $ex) {
+            $this->emit('added-successfully');
+            $this->emit('Error-Alert');
+        }
     }
 
     public function edit ($id)
@@ -71,21 +77,27 @@ class Sessions extends Component
 
     public function update ()
     {
-        $this->validate();
+        try{ 
+            $this->validate();
 
-        DB::table('individual_sessions')
-        ->where('id', $this->ids)
-        ->update([
-            'employee_id'  => $this->employee_id,
-            'children_id'  => $this->children_id,
-            'amount'       => $this->amount,
-            'remaining'    => $this->remaining,
-        ]);
+            DB::table('individual_sessions')
+            ->where('id', $this->ids)
+            ->update([
+                'employee_id'  => $this->employee_id,
+                'children_id'  => $this->children_id,
+                'amount'       => $this->amount,
+                'remaining'    => $this->remaining,
+            ]);
 
-        $this->resetFields();
+            $this->resetFields();
 
-        $this->emit('updated-successfully');
-        $this->emit('Toast-Alert');
+            $this->emit('updated-successfully');
+            $this->emit('Toast-Alert');
+
+        } catch (\Exception $ex) {
+            $this->emit('updated-successfully');
+            $this->emit('Error-Alert');
+        }
     }
 
     function confirmDelete ($id)

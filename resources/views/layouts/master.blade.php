@@ -65,6 +65,14 @@
 				)
 			})
 
+			window.livewire.on('Error-Alert', () => {
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'Something went wrong!',
+				})
+			})
+
 			window.livewire.on('Are-You-Sure', () => {
 				Swal.fire({
 					title: 'Are you sure?',
