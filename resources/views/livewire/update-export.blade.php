@@ -10,11 +10,16 @@
         </div>
         <div class="modal-body">
           <input type="hidden" name="id" wire:model="ids">
-          {{--  --}}
+          {{-- Employee --}}
           <div class="form-group">
-              <label for="amount">Employee</label>
-              <input type="text" class="form-control" id="employee" wire:model="client">
-              @error('client') <span class="error text-danger">{{ $message }}</span> @enderror
+            <label for="amount">Employee</label>
+            <select  class="custom-select" id="inlineFormCustomSelectPref" wire:model="client">
+              <option selected>Choose...</option>
+              @foreach (DB::table('employees')->orderByDesc('id')->get() as $item)
+                <option value="{{$item->name}}" >{{$item->name}}</option>
+              @endforeach
+            </select>
+            @error('client') <span class="error text-danger">{{ $message }}</span> @enderror
           </div>
           {{--  --}}
           <div class="form-group">
