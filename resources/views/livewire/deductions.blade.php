@@ -16,13 +16,13 @@
                 <table wire:ignore.self class="table text-md-nowrap" id="">{{-- example1 --}}
                     <thead>
                         <tr>
-                            <th>Deduction ID</th>
-                            <th>Avatar</th>
-                            <th>Employee</th>
-                            <th>Amount</th>
-                            <th>Reason</th>
-                            <th>Date</th>
-                            <th>Actions</th>
+                            <th>رقم الموظف</th>
+                            <th>صورة الموظف</th>
+                            <th>اسم الموظف</th>
+                            <th>المبلغ</th>
+                            <th>السبب</th>
+                            <th>التاريخ</th>
+                            <th>اجراءات</th>
                         </tr>
                     </thead>
                     <tbody>

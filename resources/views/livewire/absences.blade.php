@@ -11,12 +11,12 @@
             <table class="table text-md-nowrap" id="">{{-- example1 --}}
                 <thead>
                     <tr>
-                        <th>Emp ID</th>
-                        <th>avatar</th>
-                        <th>Employee</th>
-                        <th>Deduction</th>
-                        <th>Date</th>
-                        <th>Action</th>
+                        <th>رقم الموظف</th>
+                        <th>صورة الموظف</th>
+                        <th>اسم الموظف</th>
+                        <th>قمية الخصم</th>
+                        <th>التاريخ</th>
+                        <th>اجراءات</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,7 +40,7 @@
                         <td>
                             <button class="btn btn-danger-gradient btn-block"  
                                 wire:click.prevent="deductionFromSalary({{$item->employee_id}},{{$amount}},'{{$item->date}}',{{$item->month}})">
-                                Deduction from salary
+                                خصم من المرتب
                             </button>
                         </td>
                     </tr>

@@ -16,14 +16,14 @@
                 <table wire:ignore.self class="table text-md-nowrap" id="">{{-- example1 --}}
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>child name</th>
-                            <th>avatar</th>
-                            <th>parent</th>
-                            <th>phone</th>
-                            <th>date</th>
-                            <th>notes</th>
-                            <th>Actions</th>
+                            <th>رقم الطفل</th>
+                            <th>صورة الطفل</th>
+                            <th>اسم الطفل</th>
+                            <th>ولى الامر</th>
+                            <th>الهاتف</th>
+                            <th>التاريخ</th>
+                            <th>ملاحظات الاخصائى</th>
+                            <th>اجراءات</th>
                         </tr>
                     </thead>
                     <tbody>

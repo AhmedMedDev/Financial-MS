@@ -11,15 +11,15 @@
             <table class="table table-striped mg-b-0 text-md-nowrap">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Avatar</th>
-                        <th>Employee</th>
-                        <th>Main Salary</th>
-                        <th>Deduction</th>
-                        <th>Extra</th>
-                        <th>Total</th>
-                        <th>For Month</th>
-                        <th>Actions</th>
+                        <th>رقم الموظف</th>
+                        <th>صورة الموظف</th>
+                        <th>اسم الموظف</th>
+                        <th>المرتب الاساسى</th>
+                        <th>اجمالى المخصوم</th>
+                        <th>اجمالى المضاف</th>
+                        <th>المرتب الكلى</th>
+                        <th>لشهر</th>
+                        <th>اجراءات</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,7 +36,7 @@
                         <td>{{ $finalsalary = $item->main_salary + $item->total_extra + $item->total_deduction}}</td>
                         <td> {{$month}} </td>
                         <td>
-                            <button class="btn btn-info-gradient btn-block" wire:click.prevent="receivedSalary({{$item->employee_id}},'{{$item->name}}',{{$finalsalary}}, {{$month}})">receive salary</button>
+                            <button class="btn btn-info-gradient btn-block" wire:click.prevent="receivedSalary({{$item->employee_id}},'{{$item->name}}',{{$finalsalary}}, {{$month}})">تم استلام المرتب</button>
                         </td>
                     </tr>
                     @endforeach

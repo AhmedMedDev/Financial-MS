@@ -1,22 +1,22 @@
 <div class="card">
     <div class="card-header pb-0">
         <div class="d-flex justify-content-between">
-            <h4 class="card-title mg-b-0">STRIPED ROWS</h4>
+            <h4 class="card-title mg-b-0">دفتر حضور الموظفين</h4>
             <i class="mdi mdi-dots-horizontal text-gray"></i>
         </div>
-        <p class="tx-12 tx-gray-500 mb-2">Example of Valex Striped Rows.. <a href="">Learn more</a></p>
+        <p class="tx-12 tx-gray-500 mb-2">لاتنسى حفظ العميلة بعد الانتهاء</p>
     </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-striped mg-b-0 text-md-nowrap">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Avatar</th>
-                        <th>Name</th>
-                        <th>Attendance</th>
-                        <th>Num Of Min</th>
-                        <th>Action</th>
+                        <th>رقم الموظف</th>
+                        <th>صورة الموظف</th>
+                        <th>اسم الموظف</th>
+                        <th>هل حضر</th>
+                        <th>عدد دقائق التاخير</th>
+                        <th>اجراءات</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,7 +36,7 @@
                             <input type="number" class="form-control" id="delay_min{{$item->id}}" name="delay_min" placeholder="Mins" value="0">
                         </td>
                         <td>
-                            <button class="btn btn-success-gradient btn-block" onclick="saveAttendance({{$item->id}})">save</button>
+                            <button class="btn btn-success-gradient btn-block" onclick="saveAttendance({{$item->id}})">تسجيل</button>
                         </td>
                     </tr>
                     @endforeach

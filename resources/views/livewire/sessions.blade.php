@@ -13,16 +13,16 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table text-md-nowrap" id="example1">
+                <table class="table text-md-nowrap" id="">{{-- example1 --}}
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Children</th>
-                            <th>Employee</th>
-                            <th>Cost</th>
-                            <th>Remaining</th>
-                            <th>Date</th>
-                            <th>Actions</th>
+                            <th>رقم الجلسة</th>
+                            <th>اسم الطفل</th>
+                            <th>اسم الاخصائى</th>
+                            <th>تكلفة الجلسة</th>
+                            <th>الباقى</th>
+                            <th>التاريح</th>
+                            <th>اجراءات</th>
                         </tr>
                     </thead>
                     <tbody>

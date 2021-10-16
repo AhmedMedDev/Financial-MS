@@ -55,14 +55,14 @@
 									<table class="table text-md-nowrap" id="example1">
 										<thead>
 											<tr>
-												<th>ID</th>
-												<th>name</th>
-												<th>avatar</th>
-												<th>position</th>
-												<th>phone</th>
-												<th>salary</th>
-												<th>start_date</th>
-												<th>Actions</th>
+												<th>رقم الموظف</th>
+												<th>صورة الموظف</th>
+												<th>اسم الموظف</th>
+												<th>الوظيفه</th>
+												<th>الهاتف</th>
+												<th>الراتب</th>
+												<th>تاريخ العمل</th>
+												<th>اجراءات</th>
 											</tr>
 										</thead>
 										<tbody>
