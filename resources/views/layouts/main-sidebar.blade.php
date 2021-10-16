@@ -27,78 +27,78 @@
 					<li class="side-item side-item-category">General</li>
 					{{--  --}}
 					<li class="slide">
-						<a class="side-menu__item" href="{{ url('/' . $page='employees') }}">
-							<i class="mdi mdi-account-card-details side-menu__icon"></i>
-							<span class="side-menu__label center_vertically">Employees</span>
-						</a>
-					</li>
-					{{--  --}}
-					<li class="slide">
-						<a class="side-menu__item" href="{{ url('/' . $page='childrens') }}">
-							<i class="mdi mdi-account-multiple side-menu__icon"></i>
-							<span class="side-menu__label center_vertically" >Childrens</span>
-						</a>
-					</li>
-					{{--  --}}
-					<li class="slide">
-						<a class="side-menu__item" href="{{ url('/' . $page='sessions') }}">
-							<i class="far fa-clone side-menu__icon"></i>
-							<span class="side-menu__label center_vertically">Sessions</span></a>
-					</li>
-					{{--  --}}
-					<li class="slide">
-						<a class="side-menu__item" href="{{ url('/' . $page='exports') }}">
-							<i class="si si-login side-menu__icon"></i>
-							<span class="side-menu__label center_vertically">Exports</span>
-						</a>
-					</li>
-					{{--  --}}
-					<li class="slide">
-						<a class="side-menu__item" href="{{ url('/' . $page='imports') }}">
-							<i class="si si-logout side-menu__icon"></i>
-							<span class="side-menu__label center_vertically">Imports</span>
-						</a>
-					</li>
-					{{--  --}}
-					<li class="slide">
-						<a class="side-menu__item" href="{{ url('/' . $page='extras') }}">
-							<i class="mdi mdi-account-plus side-menu__icon"></i>
-							<span class="side-menu__label center_vertically">Extras</span>
-						</a>
-					</li>
-					{{--  --}}
-					<li class="slide">
-						<a class="side-menu__item" href="{{ url('/' . $page='deductions') }}">
-							<i class="mdi mdi-account-remove side-menu__icon"></i>
-							<span class="side-menu__label center_vertically">Deductions</span>
-						</a>
-					</li>
-					{{--  --}}
-					<li class="slide">
 						<a class="side-menu__item" href="{{ url('/' . $page='attendance') }}">
 							<i class="typcn typcn-edit side-menu__icon"></i>
-							<span class="side-menu__label center_vertically">Attendance</span>
+							<span class="side-menu__label center_vertically">دفتر الحضور</span>
 						</a>
 					</li>
 					{{--  --}}
 					<li class="slide">
 						<a class="side-menu__item" href="{{ url('/' . $page='absences') }}">
 							<i class="far fa-address-book side-menu__icon"></i>
-							<span class="side-menu__label center_vertically">Absences</span>
+							<span class="side-menu__label center_vertically">دفتر الغياب</span>
 						</a>
 					</li>
 					{{--  --}}
 					<li class="slide">
 						<a class="side-menu__item" href="{{ url('/' . $page='delays') }}">
 							<i class="far fa-clock side-menu__icon"></i>
-							<span class="side-menu__label center_vertically">Delays</span>
+							<span class="side-menu__label center_vertically">دفتر التاخيرات</span>
+						</a>
+					</li>
+					{{--  --}}
+					<li class="slide">
+						<a class="side-menu__item" href="{{ url('/' . $page='extras') }}">
+							<i class="mdi mdi-account-plus side-menu__icon"></i>
+							<span class="side-menu__label center_vertically">الاضافات</span>
+						</a>
+					</li>
+					{{--  --}}
+					<li class="slide">
+						<a class="side-menu__item" href="{{ url('/' . $page='deductions') }}">
+							<i class="mdi mdi-account-remove side-menu__icon"></i>
+							<span class="side-menu__label center_vertically">الخصومات</span>
+						</a>
+					</li>
+					{{--  --}}
+					<li class="slide">
+						<a class="side-menu__item" href="{{ url('/' . $page='sessions') }}">
+							<i class="far fa-clone side-menu__icon"></i>
+							<span class="side-menu__label center_vertically">الجلسات</span></a>
+					</li>
+					{{--  --}}
+					<li class="slide">
+						<a class="side-menu__item" href="{{ url('/' . $page='exports') }}">
+							<i class="si si-login side-menu__icon"></i>
+							<span class="side-menu__label center_vertically">الصادرات</span>
+						</a>
+					</li>
+					{{--  --}}
+					<li class="slide">
+						<a class="side-menu__item" href="{{ url('/' . $page='imports') }}">
+							<i class="si si-logout side-menu__icon"></i>
+							<span class="side-menu__label center_vertically">الواردات</span>
 						</a>
 					</li>
 					{{--  --}}
 					<li class="slide">
 						<a class="side-menu__item" href="{{ url('/' . $page='salaries') }}">
 							<i class="far fa-calendar-check side-menu__icon"></i>
-							<span class="side-menu__label center_vertically">Salaries</span>
+							<span class="side-menu__label center_vertically">الرواتب</span>
+						</a>
+					</li>
+					{{--  --}}
+					<li class="slide">
+						<a class="side-menu__item" href="{{ url('/' . $page='employees') }}">
+							<i class="mdi mdi-account-card-details side-menu__icon"></i>
+							<span class="side-menu__label center_vertically">الموظفين</span>
+						</a>
+					</li>
+					{{--  --}}
+					<li class="slide">
+						<a class="side-menu__item" href="{{ url('/' . $page='childrens') }}">
+							<i class="mdi mdi-account-multiple side-menu__icon"></i>
+							<span class="side-menu__label center_vertically" >الاطفال</span>
 						</a>
 					</li>
 					{{--  --}}

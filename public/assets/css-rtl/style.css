@@ -4,7 +4,7 @@
 Project        :   VALEX - HTML5 Bootstrap Admin Template
 Version        :   V.1
 Create Date    :   09/05/20
-Copyright      :   Spruko Technologies Private Limited 
+Copyright      :   Spruko Technologies Private Limited
 Author         :   SprukoSoft
 Author URL     :   https://themeforest.net/user/sprukosoft
 Support	       :   support@spruko.com
@@ -82,7 +82,8 @@ License        :   Licensed under ThemeForest License
 */
 /* ######## FONT ######## */
 /* ############### FONTS IMPORT ############### */
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900");
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap');
 /* ######## BOOTSTRAP ######## */
 /*Color variables*/
 /*gray variables*/
@@ -90,7 +91,7 @@ License        :   Licensed under ThemeForest License
 /*black variables*/
 /*shadow variables*/
 html {
-  font-family: sans-serif;
+  font-family: 'Cairo', sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
@@ -100,13 +101,15 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: 'Cairo', sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
   color: #031b4e;
   text-align: right;
-  background-color: #ecf0fa; }
+  background-color: #ecf0fa;
+
+}
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
@@ -118,10 +121,12 @@ hr {
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
+  font-family: 'Cairo', sans-serif;
   margin-bottom: 0.5rem; }
 
 p {
   margin-top: 0;
+  font-family: 'Cairo', sans-serif;
   margin-bottom: 1rem; }
 
 abbr[title], abbr[data-original-title] {
@@ -138,6 +143,7 @@ address {
 
 ol, ul, dl {
   margin-top: 0;
+  font-family: 'Cairo', sans-serif;
   margin-bottom: 1rem; }
 
 ol ol, ul ul, ol ul, ul ol {
@@ -154,6 +160,7 @@ blockquote {
   margin: 0 0 1rem; }
 
 b, strong {
+  font-family: 'Cairo', sans-serif;
   font-weight: bolder; }
 
 small {
@@ -173,6 +180,7 @@ sup {
 
 a {
   color: #0162e8;
+  font-family: 'Cairo', sans-serif;
   text-decoration: none;
   background-color: transparent; }
   a:hover {
@@ -220,13 +228,16 @@ caption {
   caption-side: bottom; }
 
 th {
+  font-family: 'Cairo', sans-serif;
   text-align: inherit; }
 
 label {
+  font-family: 'Cairo', sans-serif;
   display: inline-block;
   margin-bottom: 0.5rem; }
 
 button {
+  font-family: 'Cairo', sans-serif;
   border-radius: 0; }
   button:focus {
     outline: 1px dotted;
@@ -245,6 +256,7 @@ button {
   text-transform: none; }
 
 select {
+  font-family: 'Cairo', sans-serif;
   text-transform: none;
   word-wrap: normal; }
 
@@ -266,6 +278,7 @@ input[type="date"], input[type="time"], input[type="datetime-local"], input[type
   -webkit-appearance: listbox; }
 
 textarea {
+  font-family: 'Cairo', sans-serif;
   overflow: auto;
   resize: vertical; }
 
@@ -316,6 +329,7 @@ template {
   display: none !important; }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'Cairo', sans-serif;
   margin-bottom: 0.5rem;
   font-weight: 500;
   line-height: 1.2; }
@@ -330,6 +344,7 @@ h3, .h3 {
   font-size: 1.53125rem; }
 
 h4, .h4 {
+  font-family: 'Cairo', sans-serif;
   font-size: 1.3125rem; }
 
 h5, .h5 {
@@ -10178,7 +10193,7 @@ a.close.disabled {
 /* ############### PAGE LAYOUT STYLES ############### */
 /* ###### 6.3 Global  ###### */
 body {
-  font-family: "Roboto", sans-serif; }
+    font-family: 'Cairo', sans-serif; }
 
 .main-body, .main-dashboard {
   min-height: 100vh;
@@ -52541,6 +52556,13 @@ a.text-dark:hover, a.text-dark:focus {
     width: auto !important; } }
 
 .wd-100v {
-  width: 100vw; }
+  width: 100vw;
+}
+.card,.ht-40,.justify-content-between,.row-sm,.sidebar-scroll,.nav-item
+{font-family: 'Cairo', sans-serif;}
+
+
+
+
 
 /*# sourceMappingURL=style.css.map */
