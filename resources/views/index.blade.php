@@ -45,7 +45,7 @@
 								<div class="pb-0 mt-0">
 									<div class="d-flex">
 										<div class="">
-											<h4 class="tx-20 font-weight-bold mb-1 text-white">$5,74.12</h4>
+											<h4 class="tx-20 font-weight-bold mb-1 text-white">{{DB::table('childrens')->count()}}</h4>
 											<p class="mb-0 tx-12 text-white op-7">Compared to last week</p>
 										</div>
 										<span class="float-right my-auto mr-auto">
@@ -67,7 +67,7 @@
 								<div class="pb-0 mt-0">
 									<div class="d-flex">
 										<div class="">
-											<h4 class="tx-20 font-weight-bold mb-1 text-white">$1,230.17</h4>
+											<h4 class="tx-20 font-weight-bold mb-1 text-white">{{number_format(DB::table('financial_operations')->where('status', 0)->sum('amount'),2)}}</h4>
 											<p class="mb-0 tx-12 text-white op-7">Compared to last week</p>
 										</div>
 										<span class="float-right my-auto mr-auto">
@@ -169,12 +169,12 @@
 				</div>
 				<!-- row closed -->
 
-				<!-- row opened -->
+				<!-- row opened 1 -->
 				<div class="row row-sm row-deck">
 					<div class="col-md-12 col-lg-4 col-xl-4">
 						<div class="card card-table-two">
 							<div class="d-flex justify-content-between">
-								<h4 class="card-title mb-1">الجلسات المضافة مؤخرا</h4>
+								<h4 class="card-title mb-1">الواردات المضافة مؤخرا</h4>
 								<i class="mdi mdi-dots-horizontal text-gray"></i>
 							</div>
 							<span class="tx-12 tx-muted mb-3 ">موجز سريع يعرض البيانات الاساسية عن الجلسات المضافة مؤخرا</span>
@@ -182,8 +182,8 @@
 								<table class="table table-striped table-bordered mb-0 text-sm-nowrap text-lg-nowrap text-xl-nowrap">
 									<thead>
 										<tr>
-											<th class="wd-lg-25p tx-right">اسم الطفل</th>
-											<th class="wd-lg-25p tx-right">اسم الاخصائى</th>
+											<th class="wd-lg-25p tx-right">المبلغ</th>
+											<th class="wd-lg-25p tx-right">السبب</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -269,12 +269,12 @@
 				</div>
 				<!-- /row -->
 
-				<!-- row opened -->
+				<!-- row opened 2 -->
 				<div class="row row-sm row-deck">
 					<div class="col-md-12 col-lg-4 col-xl-6">
 						<div class="card card-table-two">
 							<div class="d-flex justify-content-between">
-								<h4 class="card-title mb-1">الجلسات المضافة مؤخرا</h4>
+								<h4 class="card-title mb-1">الصادرات المضافة مؤخرا</h4>
 								<i class="mdi mdi-dots-horizontal text-gray"></i>
 							</div>
 							<span class="tx-12 tx-muted mb-3 ">موجز سريع يعرض البيانات الاساسية عن الجلسات المضافة مؤخرا</span>
@@ -282,8 +282,8 @@
 								<table class="table table-striped table-bordered mb-0 text-sm-nowrap text-lg-nowrap text-xl-nowrap">
 									<thead>
 										<tr>
-											<th class="wd-lg-25p tx-right">اسم الطفل</th>
-											<th class="wd-lg-25p tx-right">اسم الاخصائى</th>
+											<th class="wd-lg-25p tx-right">السبب</th>
+											<th class="wd-lg-25p tx-right">المبلغ</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -315,7 +315,7 @@
 					<div class="col-md-12 col-lg-8 col-xl-6">
 						<div class="card card-table-two">
 							<div class="d-flex justify-content-between">
-								<h4 class="card-title mb-1">الجلسات المضافة مؤخرا</h4>
+								<h4 class="card-title mb-1">الخصومات المضافة مؤخرا</h4>
 								<i class="mdi mdi-dots-horizontal text-gray"></i>
 							</div>
 							<span class="tx-12 tx-muted mb-3 ">موجز سريع يعرض البيانات الاساسية عن الجلسات المضافة مؤخرا</span>
@@ -323,10 +323,9 @@
 								<table class="table table-striped table-bordered mb-0 text-sm-nowrap text-lg-nowrap text-xl-nowrap">
 									<thead>
 										<tr>
-											<th class="wd-lg-25p tx-right">اسم الطفل</th>
-											<th class="wd-lg-25p tx-right">اسم الاخصائى</th>
-											<th class="wd-lg-25p tx-right">تكلفة الجلسة</th>
-											<th class="wd-lg-25p tx-right">ربح المركز</th>
+											<th class="wd-lg-25p tx-right">اسم الموظف</th>
+											<th class="wd-lg-25p tx-right">البملغ</th>
+											<th class="wd-lg-25p tx-right">السبب</th>
 											<th class="wd-lg-25p">التاريخ</th>
 										</tr>
 									</thead>
@@ -374,7 +373,7 @@
 					<div class="col-md-12 col-lg-4 col-xl-4">
 						<div class="card card-table-two">
 							<div class="d-flex justify-content-between">
-								<h4 class="card-title mb-1">الجلسات المضافة مؤخرا</h4>
+								<h4 class="card-title mb-1">الموظفين المضافيين مؤخرا</h4>
 								<i class="mdi mdi-dots-horizontal text-gray"></i>
 							</div>
 							<span class="tx-12 tx-muted mb-3 ">موجز سريع يعرض البيانات الاساسية عن الجلسات المضافة مؤخرا</span>
@@ -382,8 +381,8 @@
 								<table class="table table-striped table-bordered mb-0 text-sm-nowrap text-lg-nowrap text-xl-nowrap">
 									<thead>
 										<tr>
-											<th class="wd-lg-25p tx-right">اسم الطفل</th>
-											<th class="wd-lg-25p tx-right">اسم الاخصائى</th>
+											<th class="wd-lg-25p tx-right">اسم الموظف</th>
+											<th class="wd-lg-25p tx-right">الوظيفة</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -415,7 +414,7 @@
 					<div class="col-md-12 col-lg-4 col-xl-4">
 						<div class="card card-table-two">
 							<div class="d-flex justify-content-between">
-								<h4 class="card-title mb-1">الجلسات المضافة مؤخرا</h4>
+								<h4 class="card-title mb-1">الاطفال المضافيين مؤخرا</h4>
 								<i class="mdi mdi-dots-horizontal text-gray"></i>
 							</div>
 							<span class="tx-12 tx-muted mb-3 ">موجز سريع يعرض البيانات الاساسية عن الجلسات المضافة مؤخرا</span>
@@ -424,7 +423,7 @@
 									<thead>
 										<tr>
 											<th class="wd-lg-25p tx-right">اسم الطفل</th>
-											<th class="wd-lg-25p tx-right">اسم الاخصائى</th>
+											<th class="wd-lg-25p tx-right">التاريخ</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -456,7 +455,7 @@
 					<div class="col-md-12 col-lg-4 col-xl-4">
 						<div class="card card-table-two">
 							<div class="d-flex justify-content-between">
-								<h4 class="card-title mb-1">الجلسات المضافة مؤخرا</h4>
+								<h4 class="card-title mb-1">دفتر غياب اليوم</h4>
 								<i class="mdi mdi-dots-horizontal text-gray"></i>
 							</div>
 							<span class="tx-12 tx-muted mb-3 ">موجز سريع يعرض البيانات الاساسية عن الجلسات المضافة مؤخرا</span>
@@ -464,8 +463,8 @@
 								<table class="table table-striped table-bordered mb-0 text-sm-nowrap text-lg-nowrap text-xl-nowrap">
 									<thead>
 										<tr>
-											<th class="wd-lg-25p tx-right">اسم الطفل</th>
-											<th class="wd-lg-25p tx-right">اسم الاخصائى</th>
+											<th class="wd-lg-25p tx-right">اسم الموظف</th>
+											<th class="wd-lg-25p tx-right">الوظيفة</th>
 										</tr>
 									</thead>
 									<tbody>
