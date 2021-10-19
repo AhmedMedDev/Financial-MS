@@ -91,4 +91,10 @@
 					}
 				})
 			}
+			window.livewire.on('added-successfully', () => {
+				$('#create').modal('hide');
+			})
+			window.livewire.on('updated-successfully', () => {
+				$('#edit').modal('hide');
+			})
 		</script>

@@ -29,7 +29,6 @@
 				@yield('page-header')
 				@yield('content')
 				@include('layouts.sidebar')
-				@include('layouts.models')
             	@include('layouts.footer')
 				
 		@livewireScripts	
