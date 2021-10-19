@@ -45,7 +45,9 @@
 								<div class="pb-0 mt-0">
 									<div class="d-flex">
 										<div class="">
-											<h4 class="tx-20 font-weight-bold mb-1 text-white">{{DB::table('childrens')->count()}}</h4>
+											<h4 class="tx-20 font-weight-bold mb-1 text-white">
+												{{DB::table('childrens')->count()}}
+											</h4>
 											<p class="mb-0 tx-12 text-white op-7">Compared to last week</p>
 										</div>
 										<span class="float-right my-auto mr-auto">
@@ -67,7 +69,9 @@
 								<div class="pb-0 mt-0">
 									<div class="d-flex">
 										<div class="">
-											<h4 class="tx-20 font-weight-bold mb-1 text-white">{{number_format(DB::table('financial_operations')->where('status', 0)->sum('amount'),2)}}</h4>
+											<h4 class="tx-20 font-weight-bold mb-1 text-white">
+												{{number_format(DB::table('financial_operations')->where('status', 0)->sum('amount'),2)}} EGP
+											</h4>
 											<p class="mb-0 tx-12 text-white op-7">Compared to last week</p>
 										</div>
 										<span class="float-right my-auto mr-auto">
@@ -89,7 +93,9 @@
 								<div class="pb-0 mt-0">
 									<div class="d-flex">
 										<div class="">
-											<h4 class="tx-20 font-weight-bold mb-1 text-white">$7,125.70</h4>
+											<h4 class="tx-20 font-weight-bold mb-1 text-white">
+												{{number_format(DB::table('financial_operations')->where('status', 1)->sum('amount'),2)}} EGP
+											</h4>
 											<p class="mb-0 tx-12 text-white op-7">Compared to last week</p>
 										</div>
 										<span class="float-right my-auto mr-auto">
@@ -111,7 +117,9 @@
 								<div class="pb-0 mt-0">
 									<div class="d-flex">
 										<div class="">
-											<h4 class="tx-20 font-weight-bold mb-1 text-white">$4,820.50</h4>
+											<h4 class="tx-20 font-weight-bold mb-1 text-white">
+												{{DB::table('employees')->count()}}
+											</h4>
 											<p class="mb-0 tx-12 text-white op-7">Compared to last week</p>
 										</div>
 										<span class="float-right my-auto mr-auto">
@@ -171,13 +179,14 @@
 
 				<!-- row opened 1 -->
 				<div class="row row-sm row-deck">
+					{{-- الواردات المضافة مؤخرا --}}
 					<div class="col-md-12 col-lg-4 col-xl-4">
 						<div class="card card-table-two">
 							<div class="d-flex justify-content-between">
 								<h4 class="card-title mb-1">الواردات المضافة مؤخرا</h4>
 								<i class="mdi mdi-dots-horizontal text-gray"></i>
 							</div>
-							<span class="tx-12 tx-muted mb-3 ">موجز سريع يعرض البيانات الاساسية عن الجلسات المضافة مؤخرا</span>
+							<span class="tx-12 tx-muted mb-3 ">موجز سريع يعرض البيانات الاساسية عن الواردات المضافة مؤخرا</span>
 							<div class="table-responsive country-table">
 								<table class="table table-striped table-bordered mb-0 text-sm-nowrap text-lg-nowrap text-xl-nowrap">
 									<thead>
@@ -187,31 +196,24 @@
 										</tr>
 									</thead>
 									<tbody>
+										@php
+											$imports = DB::table('financial_operations')
+														->where('status',0)
+            											->orderBy('id', 'desc')
+														->limit(5)->get()
+										@endphp
+										@foreach ($imports as $item)
 										<tr>
-											<td class="tx-right tx-medium tx-inverse">$658.20</td>
-											<td class="tx-right tx-medium tx-danger">-$45.10</td>
+											<td class="tx-right tx-medium tx-success">{{$item->amount}} EGP</td>
+											<td class="tx-right tx-medium tx-inverse">{{$item->reason}}</td>
 										</tr>
-										<tr>
-											<td class="tx-right tx-medium tx-inverse">$453.25</td>
-											<td class="tx-right tx-medium tx-danger">-$15.02</td>
-										</tr>
-										<tr>
-											<td class="tx-right tx-medium tx-inverse">$653.12</td>
-											<td class="tx-right tx-medium tx-danger">-$13.45</td>
-										</tr>
-										<tr>
-											<td class="tx-right tx-medium tx-inverse">$546.47</td>
-											<td class="tx-right tx-medium tx-danger">-$24.22</td>
-										</tr>
-										<tr>
-											<td class="tx-right tx-medium tx-inverse">$425.72</td>
-											<td class="tx-right tx-medium tx-danger">-$25.01</td>
-										</tr>
+										@endforeach
 									</tbody>
 								</table>
 							</div>
 						</div>
 					</div>
+					{{-- الجلسات المضافة مؤخرا --}}
 					<div class="col-md-12 col-lg-8 col-xl-8">
 						<div class="card card-table-two">
 							<div class="d-flex justify-content-between">
@@ -225,52 +227,48 @@
 										<tr>
 											<th class="wd-lg-25p tx-right">اسم الطفل</th>
 											<th class="wd-lg-25p tx-right">اسم الاخصائى</th>
-											<th class="wd-lg-25p tx-right">تكلفة الجلسة</th>
-											<th class="wd-lg-25p tx-right">ربح المركز</th>
+											<th class="wd-lg-15p tx-right">تكلفة الجلسة</th>
+											<th class="wd-lg-15p tx-right">ربح المركز</th>
 											<th class="wd-lg-25p">التاريخ</th>
 										</tr>
 									</thead>
 									<tbody>
+										@php
+											$sessions = DB::table('sessions')
+            											->orderBy('session_id', 'desc')
+														->limit(5)->get()
+										@endphp
+										@foreach ($sessions as $item)
 										<tr>
-											<td>05 Dec 2019</td>
-											<td class="tx-right tx-medium tx-inverse">34</td>
-											<td class="tx-right tx-medium tx-inverse">$658.20</td>
-											<td class="tx-right tx-medium tx-danger">-$45.10</td>
+											<td class="tx-right tx-medium tx-inverse">
+												{{$item->child_name}}	
+											</td>
+											<td class="tx-right tx-medium tx-inverse">
+												{{$item->emp_name}}	
+											</td>
+											<td class="tx-right tx-medium tx-inverse">
+												{{$item->amount}}	
+											</td>
+											<td class="tx-right tx-medium tx-success">
+												{{number_format($item->amount * 1/3, 2)}} EGP
+											</td>
+											<td class="tx-right tx-medium tx-inverse">
+												{{ date('d-M', strtotime($item->date) ) }}	
+											</td>
 										</tr>
-										<tr>
-											<td>06 Dec 2019</td>
-											<td class="tx-right tx-medium tx-inverse">26</td>
-											<td class="tx-right tx-medium tx-inverse">$453.25</td>
-											<td class="tx-right tx-medium tx-danger">-$15.02</td>
-										</tr>
-										<tr>
-											<td>07 Dec 2019</td>
-											<td class="tx-right tx-medium tx-inverse">34</td>
-											<td class="tx-right tx-medium tx-inverse">$653.12</td>
-											<td class="tx-right tx-medium tx-danger">-$13.45</td>
-										</tr>
-										<tr>
-											<td>08 Dec 2019</td>
-											<td class="tx-right tx-medium tx-inverse">45</td>
-											<td class="tx-right tx-medium tx-inverse">$546.47</td>
-											<td class="tx-right tx-medium tx-danger">-$24.22</td>
-										</tr>
-										<tr>
-											<td>09 Dec 2019</td>
-											<td class="tx-right tx-medium tx-inverse">31</td>
-											<td class="tx-right tx-medium tx-inverse">$425.72</td>
-											<td class="tx-right tx-medium tx-danger">-$25.01</td>
-										</tr>
+										@endforeach
 									</tbody>
 								</table>
 							</div>
 						</div>
 					</div>
+					{{--  --}}
 				</div>
 				<!-- /row -->
 
 				<!-- row opened 2 -->
 				<div class="row row-sm row-deck">
+					{{-- الصادرات المضافة مؤخرا --}}
 					<div class="col-md-12 col-lg-4 col-xl-6">
 						<div class="card card-table-two">
 							<div class="d-flex justify-content-between">
@@ -282,36 +280,29 @@
 								<table class="table table-striped table-bordered mb-0 text-sm-nowrap text-lg-nowrap text-xl-nowrap">
 									<thead>
 										<tr>
-											<th class="wd-lg-25p tx-right">السبب</th>
 											<th class="wd-lg-25p tx-right">المبلغ</th>
+											<th class="wd-lg-25p tx-right">السبب</th>
 										</tr>
 									</thead>
 									<tbody>
+										@php
+											$exports = DB::table('financial_operations')
+														->where('status',1)
+            											->orderBy('id', 'desc')
+														->limit(5)->get()
+										@endphp
+										@foreach ($exports as $item)
 										<tr>
-											<td class="tx-right tx-medium tx-inverse">$658.20</td>
-											<td class="tx-right tx-medium tx-danger">-$45.10</td>
+											<td class="tx-right tx-medium tx-danger">{{number_format($item->amount, 2)}} EGP</td>
+											<td class="tx-right tx-medium tx-inverse">{{$item->reason}}</td>
 										</tr>
-										<tr>
-											<td class="tx-right tx-medium tx-inverse">$453.25</td>
-											<td class="tx-right tx-medium tx-danger">-$15.02</td>
-										</tr>
-										<tr>
-											<td class="tx-right tx-medium tx-inverse">$653.12</td>
-											<td class="tx-right tx-medium tx-danger">-$13.45</td>
-										</tr>
-										<tr>
-											<td class="tx-right tx-medium tx-inverse">$546.47</td>
-											<td class="tx-right tx-medium tx-danger">-$24.22</td>
-										</tr>
-										<tr>
-											<td class="tx-right tx-medium tx-inverse">$425.72</td>
-											<td class="tx-right tx-medium tx-danger">-$25.01</td>
-										</tr>
+										@endforeach
 									</tbody>
 								</table>
 							</div>
 						</div>
 					</div>
+					{{-- الخصومات المضافة مؤخرا --}}
 					<div class="col-md-12 col-lg-8 col-xl-6">
 						<div class="card card-table-two">
 							<div class="d-flex justify-content-between">
@@ -330,36 +321,26 @@
 										</tr>
 									</thead>
 									<tbody>
+										@php
+											$deductions = DB::table('salary_changes_emp')
+        										->where('status', 0)->orderBy('change_id', 'desc')->get();
+										@endphp	
+										@foreach ($deductions as $item)
 										<tr>
-											<td>05 Dec 2019</td>
-											<td class="tx-right tx-medium tx-inverse">34</td>
-											<td class="tx-right tx-medium tx-inverse">$658.20</td>
-											<td class="tx-right tx-medium tx-danger">-$45.10</td>
+											<td class="tx-right tx-medium tx-inverse">
+												{{$item->name}}
+											</td>
+											<td class="tx-right tx-medium tx-danger">
+												{{number_format($item->amount, 2)}} EGP
+											</td>
+											<td class="tx-right tx-medium tx-inverse">
+												{{$item->reason}}
+											</td>
+											<td class="tx-right tx-medium tx-inverse">
+												{{ date('d-M', strtotime($item->date)) }}
+											</td>
 										</tr>
-										<tr>
-											<td>06 Dec 2019</td>
-											<td class="tx-right tx-medium tx-inverse">26</td>
-											<td class="tx-right tx-medium tx-inverse">$453.25</td>
-											<td class="tx-right tx-medium tx-danger">-$15.02</td>
-										</tr>
-										<tr>
-											<td>07 Dec 2019</td>
-											<td class="tx-right tx-medium tx-inverse">34</td>
-											<td class="tx-right tx-medium tx-inverse">$653.12</td>
-											<td class="tx-right tx-medium tx-danger">-$13.45</td>
-										</tr>
-										<tr>
-											<td>08 Dec 2019</td>
-											<td class="tx-right tx-medium tx-inverse">45</td>
-											<td class="tx-right tx-medium tx-inverse">$546.47</td>
-											<td class="tx-right tx-medium tx-danger">-$24.22</td>
-										</tr>
-										<tr>
-											<td>09 Dec 2019</td>
-											<td class="tx-right tx-medium tx-inverse">31</td>
-											<td class="tx-right tx-medium tx-inverse">$425.72</td>
-											<td class="tx-right tx-medium tx-danger">-$25.01</td>
-										</tr>
+										@endforeach
 									</tbody>
 								</table>
 							</div>
@@ -368,8 +349,9 @@
 				</div>
 				<!-- /row -->
 
-				<!-- row opened -->
+				<!-- row opened 3 -->
 				<div class="row row-sm">
+					{{-- الموظفين المضافيين مؤخرا --}}
 					<div class="col-md-12 col-lg-4 col-xl-4">
 						<div class="card card-table-two">
 							<div class="d-flex justify-content-between">
@@ -386,31 +368,23 @@
 										</tr>
 									</thead>
 									<tbody>
+										@php
+											$employees = DB::table('employees')
+															->orderByDesc('id')
+															->limit(5)->get()
+										@endphp
+										@foreach ($employees as $item)
 										<tr>
-											<td class="tx-right tx-medium tx-inverse">$658.20</td>
-											<td class="tx-right tx-medium tx-danger">-$45.10</td>
+											<td class="tx-right tx-medium tx-inverse">{{$item->name}}</td>
+											<td class="tx-right tx-medium tx-inverse">{{$item->position}}</td>
 										</tr>
-										<tr>
-											<td class="tx-right tx-medium tx-inverse">$453.25</td>
-											<td class="tx-right tx-medium tx-danger">-$15.02</td>
-										</tr>
-										<tr>
-											<td class="tx-right tx-medium tx-inverse">$653.12</td>
-											<td class="tx-right tx-medium tx-danger">-$13.45</td>
-										</tr>
-										<tr>
-											<td class="tx-right tx-medium tx-inverse">$546.47</td>
-											<td class="tx-right tx-medium tx-danger">-$24.22</td>
-										</tr>
-										<tr>
-											<td class="tx-right tx-medium tx-inverse">$425.72</td>
-											<td class="tx-right tx-medium tx-danger">-$25.01</td>
-										</tr>
+										@endforeach
 									</tbody>
 								</table>
 							</div>
 						</div>
 					</div>
+					{{-- الاطفال المضافيين مؤخرا --}}
 					<div class="col-md-12 col-lg-4 col-xl-4">
 						<div class="card card-table-two">
 							<div class="d-flex justify-content-between">
@@ -427,31 +401,22 @@
 										</tr>
 									</thead>
 									<tbody>
+										@php
+											$childrens = DB::table('childrens')
+														->orderByDesc('id')->get()
+										@endphp	
+										@foreach ($childrens as $item)
 										<tr>
-											<td class="tx-right tx-medium tx-inverse">$658.20</td>
-											<td class="tx-right tx-medium tx-danger">-$45.10</td>
+											<td class="tx-right tx-medium tx-inverse">{{$item->child_name}}</td>
+											<td class="tx-right tx-medium tx-inverse">{{$item->date}}</td>
 										</tr>
-										<tr>
-											<td class="tx-right tx-medium tx-inverse">$453.25</td>
-											<td class="tx-right tx-medium tx-danger">-$15.02</td>
-										</tr>
-										<tr>
-											<td class="tx-right tx-medium tx-inverse">$653.12</td>
-											<td class="tx-right tx-medium tx-danger">-$13.45</td>
-										</tr>
-										<tr>
-											<td class="tx-right tx-medium tx-inverse">$546.47</td>
-											<td class="tx-right tx-medium tx-danger">-$24.22</td>
-										</tr>
-										<tr>
-											<td class="tx-right tx-medium tx-inverse">$425.72</td>
-											<td class="tx-right tx-medium tx-danger">-$25.01</td>
-										</tr>
+										@endforeach
 									</tbody>
 								</table>
 							</div>
 						</div>
 					</div>
+					{{-- دفتر غياب اليوم --}}
 					<div class="col-md-12 col-lg-4 col-xl-4">
 						<div class="card card-table-two">
 							<div class="d-flex justify-content-between">
@@ -468,26 +433,17 @@
 										</tr>
 									</thead>
 									<tbody>
+										@php
+											$employees = DB::table('absences')
+														->orderByDesc('date')
+														->limit(5)->get()
+										@endphp
+										@foreach ($employees as $item)
 										<tr>
-											<td class="tx-right tx-medium tx-inverse">$658.20</td>
-											<td class="tx-right tx-medium tx-danger">-$45.10</td>
+											<td class="tx-right tx-medium tx-inverse">{{$item->name}}</td>
+											<td class="tx-right tx-medium tx-inverse">{{$item->position}}</td>
 										</tr>
-										<tr>
-											<td class="tx-right tx-medium tx-inverse">$453.25</td>
-											<td class="tx-right tx-medium tx-danger">-$15.02</td>
-										</tr>
-										<tr>
-											<td class="tx-right tx-medium tx-inverse">$653.12</td>
-											<td class="tx-right tx-medium tx-danger">-$13.45</td>
-										</tr>
-										<tr>
-											<td class="tx-right tx-medium tx-inverse">$546.47</td>
-											<td class="tx-right tx-medium tx-danger">-$24.22</td>
-										</tr>
-										<tr>
-											<td class="tx-right tx-medium tx-inverse">$425.72</td>
-											<td class="tx-right tx-medium tx-danger">-$25.01</td>
-										</tr>
+										@endforeach
 									</tbody>
 								</table>
 							</div>
