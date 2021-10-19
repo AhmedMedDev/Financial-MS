@@ -28,7 +28,7 @@
 					{{--  --}}
 					<li class="slide">
 						<a class="side-menu__item" href="{{ url('/' . $page='attendance') }}">
-							<i class="typcn typcn-edit side-menu__icon"></i>
+							<i class="fas fa-address-book side-menu__icon"></i>
 							<span class="side-menu__label center_vertically">دفتر الحضور</span>
 						</a>
 					</li>
