@@ -1,23 +1,19 @@
 @extends('layouts.master')
 
 @section('page-header')
-				<!-- breadcrumb -->
-				<div class="breadcrumb-header justify-content-between">
-					<div class="my-auto">
-						<div class="d-flex">
-							<h4 class="content-title mb-0 my-auto">الموظفين</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ فارغ</span>
-						</div>
-					</div>
-					<div class="d-flex my-xl-auto right-content">
-						<div class="pr-1 mb-3 mb-xl-0">
-							<a class="modal-effect btn btn-success-gradient btn-with-icon btn-block" href="{{url('create-employee')}}"><i class="typcn typcn-edit"></i> Create</a>
-						</div>
-						<div class="pr-1 mb-3 mb-xl-0">
-							<button class="btn btn-danger-gradient btn-with-icon btn-block"><i class="las la-trash"></i> Delete All</button>
-						</div>
-					</div>
+			<div class="my-auto">
+				<div class="d-flex">
+					<h4 class="content-title mb-0 my-auto">الموظفين</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ فارغ</span>
 				</div>
-				<!-- breadcrumb -->
+			</div>
+			<div class="d-flex my-xl-auto right-content">
+				<div class="pr-1 mb-3 mb-xl-0">
+					<a class="modal-effect btn btn-success-gradient btn-with-icon btn-block" href="{{url('create-employee')}}"><i class="typcn typcn-edit"></i> Create</a>
+				</div>
+				<div class="pr-1 mb-3 mb-xl-0">
+					<button class="btn btn-danger-gradient btn-with-icon btn-block"><i class="las la-trash"></i> Delete All</button>
+				</div>
+			</div>
 @endsection
 @section('content')
 				<!-- row -->
@@ -71,7 +67,7 @@
 													<th scope="row">{{$employee->id}}</th>
 													<td>{{$employee->name}}</td>
 													<td>
-														<img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="http://127.0.0.1:8000/assets/img/photos/1.jpg">
+														<img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="{{asset('assets/img/photos/1.jpg')}}">
 													</td>
 													<td>{{$employee->position}}</td>
 													<td>{{$employee->phone}}</td>
@@ -79,10 +75,10 @@
 													<td>{{$employee->start_date}}</td>
 													<td>
 														<a href="{{url("employees/$employee->id/edit")}}" class="btn btn-md btn-info-gradient mg-t-2" >
-															<i class="las la-pen"></i>
+															<i class="fas fa-pen"></i>
 														</a>
 														<button class="btn btn-md btn-danger-gradient mg-t-2" onclick="confirmDelete('deleteEmp{{$employee->id}}')">
-															<i class="las la-trash"></i>
+															<i class="fas fa-trash-alt"></i>
 														</button>
 													</td>
 													<form action="{{url("employees/$employee->id")}}" method="post" id="deleteEmp{{$employee->id}}">

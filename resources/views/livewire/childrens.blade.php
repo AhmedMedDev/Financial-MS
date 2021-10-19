@@ -32,7 +32,7 @@
                                 <th scope="row">{{$item->id}}</th>
                                 <td>{{$item->child_name}}</td>
                                 <td>
-                                    <img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="http://127.0.0.1:8000/assets/img/photos/1.jpg">
+                                    <img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="{{asset('assets/img/photos/1.jpg')}}">
                                 </td>
                                 <td>{{$item->parent}}</td>
                                 <td>{{$item->phone}}</td>
@@ -40,10 +40,10 @@
                                 <td>{{$item->notes}}</td>
                                 <td>
                                     <button class="btn btn-md btn-info-gradient" data-toggle="modal" data-target="#edit" wire:click.prevent="edit({{$item->id}})">
-                                        <i class="las la-pen"></i>
+                                        <i class="fas fa-pen"></i>
                                     </button>
                                     <a href="#" class="btn btn-md btn-danger-gradient" wire:click.prevent="confirmDelete({{$item->id}})">
-                                        <i class="las la-trash"></i>
+                                        <i class="fas fa-trash-alt"></i>
                                     </a>
                                 </td>
                             </tr>

@@ -25,7 +25,7 @@
                     <tr>
                         <th scope="row">{{$item->employee_id}}</th>
                         <td>
-                            <img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="http://127.0.0.1:8000/assets/img/photos/1.jpg">
+                            <img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="{{asset('assets/img/photos/1.jpg')}}">
                         </td>
                         <td>{{$item->name}}</td>
                         <td>{{$item->total_delay}}</td>

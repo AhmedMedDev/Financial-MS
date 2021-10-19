@@ -34,13 +34,13 @@
                             <td>{{$item->date}}</td>
                             <td>
                                 <a href="#" class="btn btn-md btn-primary-gradient">
-                                    <i class="typcn typcn-briefcase"></i>
+                                    <i class="fas fa-print"></i>
                                 </a>
                                 <button class="btn btn-md btn-info-gradient" data-toggle="modal" data-target="#edit" wire:click.prevent="edit({{$item->id}})">
-                                    <i class="las la-pen"></i>
+                                    <i class="fas fa-pen"></i>
                                 </button>
                                 <a href="#" class="btn btn-md btn-danger-gradient" wire:click.prevent="confirmDelete({{$item->id}})">
-                                    <i class="las la-trash"></i>
+                                    <i class="fas fa-trash-alt"></i>
                                 </a>
                             </td>
                         </tr>

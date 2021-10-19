@@ -30,7 +30,7 @@
                         <tr>
                             <th scope="row">{{$item->change_id}}</th>
                             <td>
-                                <img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="http://127.0.0.1:8000/assets/img/photos/1.jpg">
+                                <img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="{{asset('assets/img/photos/1.jpg')}}">
                             </td>
                             <td>{{$item->name}}</td>
                             <td>{{$item->amount}}</td>
@@ -38,13 +38,13 @@
                             <td>{{$item->date}}</td>
                             <td>
                                 <a href="#" class="btn btn-md btn-primary-gradient">
-                                    <i class="typcn typcn-briefcase"></i>
+                                    <i class="fas fa-print"></i>
                                 </a>
                                 <button class="btn btn-md btn-info-gradient" data-toggle="modal" data-target="#edit" wire:click.prevent="edit({{$item->change_id}})">
-                                    <i class="las la-pen"></i>
+                                    <i class="fas fa-pen"></i>
                                 </button>
                                 <a href="#" class="btn btn-md btn-danger-gradient" wire:click.prevent="confirmDelete({{$item->change_id}})">
-                                    <i class="las la-trash"></i>
+                                    <i class="fas fa-trash-alt"></i>
                                 </a>
                             </td>
                         </tr>

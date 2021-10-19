@@ -27,7 +27,12 @@
 			@include('layouts.main-header')			
 			<!-- container -->
 			<div class="container-fluid">
-				@yield('page-header')
+				<!-- breadcrumb -->
+				<div class="breadcrumb-header justify-content-between">
+					@yield('page-header')
+				</div>
+				<!-- breadcrumb -->
+				
 				@yield('content')
 				@include('layouts.sidebar')
             	@include('layouts.footer')

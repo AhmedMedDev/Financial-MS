@@ -33,9 +33,13 @@
 
 
 <style>
-    .center_vertically
-    {
+    .center_vertically {
         position: relative;
         bottom: -6px;
+    }
+    @media(max-width:990px){
+        .center_vertically {
+            left: -12px;
+        }
     }
 </style>
