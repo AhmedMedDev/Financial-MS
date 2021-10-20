@@ -31,15 +31,4 @@
 <!---Skinmodes css-->
 <link href="{{URL::asset('assets/css-rtl/skin-modes.css')}}" rel="stylesheet">
 
-
-<style>
-    .center_vertically {
-        position: relative;
-        bottom: -6px;
-    }
-    @media(max-width:990px){
-        .center_vertically {
-            left: -12px;
-        }
-    }
-</style>
+<link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
