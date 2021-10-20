@@ -67,3 +67,7 @@ input:checked + .slider:before {
       left: -12px;
   }
 }
+
+.modal-footer {
+  justify-content: flex-start !important;
+}
