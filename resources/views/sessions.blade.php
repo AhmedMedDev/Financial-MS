@@ -6,7 +6,7 @@
 				<span class="text-muted mt-1 tx-13 mr-2 mb-0">/ فارغ</span>
 			</div>
 		</div>
-		@include('layouts.page-header2')
+		@include('layouts.page-header')
 @endsection
 @section('content')
 		<!-- row -->
