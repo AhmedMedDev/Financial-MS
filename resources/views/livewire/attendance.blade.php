@@ -28,8 +28,8 @@
                         </td>
                         <td>{{$item->name}}</td>
                         <td>
-                            <label class="switch" onclick="$(this).find('input').addClass('on')">
-                                <input type="checkbox" id="is_attende{{$item->id}}">
+                            <label class="switch" >
+                                <input type="checkbox" id="is_attende{{$item->id}}" onclick="$(this).toggleClass('on')">
                                 <span class="slider round"></span>
                             </label>
                         </td>

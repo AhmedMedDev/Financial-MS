@@ -190,13 +190,13 @@
 									<tbody>
 										@php
 											$imports = DB::table('financial_operations')
-														->where('status',0)
+														->where('status',1)
             											->orderBy('id', 'desc')
 														->limit(5)->get()
 										@endphp
 										@foreach ($imports as $item)
 										<tr>
-											<td class="tx-right tx-medium tx-success">{{$item->amount}} EGP</td>
+											<td class="tx-right tx-medium tx-success">{{number_format($item->amount, 2)}} EGP</td>
 											<td class="tx-right tx-medium tx-inverse">{{$item->reason}}</td>
 										</tr>
 										@endforeach
@@ -279,7 +279,7 @@
 									<tbody>
 										@php
 											$exports = DB::table('financial_operations')
-														->where('status',1)
+														->where('status',0)
             											->orderBy('id', 'desc')
 														->limit(5)->get()
 										@endphp
@@ -315,7 +315,9 @@
 									<tbody>
 										@php
 											$deductions = DB::table('salary_changes_emp')
-        										->where('status', 0)->orderBy('change_id', 'desc')->get();
+        										->where('status', 0)
+												->orderBy('change_id', 'desc')
+												->limit(5)->get();
 										@endphp	
 										@foreach ($deductions as $item)
 										<tr>
@@ -395,7 +397,8 @@
 									<tbody>
 										@php
 											$childrens = DB::table('childrens')
-														->orderByDesc('id')->get()
+														->orderByDesc('id')
+														->limit(5)->get()
 										@endphp	
 										@foreach ($childrens as $item)
 										<tr>
