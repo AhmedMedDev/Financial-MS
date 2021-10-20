@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2021 at 12:40 PM
+-- Generation Time: Oct 19, 2021 at 08:03 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -31,6 +31,7 @@ CREATE TABLE `absences` (
 `employee_id` bigint(20) unsigned
 ,`avatar` varchar(150)
 ,`name` varchar(50)
+,`position` varchar(50)
 ,`day_price` int(11)
 ,`salary` float
 ,`date` date
@@ -93,7 +94,9 @@ INSERT INTO `attendance_lists` (`id`, `employee_id`, `is_attende`, `delay_min`, 
 (34, 53, 0, 0, '2021-10-16 00:39:36'),
 (35, 55, 1, 66, '2021-10-16 00:40:57'),
 (36, 54, 1, 50, '2021-10-16 00:40:59'),
-(37, 52, 1, 0, '2021-10-17 10:34:10');
+(37, 52, 1, 0, '2021-10-17 10:34:10'),
+(38, 52, 1, 0, '2021-10-19 00:17:57'),
+(39, 53, 1, 0, '2021-10-19 00:51:33');
 
 -- --------------------------------------------------------
 
@@ -240,7 +243,8 @@ INSERT INTO `financial_operations` (`id`, `amount`, `client`, `reason`, `status`
 (81, 96, 'Thane Nelson', 'received salary 10', 0, '2021-10-15 20:43:31'),
 (82, 6248, 'Alana Greenholt', 'received salary 10', 0, '2021-10-15 20:49:56'),
 (83, 55, 'اخر', 'ششش', 0, '2021-10-16 02:32:51'),
-(84, 5601.75, 'Gregg Russel', 'received salary 10', 0, '2021-10-17 12:37:06');
+(84, 5601.75, 'Gregg Russel', 'received salary 10', 0, '2021-10-17 12:37:06'),
+(85, 86, 'Ipsam dolor qui unde', 'Ut harum culpa rerum', 1, '2021-10-18 14:19:55');
 
 -- --------------------------------------------------------
 
@@ -263,7 +267,10 @@ CREATE TABLE `individual_sessions` (
 --
 
 INSERT INTO `individual_sessions` (`id`, `children_id`, `employee_id`, `amount`, `remaining`, `date`) VALUES
-(6, 15, 52, 5626, 0, '2021-10-15 15:14:51');
+(6, 15, 52, 5626, 0, '2021-10-15 15:14:51'),
+(7, 16, 67, 11, 59, '2021-10-18 12:11:27'),
+(8, 15, 56, 53, 74, '2021-10-19 00:28:23'),
+(9, 16, 52, 27, 89, '2021-10-19 00:32:08');
 
 -- --------------------------------------------------------
 
@@ -353,7 +360,9 @@ INSERT INTO `salary_changes` (`id`, `employee_id`, `amount`, `reason`, `date`, `
 (44, 54, 219, 'aaaaaa', '2021-10-15 18:11:44', 1),
 (45, 56, -122, 'delay deduction for 10', '2021-10-15 18:13:18', 0),
 (46, 52, -4, 'absences deductions for 2021-10-16', '2021-10-17 10:36:26', 0),
-(47, 54, -91.25, 'delay deduction for 10', '2021-10-17 10:36:44', 0);
+(47, 54, -91.25, 'delay deduction for 10', '2021-10-17 10:36:44', 0),
+(48, 56, 25, 'Porro eos reprehend', '2021-10-19 00:18:06', 1),
+(49, 58, 32, 'Temporibus mollit ha', '2021-10-19 00:28:02', 1);
 
 -- --------------------------------------------------------
 
@@ -440,7 +449,7 @@ CREATE TABLE `users` (
 --
 DROP TABLE IF EXISTS `absences`;
 
-CREATE VIEW `absences`  AS  select `employees`.`id` AS `employee_id`,`employees`.`avatar` AS `avatar`,`employees`.`name` AS `name`,`employees`.`day_price` AS `day_price`,`employees`.`salary` AS `salary`,cast(`attendance_lists`.`date` as date) AS `date`,`attendance_lists`.`month` AS `month`,`attendance_lists`.`time` AS `time` from (`employees` join `attendance_lists` on(`employees`.`id` = `attendance_lists`.`employee_id`)) where `attendance_lists`.`is_attende` = 0 and `attendance_lists`.`month` = month(curdate()) and !(`attendance_lists`.`employee_id` in (select `absences_deductions`.`employee_id` from `absences_deductions` where `absences_deductions`.`date` = cast(`attendance_lists`.`date` as date))) ;
+CREATE VIEW `absences`  AS  select `employees`.`id` AS `employee_id`,`employees`.`avatar` AS `avatar`,`employees`.`name` AS `name`,`employees`.`position` AS `position`,`employees`.`day_price` AS `day_price`,`employees`.`salary` AS `salary`,cast(`attendance_lists`.`date` as date) AS `date`,`attendance_lists`.`month` AS `month`,`attendance_lists`.`time` AS `time` from (`employees` join `attendance_lists` on(`employees`.`id` = `attendance_lists`.`employee_id`)) where `attendance_lists`.`is_attende` = 0 and `attendance_lists`.`month` = month(curdate()) and !(`attendance_lists`.`employee_id` in (select `absences_deductions`.`employee_id` from `absences_deductions` where `absences_deductions`.`date` = cast(`attendance_lists`.`date` as date))) ;
 
 -- --------------------------------------------------------
 
@@ -594,7 +603,7 @@ ALTER TABLE `absences_deductions`
 -- AUTO_INCREMENT for table `attendance_lists`
 --
 ALTER TABLE `attendance_lists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `childrens`
@@ -624,13 +633,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `financial_operations`
 --
 ALTER TABLE `financial_operations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `individual_sessions`
 --
 ALTER TABLE `individual_sessions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -648,7 +657,7 @@ ALTER TABLE `salaries_received`
 -- AUTO_INCREMENT for table `salary_changes`
 --
 ALTER TABLE `salary_changes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `users`
