@@ -28,12 +28,13 @@
                         </td>
                         <td>{{$item->name}}</td>
                         <td>
-                            <div class="main-toggle main-toggle-success on" id="is_attende{{$item->id}}">
-                                <span></span>
-                            </div>
+                            <label class="switch" onclick="$(this).find('input').addClass('on')">
+                                <input type="checkbox" id="is_attende{{$item->id}}">
+                                <span class="slider round"></span>
+                            </label>
                         </td>
                         <td>
-                            <input type="number" class="form-control" id="delay_min{{$item->id}}" name="delay_min" placeholder="Mins" value="0">
+                            <input type="number" class="form-control" id="delay_min{{$item->id}}" name="delay_min" placeholder="ادخل عدد الدقائق" >
                         </td>
                         <td>
                             <button class="btn btn-success-gradient btn-block" onclick="saveAttendance({{$item->id}})">تسجيل</button>
@@ -45,50 +46,3 @@
         </div><!-- bd -->
     </div><!-- bd -->
 </div>
-<script>
-
-
-
-function saveAttendance (empID)
-{
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
-    var is_attende = ($(`#is_attende${empID}`).hasClass('on')) ? 1 : 0
-    var delay_min = $(`#delay_min${empID}`).val()
-    var employee_id = empID
-
-    $.ajax({
-        method : "POST",
-        url  : "attendance_lists",
-        data  : {employee_id, is_attende, delay_min},
-        cache:false,
-        success: function (data) {
-            if(data.status)
-            {
-                Swal.fire(
-					'Good job!',
-					'You clicked the button!',
-					'success'
-				)
-                // Delete From display
-                $(`#attendance${empID}`).slideUp(600,function () {
-                    $(`#attendance${empID}`).remove();
-                });
-            }
-        },
-        error: function (data) {
-            console.log('Error:', data);
-            Swal.fire(
-                'Oops...',
-                'Something went wrong!',
-                'error'
-            )
-        }
-    })
-
-}
-</script>

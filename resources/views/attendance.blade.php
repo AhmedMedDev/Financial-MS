@@ -7,6 +7,7 @@
 			</div>
 		</div>
 		@include('layouts.page-header2')
+
 @endsection
 @section('content')
 		<!-- row -->
