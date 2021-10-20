@@ -29,12 +29,12 @@
                         <td>{{$item->name}}</td>
                         <td>
                             <label class="switch" >
-                                <input type="checkbox" id="is_attende{{$item->id}}" onclick="$(this).toggleClass('on')">
+                                <input type="checkbox" id="is_attende{{$item->id}}" onclick="toggleActive({{$item->id}})">
                                 <span class="slider round"></span>
                             </label>
                         </td>
                         <td>
-                            <input type="number" class="form-control" id="delay_min{{$item->id}}" name="delay_min" placeholder="ادخل عدد الدقائق" >
+                            <input type="number" class="form-control" id="delay_min{{$item->id}}" name="delay_min" placeholder="ادخل عدد الدقائق" disabled>
                         </td>
                         <td>
                             <button class="btn btn-success-gradient btn-block" onclick="saveAttendance({{$item->id}})">تسجيل</button>

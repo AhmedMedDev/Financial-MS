@@ -1,5 +1,17 @@
-function saveAttendance (empID)
-{
+
+
+function toggleActive (empID) {
+
+    $(`#is_attende${empID}`).toggleClass('on')
+
+    $(`#delay_min${empID}`).prop('disabled',!$(`#delay_min${empID}`).prop('disabled'))
+
+    if ($(`#delay_min${empID}`).prop('disabled')) $(`#delay_min${empID}`).val('')
+}
+
+
+function saveAttendance (empID) {
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
