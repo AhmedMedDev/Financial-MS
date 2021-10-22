@@ -43,6 +43,8 @@ class Sessions extends Component
         try{    
             $this->validate();
 
+            session()->flash('Start-Loading', 'Loading');
+
             DB::table('individual_sessions')->insert([
                 'children_id'   => $this->children_id,
                 'employee_id'   => $this->employee_id,
@@ -53,10 +55,12 @@ class Sessions extends Component
 
             $this->resetFields();
 
+            session()->forget('Start-Loading');
             $this->emit('added-successfully');
             $this->emit('Success-Alert');
             
         } catch (\Exception $ex) {
+            session()->forget('Start-Loading');
             $this->emit('added-successfully');
             $this->emit('Error-Alert');
         }
@@ -79,6 +83,7 @@ class Sessions extends Component
     {
         try{ 
             $this->validate();
+            session()->flash('Start-Loading', 'Loading');
 
             DB::table('individual_sessions')
             ->where('id', $this->ids)
@@ -91,10 +96,12 @@ class Sessions extends Component
 
             $this->resetFields();
 
+            session()->forget('Start-Loading');
             $this->emit('updated-successfully');
             $this->emit('Toast-Alert');
 
         } catch (\Exception $ex) {
+            session()->forget('Start-Loading');
             $this->emit('updated-successfully');
             $this->emit('Error-Alert');
         }

@@ -24,10 +24,10 @@
   </div>
   {{--  --}}
   <div class="form-group">
-    <label for="amount">رقم الايصال <span class="tx-danger">*</span></label>
-    <input type="text" class="form-control @error('reason') is-invalid @enderror" id="reason" wire:model="reason">
-    @error('reason') <span class="error text-danger">{{ $message }}</span> @enderror
-</div>
+    <label for="receipt">رقم الايصال <span class="tx-danger">*</span></label>
+    <input type="number" class="form-control @error('receipt') is-invalid @enderror" id="receipt" wire:model="receipt">
+    @error('receipt') <span class="error text-danger">{{ $message }}</span> @enderror
+  </div>
   {{--  --}}
   <div class="form-group">
       <div class="row row-sm">

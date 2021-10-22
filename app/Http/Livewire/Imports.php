@@ -14,11 +14,13 @@ class Imports extends Component
     public $client;
     public $amount;
     public $reason;
+    public $receipt;
 
     protected $rules = [
         'amount'      => 'required',
         'client'      => 'required',
         'reason'      => 'required',
+        'receipt'     => 'required',
     ];
 
     public function updated($propertyName)
@@ -30,20 +32,24 @@ class Imports extends Component
     {
         try{    
             $this->validate();
+            session()->flash('Start-Loading', 'Loading');
 
             DB::table('financial_operations')->insert([
                 'amount' => $this->amount,
                 'client' => $this->client,
                 'reason' => $this->reason,
+                'receipt' => $this->receipt,
                 'status' => 1,
             ]);
 
             $this->resetFields();
 
+            session()->forget('Start-Loading');
             $this->emit('added-successfully');
             $this->emit('Success-Alert');
             
         } catch (\Exception $ex) {
+            session()->forget('Start-Loading');
             $this->emit('added-successfully');
             $this->emit('Error-Alert');
         }
@@ -54,6 +60,7 @@ class Imports extends Component
         $this->amount   = '';
         $this->client   = '';
         $this->reason   = '';
+        $this->receipt  = '';
     }
 
     public function edit ($id)
@@ -64,12 +71,14 @@ class Imports extends Component
         $this->amount   = $export->amount;
         $this->client   = $export->client;
         $this->reason   = $export->reason;
+        $this->receipt  = $export->receipt;
     }
 
     public function update ()
     {
         try{ 
             $this->validate();
+            session()->flash('Start-Loading', 'Loading');
 
             DB::table('financial_operations')
             ->where('id', $this->ids)
@@ -77,14 +86,17 @@ class Imports extends Component
                 'amount' => $this->amount,
                 'client' => $this->client,
                 'reason' => $this->reason,
+                'receipt'=> $this->receipt,
             ]);
 
             $this->resetFields();
 
+            session()->forget('Start-Loading');
             $this->emit('updated-successfully');
             $this->emit('Toast-Alert');
 
         } catch (\Exception $ex) {
+            session()->forget('Start-Loading');
             $this->emit('updated-successfully');
             $this->emit('Error-Alert');
         }

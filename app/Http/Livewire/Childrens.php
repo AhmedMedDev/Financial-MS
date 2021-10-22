@@ -38,6 +38,11 @@ class Childrens extends Component
         'rank_of_bro'       => 'required',
     ];
 
+    public function __construct()
+    {
+        $this->date = date('Y-m-d', strtotime(now()));
+    }
+
     public function resetFields ()
     {
         $this->child_name       = '';
@@ -63,6 +68,7 @@ class Childrens extends Component
     {
         try{    
             $this->validate();
+            session()->flash('Start-Loading', 'Loading');
 
             DB::table('childrens')->insert([
                 'child_name'        => $this->child_name,
@@ -80,10 +86,12 @@ class Childrens extends Component
 
             $this->resetFields();
 
+            session()->forget('Start-Loading');
             $this->emit('added-successfully');
             $this->emit('Success-Alert');
             
         } catch (\Exception $ex) {
+            session()->forget('Start-Loading');
             $this->emit('added-successfully');
             $this->emit('Error-Alert');
         }
@@ -111,6 +119,7 @@ class Childrens extends Component
     {
         try{ 
             $this->validate();
+            session()->flash('Start-Loading', 'Loading');
 
             DB::table('childrens')
             ->where('id', $this->ids)
@@ -130,10 +139,12 @@ class Childrens extends Component
 
             $this->resetFields();
 
+            session()->forget('Start-Loading');
             $this->emit('updated-successfully');
             $this->emit('Toast-Alert');
 
         } catch (\Exception $ex) {
+            session()->forget('Start-Loading');
             $this->emit('updated-successfully');
             $this->emit('Error-Alert');
         }
