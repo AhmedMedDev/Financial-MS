@@ -71,3 +71,18 @@ input:checked + .slider:before {
 .modal-footer {
   justify-content: flex-start !important;
 }
+.hidden {
+  display: none;
+}
+@media (max-width: 574px){
+  .responsive-logo .logo-2 {
+    dispLay: none;
+  }
+  .custome-close-nav{
+    display: block;
+    position: absolute;
+    right: 27px;
+    top: 8px;
+    z-index: 99;
+  }
+}
