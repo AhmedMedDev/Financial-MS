@@ -29,7 +29,7 @@
                         <tr>
                             <th scope="row">{{$item->id}}</th>
                             <td>{{$item->client}}</td>
-                            <td>{{$item->amount}}</td>
+                            <td>{{number_format($item->amount, 2)}} EGP</td>
                             <td>{{$item->reason}}</td>
                             <td>{{ date('d-M', strtotime($item->date)) }}</td>
                             <td>

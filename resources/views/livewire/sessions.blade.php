@@ -33,7 +33,7 @@
                             </th>
                             <td>{{$item->child_name}}</td>
                             <td>{{$item->emp_name}}</td>
-                            <td>{{$item->amount}}$</td>
+                            <td>{{number_format($item->amount, 2)}} EGP</td>
                             <td>{{$item->remaining}}</td>
                             <td>{{ date('d-M', strtotime($item->date)) }}</td>
                             <td>

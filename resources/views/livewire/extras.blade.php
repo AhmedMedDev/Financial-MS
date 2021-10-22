@@ -33,7 +33,7 @@
                                 <img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="{{asset('assets/img/photos/1.jpg')}}">
                             </td>
                             <td>{{$item->name}}</td>
-                            <td>{{$item->amount}}</td>
+                            <td>{{number_format($item->amount, 2)}} EGP</td>
                             <td>{{$item->reason}}</td>
                             <td>{{ date('d-M', strtotime($item->date)) }}</td>
                             <td>

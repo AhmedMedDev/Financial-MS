@@ -34,7 +34,7 @@
 
                                 if ($day == 'Thursday' || $day == 'Sunday') $amount *= 2;
                             @endphp
-                            {{$amount}}
+                            {{number_format($amount, 2)}} EGP
                         </td>
                         <td>{{ date('d-M', strtotime($item->date)) }}</td>
                         <td>
