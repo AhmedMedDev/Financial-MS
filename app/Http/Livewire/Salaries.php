@@ -8,6 +8,7 @@ use Livewire\Component;
 class Salaries extends Component
 {
     public $salaries;
+    public $receipt;
     public $month;
 
     public function receivedSalary ($employee_id, $employee_name, $finalsalary, $month) 
@@ -37,7 +38,7 @@ class Salaries extends Component
 
     public function render()
     {
-        $this->month = DB::select('SELECT MONTH(CURDATE()) AS curMonth')[0]->curMonth ;
+        $this->month = date('m',strtotime(now()));
         $this->salaries = DB::table('salaries')->get();
         return view('livewire.salaries');
     }

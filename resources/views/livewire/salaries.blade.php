@@ -19,12 +19,13 @@
                         <th>اجمالى المضاف</th>
                         <th>المرتب الكلى</th>
                         <th>لشهر</th>
+                        <th>رقم الايصال</th>
                         <th>اجراءات</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($salaries as $item)
-                    <tr>
+                    <tr id="salary{{$item->employee_id}}">
                         <th scope="row">{{$item->employee_id}}</th>
                         <td>
                             <img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="{{asset('assets/img/photos/1.jpg')}}">
@@ -41,7 +42,10 @@
                          </td>
                         <td> {{$month}} </td>
                         <td>
-                            <button class="btn btn-info-gradient btn-block" wire:click.prevent="receivedSalary({{$item->employee_id}},'{{$item->name}}',{{$finalsalary}}, {{$month}})">تم استلام المرتب</button>
+                            <input type="number" class="form-control" name="receipt" placeholder="ادخل عدد الايصال" id="receipt{{$item->employee_id}}">
+                        </td>
+                        <td>
+                            <button class="btn btn-info-gradient btn-block" onclick="receivedSalary({{$item->employee_id}},'{{$item->name}}',{{$finalsalary}}, {{$month}})">تم استلام المرتب</button>
                         </td>
                     </tr>
                     @endforeach

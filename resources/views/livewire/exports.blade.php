@@ -27,7 +27,7 @@
                     <tbody>
                         @foreach ($exports as $item)
                         <tr>
-                            <th scope="row">{{$item->id}}</th>
+                            <th scope="row">{{$item->receipt}}</th>
                             <td>{{$item->client}}</td>
                             <td>{{number_format($item->amount, 2)}} EGP</td>
                             <td>{{$item->reason}}</td>
