@@ -30,7 +30,7 @@
                         <td>{{$item->name}}</td>
                         <td>{{$item->total_delay}}</td>
                         <td> 
-                            {{$amount = ($item->total_delay / 120 ) * $item->day_price }}
+                            {{ number_format($amount = ($item->total_delay / 120 ) * $item->day_price, 2) }}
                         </td>
                         <td>{{$item->month}}</td>
                         <td>

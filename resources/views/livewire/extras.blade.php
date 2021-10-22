@@ -35,11 +35,8 @@
                             <td>{{$item->name}}</td>
                             <td>{{$item->amount}}</td>
                             <td>{{$item->reason}}</td>
-                            <td>{{$item->date}}</td>
+                            <td>{{ date('d-M', strtotime($item->date)) }}</td>
                             <td>
-                                <a href="#" class="btn btn-md btn-primary-gradient">
-                                    <i class="fas fa-print"></i>
-                                </a>
                                 <button class="btn btn-md btn-info-gradient" data-toggle="modal" data-target="#edit" wire:click.prevent="edit({{$item->change_id}})">
                                     <i class="fas fa-pen"></i>
                                 </button>

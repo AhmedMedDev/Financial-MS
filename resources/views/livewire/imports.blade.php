@@ -31,7 +31,7 @@
                             <td>{{$item->client}}</td>
                             <td>{{$item->amount}}</td>
                             <td>{{$item->reason}}</td>
-                            <td>{{$item->date}}</td>
+                            <td>{{ date('d-M', strtotime($item->date)) }}</td>
                             <td>
                                 <a href="#" class="btn btn-md btn-primary-gradient">
                                     <i class="fas fa-print"></i>

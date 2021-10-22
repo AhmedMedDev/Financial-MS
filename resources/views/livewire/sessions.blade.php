@@ -35,7 +35,7 @@
                             <td>{{$item->emp_name}}</td>
                             <td>{{$item->amount}}$</td>
                             <td>{{$item->remaining}}</td>
-                            <td>{{$item->date}}</td>
+                            <td>{{ date('d-M', strtotime($item->date)) }}</td>
                             <td>
                                 <button class="btn btn-md btn-info-gradient" data-toggle="modal" data-target="#edit" wire:click.prevent="edit({{$item->session_id}})">
                                     <i class="fas fa-pen"></i>

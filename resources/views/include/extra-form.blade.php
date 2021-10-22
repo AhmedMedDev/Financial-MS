@@ -1,6 +1,6 @@
 {{-- Employee --}}
 <div class="form-group">
-    <label for="amount">اسم الموظف</label>
+    <label for="amount">اسم الموظف <span class="tx-danger">*</span></label>
     <select wire:model="employee_id" class="custom-select" id="inlineFormCustomSelectPref">
       <option selected>Choose...</option>
       @foreach (DB::table('employees')->orderByDesc('id')->get() as $item)
@@ -11,14 +11,14 @@
   </div>
   {{-- Amount --}}
   <div class="form-group">
-      <label for="amount">البملغ</label>
-      <input type="number" class="form-control" id="amount" wire:model="amount">
+      <label for="amount">البملغ <span class="tx-danger">*</span></label>
+      <input type="number" class="form-control @error('amount') is-invalid @enderror" id="amount" wire:model="amount">
       @error('amount') <span class="error text-danger">{{ $message }}</span> @enderror
   </div>
   {{-- Reason --}}
   <div class="form-group">
-      <label for="amount">السبب</label>
-      <input type="text" class="form-control" id="reason" wire:model="reason">
+      <label for="amount">السبب <span class="tx-danger">*</span></label>
+      <input type="text" class="form-control @error('reason') is-invalid @enderror" id="reason" wire:model="reason">
       @error('reason') <span class="error text-danger">{{ $message }}</span> @enderror
   </div>
   {{-- Date --}}
@@ -27,7 +27,7 @@
           <div class="input-group col-md-12">
               <div class="input-group-prepend">
                   <div class="input-group-text">
-                      <i class="typcn typcn-calendar-outline tx-24 lh--9 op-6"></i>
+                    <i class="far fa-clock tx-24 lh--9 op-6"></i>
                   </div>
               </div>
               <input class="form-control" id="datetimepicker2" type="text" placeholder="YY-MM-DD: TIME">

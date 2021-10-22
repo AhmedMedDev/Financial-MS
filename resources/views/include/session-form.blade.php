@@ -1,6 +1,6 @@
 {{-- Children --}}
 <div class="form-group">
-    <label for="amount">اسم الطفل</label>
+    <label for="amount">اسم الطفل <span class="tx-danger">*</span></label>
     <select wire:model="children_id" class="custom-select" id="inlineFormCustomSelectPref">
       <option selected>Choose...</option>
       @foreach (DB::table('childrens')->orderByDesc('id')->get() as $item)
@@ -11,7 +11,7 @@
 </div>
 {{-- Employee --}}
 <div class="form-group">
-  <label for="amount">اسم الموظف</label>
+  <label for="amount">اسم الموظف <span class="tx-danger">*</span></label>
   <select wire:model="employee_id" class="custom-select" id="inlineFormCustomSelectPref">
     <option selected>Choose...</option>
     @foreach (DB::table('employees')->orderByDesc('id')->get() as $item)
@@ -22,14 +22,14 @@
 </div>
 {{-- Cost --}}
 <div class="form-group">
-  <label for="amount">قيمة الجلسة</label>
-  <input type="number" class="form-control" id="amount" wire:model="amount">
+  <label for="amount">قيمة الجلسة <span class="tx-danger">*</span></label>
+  <input type="number" class="form-control @error('amount') is-invalid @enderror" id="amount" wire:model="amount">
     @error('amount') <span class="error text-danger">{{ $message }}</span> @enderror
 </div>
 {{-- Remaining --}}
 <div class="form-group">
-  <label for="amount">الباقى</label>
-  <input type="number" class="form-control" id="remaining" wire:model="remaining">
+  <label for="amount">الباقى <span class="tx-danger">*</span></label>
+  <input type="number" class="form-control @error('remaining') is-invalid @enderror" id="remaining" wire:model="remaining">
     @error('remaining') <span class="error text-danger">{{ $message }}</span> @enderror
 </div>
 {{--  Date --}}
@@ -38,7 +38,7 @@
         <div class="input-group col-md-12">
             <div class="input-group-prepend">
                 <div class="input-group-text">
-                    <i class="typcn typcn-calendar-outline tx-24 lh--9 op-6"></i>
+                  <i class="far fa-clock tx-24 lh--9 op-6"></i>
                 </div>
             </div>
             <input class="form-control" id="datetimepicker2" type="text" placeholder="YY-MM-DD: TIME">
