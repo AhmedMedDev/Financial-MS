@@ -12,7 +12,7 @@
 </div>
 {{--  --}}
 <div class="form-group">
-    <label for="amount">السبب <span class="tx-danger">*</span></label>
+    <label for="amount">المقابل <span class="tx-danger">*</span></label>
     <input type="text" class="form-control @error('reason') is-invalid @enderror" id="reason" wire:model="reason">
     @error('reason') <span class="error text-danger">{{ $message }}</span> @enderror
 </div>

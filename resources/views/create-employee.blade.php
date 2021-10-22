@@ -62,6 +62,7 @@
 												</span>
 											@enderror
 										</div>
+
 										{{-- Email --}}
 										<div class="form-group">
 											<label>Employee's Email</label>
@@ -72,6 +73,7 @@
 												</span>
 											@enderror
 										</div>
+
 										{{-- sart_date--}}
                                         <div class="form-group">
 											<label>Employee's sart date</label>
@@ -90,6 +92,7 @@
 												</span>
 											@enderror
 										</div>
+
 										{{-- Avatar --}}
 										<div class="col-sm-12 col-md-8">
 											<input type="file" class="dropify" data-height="200" name="avatar"/>
@@ -99,6 +102,7 @@
 												</span>
 											@enderror
 										</div>
+										
 									</div>
 									<button type="submit" class="btn btn-primary mt-3 mb-0">Submit</button>
 								</form>
