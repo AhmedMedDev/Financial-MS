@@ -135,13 +135,13 @@ class Childrens extends Component
             ]);
 
             $this->resetFields();
-            $this->emit('Success-Alert');
+            $this->emit('Toast-Alert');
             
         } catch (\Exception $ex) {
             $this->emit('Error-Alert');
         }
 
-        $this->emit('added-successfully');
+        $this->emit('updated-successfully');
     }
 
     function confirmDelete ($id)
