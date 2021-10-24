@@ -102,9 +102,9 @@ class Employees extends Component
 
     public function update ()
     {
-        try{ 
-            $this->validate();
+        $this->validate();
 
+        try{    
             DB::table('employees')
             ->where('id', $this->ids)
             ->update([
@@ -120,14 +120,13 @@ class Employees extends Component
             ]);
 
             $this->resetFields();
-
-            $this->emit('updated-successfully');
             $this->emit('Toast-Alert');
-
+            
         } catch (\Exception $ex) {
-            $this->emit('updated-successfully');
             $this->emit('Error-Alert');
         }
+
+        $this->emit('updated-successfully');
     }
 
     function confirmDelete ($id)

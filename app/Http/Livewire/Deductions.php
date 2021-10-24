@@ -71,10 +71,9 @@ class Deductions extends Component
 
     public function update ()
     {
-        try{ 
-            $this->validate();
-            session()->flash('Start-Loading', 'Loading');
+        $this->validate();
 
+        try{    
             DB::table('salary_changes')
             ->where('id', $this->ids)
             ->update([
@@ -84,16 +83,13 @@ class Deductions extends Component
             ]);
 
             $this->resetFields();
-
-            session()->forget('Start-Loading');
-            $this->emit('updated-successfully');
             $this->emit('Toast-Alert');
-
+            
         } catch (\Exception $ex) {
-            session()->forget('Start-Loading');
-            $this->emit('updated-successfully');
             $this->emit('Error-Alert');
         }
+
+        $this->emit('updated-successfully');
     }
 
     function confirmDelete ($id)

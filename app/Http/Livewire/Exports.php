@@ -77,10 +77,9 @@ class Exports extends Component
 
     public function update ()
     {
-        try{ 
-            $this->validate();
-            session()->flash('Start-Loading', 'Loading');
+        $this->validate();
 
+        try{    
             DB::table('financial_operations')
             ->where('id', $this->ids)
             ->update([
@@ -91,16 +90,13 @@ class Exports extends Component
             ]);
 
             $this->resetFields();
-
-            session()->forget('Start-Loading');
-            $this->emit('added-successfully');
-            $this->emit('Success-Alert');
+            $this->emit('Toast-Alert');
             
         } catch (\Exception $ex) {
-            session()->forget('Start-Loading');
-            $this->emit('added-successfully');
             $this->emit('Error-Alert');
         }
+
+        $this->emit('updated-successfully');
     }
 
     function confirmDelete ($id)
