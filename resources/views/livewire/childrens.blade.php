@@ -16,8 +16,8 @@
                 <table wire:ignore.self class="table text-md-nowrap" id="">{{-- example1 --}}
                     <thead>
                         <tr>
-                            <th>صورة الطفل</th>
                             <th>اسم الطفل</th>
+                            {{-- <th>صورة الطفل</th> --}}
                             <th>ولى الامر</th>
                             <th>الهاتف</th>
                             <th>تاريخ الالتحاق</th>
@@ -35,12 +35,12 @@
                         @foreach ($childrens as $item)
                             <tr>
                                 <td scope="row">{{$item->child_name}}</td>
-                                <td>
+                                {{-- <td>
                                     <img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="{{asset('assets/img/photos/1.jpg')}}">
-                                </td>
+                                </td> --}}
                                 <td>{{$item->parent}}</td>
                                 <td>{{$item->phone}}</td>
-                                <td>{{$item->date}}</td>
+                                <td>{{ date('M-d', strtotime($item->date)) }}</td>
                                 <td>{{$item->date_of_birth}}</td>
                                 <td>{{$item->nationality}}</td>
                                 <td>{{$item->gender}}</td>
@@ -49,12 +49,7 @@
                                 <td>{{$item->rank_of_bro}}</td>
                                 <td>{{$item->notes}}</td>
                                 <td>
-                                    <button class="btn btn-md btn-info-gradient" data-toggle="modal" data-target="#edit" wire:click.prevent="edit({{$item->id}})">
-                                        <i class="fas fa-pen"></i>
-                                    </button>
-                                    <a href="#" class="btn btn-md btn-danger-gradient" wire:click.prevent="confirmDelete({{$item->id}})">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </a>
+                                    @include('include.operations')
                                 </td>
                             </tr>
                         @endforeach

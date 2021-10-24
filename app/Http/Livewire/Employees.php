@@ -32,7 +32,7 @@ class Employees extends Component
         'qualification'    => 'required',
         'phone'            => 'required',
         'salary'           => 'required|integer',
-        'email'            => 'email',
+        'email'            => 'nullable|email',
         'start_date'       => 'required|date',
         'date_of_birth'    => 'required|date',
         // 'avatar'           => 'required|image',

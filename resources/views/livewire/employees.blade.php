@@ -43,12 +43,7 @@
                                 <td>{{$employee->salary}}</td>
                                 <td>{{$employee->start_date}}</td>
                                 <td>
-                                    <button class="btn btn-md btn-info-gradient" data-toggle="modal" data-target="#edit" wire:click.prevent="edit({{$employee->id}})">
-                                        <i class="fas fa-pen"></i>
-                                    </button>
-                                    <a href="#" class="btn btn-md btn-danger-gradient" wire:click.prevent="confirmDelete({{$employee->id}})">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </a>
+                                    @include('include.operations')
                                 </td>
                             </tr>
                         @endforeach

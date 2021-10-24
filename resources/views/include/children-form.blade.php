@@ -31,7 +31,10 @@
   {{-- gender--}}
   <div class="form-group">
     <label for="gender">النوع  <span class="tx-danger">*</span></label>
-    <input type="text" class="form-control @error('gender') is-invalid @enderror" wire:model="gender"></input>
+    <select class="custom-select  @error('gender') is-invalid @enderror" id="inlineFormCustomSelectPref" wire:model="gender" >
+        <option selected value="ذكر" > ذكر</option>
+        <option value="انثى" > انثى</option>
+    </select>
     @error('gender') <span class="error text-danger">{{ $message }}</span> @enderror
   </div>
   {{-- nationality--}}
@@ -43,7 +46,10 @@
   {{-- religion--}}
   <div class="form-group">
     <label for="religion">الديانة  <span class="tx-danger">*</span></label>
-    <input type="text" class="form-control @error('religion') is-invalid @enderror" wire:model="religion"></input>
+    <select class="custom-select  @error('religion') is-invalid @enderror" id="inlineFormCustomSelectPref" wire:model="religion">
+      <option selected value="مسلم" > مسلم</option>
+      <option value="مسيحى" > مسيحى</option>
+    </select>
     @error('religion') <span class="error text-danger">{{ $message }}</span> @enderror
   </div>
   {{-- num_of_bro--}}

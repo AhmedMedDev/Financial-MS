@@ -41,6 +41,8 @@ class Childrens extends Component
     public function __construct()
     {
         $this->date = date('Y-m-d', strtotime(now()));
+        $this->gender = 'ذكر';
+        $this->religion = 'مسلم';
     }
 
     public function resetFields ()
@@ -50,11 +52,11 @@ class Childrens extends Component
         $this->parent           = '';
         $this->phone            = '';
         $this->notes            = '';
-        $this->date             = '';
+        // $this->date             = '';
         $this->date_of_birth    = '';
-        $this->gender           = '';
+        // $this->gender           = '';
         $this->nationality      = '';
-        $this->religion         = '';
+        // $this->religion         = '';
         $this->num_of_bro       = '';
         $this->rank_of_bro      = '';
     }
@@ -66,10 +68,9 @@ class Childrens extends Component
 
     public function store ()
     {
-        try{    
-            $this->validate();
-            session()->flash('Start-Loading', 'Loading');
+        $this->validate();
 
+        try{    
             DB::table('childrens')->insert([
                 'child_name'        => $this->child_name,
                 'parent'            => $this->parent,
@@ -85,16 +86,13 @@ class Childrens extends Component
             ]);
 
             $this->resetFields();
-
-            session()->forget('Start-Loading');
-            $this->emit('added-successfully');
             $this->emit('Success-Alert');
             
         } catch (\Exception $ex) {
-            session()->forget('Start-Loading');
-            $this->emit('added-successfully');
             $this->emit('Error-Alert');
         }
+
+        $this->emit('added-successfully');
     }
 
     public function edit ($id)

@@ -36,12 +36,7 @@
                                 <a href="#" class="btn btn-md btn-primary-gradient">
                                     <i class="fas fa-print"></i>
                                 </a>
-                                <button class="btn btn-md btn-info-gradient" data-toggle="modal" data-target="#edit" wire:click.prevent="edit({{$item->id}})">
-                                    <i class="fas fa-pen"></i>
-                                </button>
-                                <a href="#" class="btn btn-md btn-danger-gradient" wire:click.prevent="confirmDelete({{$item->id}})">
-                                    <i class="fas fa-trash-alt"></i>
-                                </a>
+                                @include('include.operations')
                             </td>
                         </tr>
                         @endforeach

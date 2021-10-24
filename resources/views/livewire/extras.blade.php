@@ -37,12 +37,7 @@
                             <td>{{$item->reason}}</td>
                             <td>{{ date('d-M', strtotime($item->date)) }}</td>
                             <td>
-                                <button class="btn btn-md btn-info-gradient" data-toggle="modal" data-target="#edit" wire:click.prevent="edit({{$item->change_id}})">
-                                    <i class="fas fa-pen"></i>
-                                </button>
-                                <a href="#" class="btn btn-md btn-danger-gradient" wire:click.prevent="confirmDelete({{$item->change_id}})">
-                                    <i class="fas fa-trash-alt"></i>
-                                </a>
+                                @include('include.operations')
                             </td>
                         </tr>
                         @endforeach

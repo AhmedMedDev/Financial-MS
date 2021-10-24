@@ -93,3 +93,11 @@ function receivedSalary (employee_id, name, finalsalary, month) {
     })
 
 }
+
+function startLoading () 
+{
+    $('.modal-footer').html(`<div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+</div>`)
+
+}
