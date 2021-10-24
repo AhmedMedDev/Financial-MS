@@ -115,10 +115,9 @@ class Childrens extends Component
 
     public function update ()
     {
-        try{ 
-            $this->validate();
-            session()->flash('Start-Loading', 'Loading');
+        $this->validate();
 
+        try{    
             DB::table('childrens')
             ->where('id', $this->ids)
             ->update([
@@ -136,16 +135,13 @@ class Childrens extends Component
             ]);
 
             $this->resetFields();
-
-            session()->forget('Start-Loading');
-            $this->emit('updated-successfully');
-            $this->emit('Toast-Alert');
-
+            $this->emit('Success-Alert');
+            
         } catch (\Exception $ex) {
-            session()->forget('Start-Loading');
-            $this->emit('updated-successfully');
             $this->emit('Error-Alert');
         }
+
+        $this->emit('added-successfully');
     }
 
     function confirmDelete ($id)
