@@ -14,12 +14,19 @@ class Extras extends Component
     public $employee_id;
     public $amount;
     public $reason;
+    public $date;
 
     protected $rules = [
         'employee_id' => 'required',
         'amount'      => 'required',
         'reason'      => 'required',
+        'date'        => 'date',
     ];
+
+    public function __construct()
+    {
+        $this->date = date('Y-m-d', strtotime(now()));
+    }
 
     public function updated($propertyName)
     {
@@ -35,6 +42,7 @@ class Extras extends Component
                 'employee_id'   => $this->employee_id,
                 'amount'        => $this->amount,
                 'reason'        => $this->reason,
+                'date'          => $this->date,
                 'status'        => 1,
             ]);
 
@@ -63,6 +71,7 @@ class Extras extends Component
         $this->employee_id  = $extra->employee_id;
         $this->amount       = $extra->amount;
         $this->reason       = $extra->reason;
+        $this->date         = date('Y-m-d', strtotime($extra->date));
     }
 
     public function update ()
@@ -76,6 +85,7 @@ class Extras extends Component
                 'employee_id'   => $this->employee_id,
                 'amount'        => $this->amount,
                 'reason'        => $this->reason,
+                'date'          => $this->date,
             ]);
 
             $this->resetFields();

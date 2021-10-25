@@ -14,12 +14,19 @@ class Deductions extends Component
     public $employee_id;
     public $amount;
     public $reason;
+    public $date;
 
     protected $rules = [
         'employee_id' => 'required',
         'amount'      => 'required',
         'reason'      => 'required',
+        'date'        => 'date',
     ];
+
+    public function __construct()
+    {
+        $this->date = date('Y-m-d', strtotime(now()));
+    }
 
     public function updated($propertyName)
     {
@@ -35,6 +42,7 @@ class Deductions extends Component
                 'employee_id'   => $this->employee_id,
                 'amount'        => -$this->amount,
                 'reason'        => $this->reason,
+                'date'          => $this->date,
                 'status'        => 0,
             ]);
 
@@ -76,6 +84,7 @@ class Deductions extends Component
                 'employee_id'   => $this->employee_id,
                 'amount'        => $this->amount,
                 'reason'        => $this->reason,
+                'date'          => $this->date,
             ]);
 
             $this->resetFields();

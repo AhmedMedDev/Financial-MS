@@ -1,7 +1,7 @@
 {{--  --}}
 <div class="form-group">
     <label for="amount">اسم العميل <span class="tx-danger">*</span></label>
-    <input type="text" class="form-control @error('employee') is-invalid @enderror" id="employee" wire:model="client">
+    <input type="text" class="form-control @error('client') is-invalid @enderror" id="employee" wire:model="client">
     @error('client') <span class="error text-danger">{{ $message }}</span> @enderror
 </div>
 {{--  --}}
@@ -22,17 +22,10 @@
     <input type="number" class="form-control @error('receipt') is-invalid @enderror" id="receipt" wire:model="receipt">
     @error('receipt') <span class="error text-danger">{{ $message }}</span> @enderror
 </div>
-{{--  --}}
+{{-- date--}}
 <div class="form-group">
-    <div class="row row-sm">
-        <div class="input-group col-md-12">
-            <div class="input-group-prepend">
-                <div class="input-group-text">
-                    <i class="far fa-clock tx-24 lh--9 op-6"></i>
-                </div>
-            </div>
-            <input class="form-control" id="datetimepicker2" type="text" placeholder="YY-MM-DD: TIME">
-        </div>
-    </div>
+    <label for="date">التاريخ</label>
+    <input type="text" class="form-control @error('date') is-invalid @enderror" wire:model="date" placeholder="YY-MM-DD"></input>
+    @error('date') <span class="error text-danger">{{ $message }}</span> @enderror
 </div>
 {{--  --}}

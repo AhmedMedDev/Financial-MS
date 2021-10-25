@@ -16,13 +16,20 @@ class Exports extends Component
     public $amount;
     public $reason;
     public $receipt;
+    public $date;
 
     protected $rules = [
         'amount'      => 'required',
         'client'      => 'required',
         'reason'      => 'required',
         'receipt'     => 'required',
+        'date'        => 'date',
     ];
+
+    public function __construct()
+    {
+        $this->date = date('Y-m-d', strtotime(now()));
+    }
 
     public function updated($propertyName)
     {
@@ -39,6 +46,7 @@ class Exports extends Component
                 'client'    => $this->client,
                 'reason'    => $this->reason,
                 'receipt'   => $this->receipt,
+                'date'      => $this->date,
                 'status'    => 0,
             ]);
 
@@ -64,11 +72,12 @@ class Exports extends Component
     {
         $export = DB::table('financial_operations')->where('id', $id)->first();
 
-        $this->ids = $export->id;
-        $this->amount = $export->amount;
-        $this->client = $export->client;
-        $this->reason = $export->reason;
-        $this->receipt = $export->receipt;
+        $this->ids          = $export->id;
+        $this->amount       = $export->amount;
+        $this->client       = $export->client;
+        $this->reason       = $export->reason;
+        $this->receipt      = $export->receipt;
+        $this->date         = date('Y-m-d', strtotime($export->date));
     }
 
     public function update ()
@@ -83,6 +92,7 @@ class Exports extends Component
                 'client'    => $this->client,
                 'reason'    => $this->reason,
                 'receipt'   => $this->receipt,
+                'date'      => $this->date,
             ]);
 
             $this->resetFields();

@@ -104,7 +104,7 @@ class Childrens extends Component
         $this->parent         = $children->parent;
         $this->phone          = $children->phone;
         $this->notes          = $children->notes;
-        $this->date           = $children->date;
+        $this->date           = date('Y-m-d', strtotime($children->date));
         $this->date_of_birth  = $children->date_of_birth;
         $this->gender         = $children->gender;
         $this->nationality    = $children->nationality;

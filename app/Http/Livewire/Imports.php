@@ -15,13 +15,20 @@ class Imports extends Component
     public $amount;
     public $reason;
     public $receipt;
+    public $date;
 
     protected $rules = [
         'amount'      => 'required',
         'client'      => 'required',
         'reason'      => 'required',
         'receipt'     => 'required',
+        'date'        => 'date',
     ];
+
+    public function __construct()
+    {
+        $this->date = date('Y-m-d', strtotime(now()));
+    }
 
     public function updated($propertyName)
     {
@@ -34,11 +41,12 @@ class Imports extends Component
 
         try{    
             DB::table('financial_operations')->insert([
-                'amount' => $this->amount,
-                'client' => $this->client,
-                'reason' => $this->reason,
-                'receipt' => $this->receipt,
-                'status' => 1,
+                'amount'    => $this->amount,
+                'client'    => $this->client,
+                'reason'    => $this->reason,
+                'receipt'   => $this->receipt,
+                'date'      => $this->date,
+                'status'    => 1,
             ]);
 
             $this->resetFields();
@@ -68,6 +76,7 @@ class Imports extends Component
         $this->client   = $export->client;
         $this->reason   = $export->reason;
         $this->receipt  = $export->receipt;
+        $this->date         = date('Y-m-d', strtotime($export->date));
     }
 
     public function update ()
@@ -78,10 +87,11 @@ class Imports extends Component
             DB::table('financial_operations')
             ->where('id', $this->ids)
             ->update([
-                'amount' => $this->amount,
-                'client' => $this->client,
-                'reason' => $this->reason,
-                'receipt'=> $this->receipt,
+                'amount'    => $this->amount,
+                'client'    => $this->client,
+                'reason'    => $this->reason,
+                'receipt'   => $this->receipt,
+                'date'      => $this->date,
             ]);
 
             $this->resetFields();

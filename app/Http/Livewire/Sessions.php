@@ -22,7 +22,13 @@ class Sessions extends Component
         'employee_id' => 'required',
         'amount'      => 'required',
         'remaining'   => 'required',
+        'date'        => 'date',
     ];
+
+    public function __construct()
+    {
+        $this->date = date('Y-m-d', strtotime(now()));
+    }
 
     public function updated($propertyName)
     {
@@ -35,7 +41,6 @@ class Sessions extends Component
         $this->children_id      = '';
         $this->amount           = '';
         $this->remaining        = '';
-        $this->date             = '';
     }
 
     public function store ()
@@ -48,7 +53,7 @@ class Sessions extends Component
                 'employee_id'   => $this->employee_id,
                 'amount'        => $this->amount,
                 'remaining'     => $this->remaining,
-                // 'date'          => $this->date,
+                'date'          => $this->date,
             ]);
 
             $this->resetFields();
@@ -71,7 +76,7 @@ class Sessions extends Component
         $this->employee_id      = $sessions->employee_id;
         $this->amount           = $sessions->amount;
         $this->remaining        = $sessions->remaining;
-        // $this->date             = $sessions->date;
+        $this->date             = date('Y-m-d', strtotime($sessions->date));
     }
 
     public function update ()
@@ -86,6 +91,7 @@ class Sessions extends Component
                 'children_id'  => $this->children_id,
                 'amount'       => $this->amount,
                 'remaining'    => $this->remaining,
+                'date'         => $this->date,
             ]);
 
             $this->resetFields();
