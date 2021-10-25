@@ -12,6 +12,7 @@ class Absences extends Component
     public function deductionFromSalary ($employee_id, $amount, $date, $month) 
     {
         try{    
+            // test pull
             // Store at salary_changes
            DB::table('salary_changes')->insert([
                'employee_id'   => $employee_id,
