@@ -28,9 +28,9 @@
                             <img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="{{asset('assets/img/photos/1.jpg')}}">
                         </td>
                         <td>{{$item->name}}</td>
-                        <td>{{$item->total_delay}}</td>
+                        <td>{{$item->total_delay}} دقيقة</td>
                         <td> 
-                            {{$amount = ($item->total_delay / 120 ) * $item->day_price }}
+                            {{ number_format($amount = ($item->total_delay / 120 ) * $item->day_price, 2) }} EGP
                         </td>
                         <td>{{$item->month}}</td>
                         <td>

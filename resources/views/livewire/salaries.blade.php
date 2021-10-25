@@ -19,24 +19,33 @@
                         <th>اجمالى المضاف</th>
                         <th>المرتب الكلى</th>
                         <th>لشهر</th>
+                        <th>رقم الايصال</th>
                         <th>اجراءات</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($salaries as $item)
-                    <tr>
+                    <tr id="salary{{$item->employee_id}}">
                         <th scope="row">{{$item->employee_id}}</th>
                         <td>
                             <img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="{{asset('assets/img/photos/1.jpg')}}">
                         </td>
                         <td>{{$item->name}}</td>
-                        <td>{{$item->main_salary}}</td>
-                        <td>{{$item->total_deduction}}</td>
-                        <td>{{$item->total_extra}}</td>
-                        <td>{{ $finalsalary = $item->main_salary + $item->total_extra + $item->total_deduction}}</td>
+                        <td>{{number_format($item->main_salary, 2)}} EGP</td>
+                        <td>{{number_format($item->total_deduction, 2)}} EGP</td>
+                        <td>{{number_format($item->total_extra, 2)}} EGP</td>
+                        <td>
+                            @php
+                                $finalsalary = $item->main_salary + $item->total_extra + $item->total_deduction
+                            @endphp
+                            {{number_format($finalsalary, 2)}} EGP
+                         </td>
                         <td> {{$month}} </td>
                         <td>
-                            <button class="btn btn-info-gradient btn-block" wire:click.prevent="receivedSalary({{$item->employee_id}},'{{$item->name}}',{{$finalsalary}}, {{$month}})">تم استلام المرتب</button>
+                            <input type="number" class="form-control" name="receipt" placeholder="ادخل عدد الايصال" id="receipt{{$item->employee_id}}">
+                        </td>
+                        <td>
+                            <button class="btn btn-info-gradient btn-block" onclick="receivedSalary({{$item->employee_id}},'{{$item->name}}',{{$finalsalary}}, {{$month}})">تم استلام المرتب</button>
                         </td>
                     </tr>
                     @endforeach

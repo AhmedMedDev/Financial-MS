@@ -33,19 +33,11 @@
                                 <img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="{{asset('assets/img/photos/1.jpg')}}">
                             </td>
                             <td>{{$item->name}}</td>
-                            <td>{{$item->amount}}</td>
+                            <td>{{number_format($item->amount, 2)}} EGP</td>
                             <td>{{$item->reason}}</td>
-                            <td>{{$item->date}}</td>
+                            <td>{{ date('d-M', strtotime($item->date)) }}</td>
                             <td>
-                                <a href="#" class="btn btn-md btn-primary-gradient">
-                                    <i class="fas fa-print"></i>
-                                </a>
-                                <button class="btn btn-md btn-info-gradient" data-toggle="modal" data-target="#edit" wire:click.prevent="edit({{$item->change_id}})">
-                                    <i class="fas fa-pen"></i>
-                                </button>
-                                <a href="#" class="btn btn-md btn-danger-gradient" wire:click.prevent="confirmDelete({{$item->change_id}})">
-                                    <i class="fas fa-trash-alt"></i>
-                                </a>
+                                @include('include.operations', ['id' => 'change_id'])
                             </td>
                         </tr>
                         @endforeach

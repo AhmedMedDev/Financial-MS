@@ -22,7 +22,13 @@ class Sessions extends Component
         'employee_id' => 'required',
         'amount'      => 'required',
         'remaining'   => 'required',
+        'date'        => 'date',
     ];
+
+    public function __construct()
+    {
+        $this->date = date('Y-m-d', strtotime(now()));
+    }
 
     public function updated($propertyName)
     {
@@ -35,31 +41,29 @@ class Sessions extends Component
         $this->children_id      = '';
         $this->amount           = '';
         $this->remaining        = '';
-        $this->date             = '';
     }
 
     public function store ()
     {
-        try{    
-            $this->validate();
+        $this->validate();
 
+        try{    
             DB::table('individual_sessions')->insert([
                 'children_id'   => $this->children_id,
                 'employee_id'   => $this->employee_id,
                 'amount'        => $this->amount,
                 'remaining'     => $this->remaining,
-                // 'date'          => $this->date,
+                'date'          => $this->date,
             ]);
 
             $this->resetFields();
-
-            $this->emit('added-successfully');
             $this->emit('Success-Alert');
             
         } catch (\Exception $ex) {
-            $this->emit('added-successfully');
             $this->emit('Error-Alert');
         }
+
+        $this->emit('added-successfully');
     }
 
     public function edit ($id)
@@ -72,14 +76,14 @@ class Sessions extends Component
         $this->employee_id      = $sessions->employee_id;
         $this->amount           = $sessions->amount;
         $this->remaining        = $sessions->remaining;
-        // $this->date             = $sessions->date;
+        $this->date             = date('Y-m-d', strtotime($sessions->date));
     }
 
     public function update ()
     {
-        try{ 
-            $this->validate();
+        $this->validate();
 
+        try{    
             DB::table('individual_sessions')
             ->where('id', $this->ids)
             ->update([
@@ -87,17 +91,17 @@ class Sessions extends Component
                 'children_id'  => $this->children_id,
                 'amount'       => $this->amount,
                 'remaining'    => $this->remaining,
+                'date'         => $this->date,
             ]);
 
             $this->resetFields();
-
-            $this->emit('updated-successfully');
             $this->emit('Toast-Alert');
-
+            
         } catch (\Exception $ex) {
-            $this->emit('updated-successfully');
             $this->emit('Error-Alert');
         }
+
+        $this->emit('updated-successfully');
     }
 
     function confirmDelete ($id)

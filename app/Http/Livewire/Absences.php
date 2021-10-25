@@ -16,7 +16,7 @@ class Absences extends Component
            DB::table('salary_changes')->insert([
                'employee_id'   => $employee_id,
                'amount'        => -$amount,
-               'reason'        => "absences deductions for $date",
+               'reason'        => "خصم تاخير $date",
                'status'        => 0,
            ]);
 

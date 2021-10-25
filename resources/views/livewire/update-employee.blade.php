@@ -3,14 +3,14 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">تعديل  المكافاه</h5>
+        <h5 class="modal-title" id="exampleModalLabel">تعديل  موظف</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <input type="hidden" name="id" wire:model="ids">
-        @include('include.extra-form')
+        @include('include.employee-form')
       </div>
       @include('include.update-modal-footer')
     </div>

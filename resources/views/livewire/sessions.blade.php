@@ -33,16 +33,11 @@
                             </th>
                             <td>{{$item->child_name}}</td>
                             <td>{{$item->emp_name}}</td>
-                            <td>{{$item->amount}}$</td>
+                            <td>{{number_format($item->amount, 2)}} EGP</td>
                             <td>{{$item->remaining}}</td>
-                            <td>{{$item->date}}</td>
+                            <td>{{ date('d-M', strtotime($item->date)) }}</td>
                             <td>
-                                <button class="btn btn-md btn-info-gradient" data-toggle="modal" data-target="#edit" wire:click.prevent="edit({{$item->session_id}})">
-                                    <i class="fas fa-pen"></i>
-                                </button>
-                                <a href="#" class="btn btn-md btn-danger-gradient" wire:click.prevent="confirmDelete({{$item->session_id}})">
-                                    <i class="fas fa-trash-alt"></i>
-                                </a>
+                                @include('include.operations', ['id' => 'session_id'])
                             </td>
                         </tr>
                         @endforeach

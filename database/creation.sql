@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 19, 2021 at 08:03 PM
+-- Generation Time: Oct 22, 2021 at 07:42 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -59,7 +59,8 @@ CREATE TABLE `absences_deductions` (
 INSERT INTO `absences_deductions` (`id`, `employee_id`, `is_deduction`, `date`) VALUES
 (16, 54, 1, '2021-10-15'),
 (17, 55, 1, '2021-10-15'),
-(18, 52, 1, '2021-10-16');
+(18, 52, 1, '2021-10-16'),
+(19, 68, 1, '2021-10-22');
 
 -- --------------------------------------------------------
 
@@ -83,20 +84,13 @@ CREATE TABLE `attendance_lists` (
 --
 
 INSERT INTO `attendance_lists` (`id`, `employee_id`, `is_attende`, `delay_min`, `date`) VALUES
-(26, 52, 1, 0, '2021-10-15 18:07:52'),
-(27, 53, 1, 0, '2021-10-15 18:07:55'),
-(28, 54, 0, 0, '2021-10-15 18:08:00'),
-(29, 55, 0, 0, '2021-10-15 18:08:02'),
-(30, 56, 1, 120, '2021-10-15 18:12:54'),
-(31, 57, 1, 60, '2021-10-15 18:15:21'),
-(32, 58, 1, 0, '2021-10-15 18:15:23'),
-(33, 52, 0, 0, '2021-10-16 00:39:33'),
-(34, 53, 0, 0, '2021-10-16 00:39:36'),
-(35, 55, 1, 66, '2021-10-16 00:40:57'),
-(36, 54, 1, 50, '2021-10-16 00:40:59'),
-(37, 52, 1, 0, '2021-10-17 10:34:10'),
-(38, 52, 1, 0, '2021-10-19 00:17:57'),
-(39, 53, 1, 0, '2021-10-19 00:51:33');
+(59, 52, 1, 0, '2021-10-20 20:45:10'),
+(60, 53, 0, 0, '2021-10-20 20:45:23'),
+(61, 54, 1, 22, '2021-10-20 20:45:35'),
+(62, 55, 0, 0, '2021-10-20 20:45:49'),
+(63, 68, 0, 0, '2021-10-22 16:34:58'),
+(64, 70, 1, 22, '2021-10-22 16:35:02'),
+(65, 71, 1, 55, '2021-10-22 16:47:10');
 
 -- --------------------------------------------------------
 
@@ -109,18 +103,25 @@ CREATE TABLE `childrens` (
   `child_name` varchar(100) NOT NULL,
   `child_image` varchar(150) NOT NULL DEFAULT 'child_image_defualt.png',
   `parent` varchar(100) NOT NULL,
-  `phone` varchar(13) NOT NULL,
+  `phone` varchar(50) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
-  `notes` varchar(250) DEFAULT NULL
+  `notes` varchar(250) DEFAULT NULL,
+  `date_of_birth` date NOT NULL,
+  `gender` varchar(20) NOT NULL,
+  `nationality` varchar(20) NOT NULL,
+  `religion` varchar(10) NOT NULL,
+  `num_of_bro` int(11) NOT NULL,
+  `rank_of_bro` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `childrens`
 --
 
-INSERT INTO `childrens` (`id`, `child_name`, `child_image`, `parent`, `phone`, `date`, `notes`) VALUES
-(15, 'Odysseus Cameron', 'child_image_defualt.png', 'Laboriosam sunt sun', '01223135', '2021-10-15 16:50:32', 'Quia qui eum dolorum'),
-(16, 'Shay Munoz', 'child_image_defualt.png', 'Harum ut eos enim et', '01223153233', '2021-10-15 19:01:16', 'Doloremque irure lab');
+INSERT INTO `childrens` (`id`, `child_name`, `child_image`, `parent`, `phone`, `date`, `notes`, `date_of_birth`, `gender`, `nationality`, `religion`, `num_of_bro`, `rank_of_bro`) VALUES
+(17, 'Dieter Larson', 'child_image_defualt.png', 'Libero quisquam ut l', '+1 (346) 434-4619', '2020-12-10 00:00:00', 'Maxime eveniet do c', '2020-12-10', 'mail', 'EGY', 'moslem', 57, 53),
+(19, 'Rylee Diaz', 'child_image_defualt.png', 'Quo cillum voluptate', '+1 (382) 325-6417', '2020-10-10 00:00:00', NULL, '2020-10-10', 'ششش', 'ششش', 'شششش', 5, 2),
+(20, 'Adele Crosby', 'child_image_defualt.png', 'Sapiente sint aut si', '+1 (385) 783-3488', '2020-10-10 00:00:00', 'Ut aliquam magni lib', '2020-10-10', 'aa', 'aaa', 'aaa', 34, 74);
 
 -- --------------------------------------------------------
 
@@ -156,7 +157,8 @@ CREATE TABLE `delay_deductions` (
 
 INSERT INTO `delay_deductions` (`id`, `employee_id`, `is_deduction`, `month`) VALUES
 (5, 56, 1, 10),
-(6, 54, 1, 10);
+(6, 54, 1, 10),
+(7, 70, 1, 10);
 
 -- --------------------------------------------------------
 
@@ -168,35 +170,24 @@ CREATE TABLE `employees` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(50) NOT NULL,
   `position` varchar(50) NOT NULL,
-  `email` varchar(150) DEFAULT NULL,
-  `phone` varchar(13) DEFAULT NULL,
-  `avatar` varchar(150) NOT NULL DEFAULT 'default.png',
+  `qualification` varchar(100) NOT NULL,
+  `phone` varchar(20) DEFAULT NULL,
   `salary` float NOT NULL,
+  `avatar` varchar(150) NOT NULL DEFAULT '''default.png''',
+  `email` varchar(150) DEFAULT NULL,
   `start_date` varchar(30) DEFAULT NULL,
-  `day_price` int(11) GENERATED ALWAYS AS (`salary` / 26) VIRTUAL
+  `day_price` int(11) GENERATED ALWAYS AS (`salary` / 26) VIRTUAL,
+  `date_of_birth` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`id`, `name`, `position`, `email`, `phone`, `avatar`, `salary`, `start_date`) VALUES
-(52, 'Thane Nelson', 'Necessitatibus debit', 'lopecilif@mailinator.com', '01228978135', 'uploads/employee/avatar/default.png', 96, '12-Nov-2007'),
-(53, 'Alana Greenholt', 'wintheiser', 'yundt.norma@example.net', '4169', 'https://lorempixel.com/283/241/?27929', 6248, '1987-01-27'),
-(54, 'Gregg Russel', 'kessler', 'dach.wilhelmine@example.net', '4772', 'https://lorempixel.com/283/241/?90265', 5693, '1978-03-21'),
-(55, 'Prof. Spencer Klein', 'hartmann', 'hauck.cesar@example.net', '5276', 'https://lorempixel.com/283/241/?72040', 4699, '2019-10-20'),
-(56, 'Alberto Nader', 'gusikowski', 'josefa17@example.com', '4634', 'https://lorempixel.com/283/241/?38526', 3160, '2006-03-21'),
-(57, 'Prof. Wilbert Lehner V', 'ratke', 'purdy.tony@example.com', '2664', 'https://lorempixel.com/283/241/?31212', 3232, '1985-07-13'),
-(58, 'Cheyanne Schneider DVM', 'jacobi', 'isac.simonis@example.net', '2372', 'https://lorempixel.com/283/241/?46110', 4245, '1993-05-29'),
-(59, 'Claude Hessel III', 'yundt', 'rkuhlman@example.org', '6430', 'https://lorempixel.com/283/241/?90942', 4438, '1970-11-18'),
-(60, 'Fabian Corkery', 'maggio', 'hjacobi@example.org', '3201', 'https://lorempixel.com/283/241/?80674', 4655, '1998-01-02'),
-(61, 'Dr. Cara Bednar', 'satterfield', 'torp.kellen@example.net', '5792', 'https://lorempixel.com/283/241/?25193', 2540, '1988-10-07'),
-(62, 'Monroe Runolfsdottir', 'smitham', 'noah46@example.org', '5526', 'https://lorempixel.com/283/241/?27846', 4094, '1981-02-15'),
-(63, 'Judson D\'Amore', 'larson', 'zieme.zachary@example.net', '6706', 'https://lorempixel.com/283/241/?41783', 4076, '2013-04-02'),
-(64, 'Dr. Yoshiko Hoppe V', 'monahan', 'mccullough.clovis@example.org', '5789', 'https://lorempixel.com/283/241/?24650', 7318, '1997-07-02'),
-(65, 'Spencer Cartwright', 'stehr', 'qspinka@example.com', '2582', 'https://lorempixel.com/283/241/?52896', 3095, '2008-10-18'),
-(66, 'Rubie McDermott', 'champlin', 'hermann.hulda@example.net', '4379', 'https://lorempixel.com/283/241/?61735', 6645, '1989-03-03'),
-(67, 'Lukas Lind', 'hill', 'fschmidt@example.net', '3752', 'https://lorempixel.com/283/241/?33993', 5373, '1983-09-24');
+INSERT INTO `employees` (`id`, `name`, `position`, `qualification`, `phone`, `salary`, `avatar`, `email`, `start_date`, `date_of_birth`) VALUES
+(68, 'Angelica Best', 'Fugit atque volupta', 'Aut irure suscipit s', '+1 (339) 913-1879', 80, '\'default.png\'', 'dokemimoh@mailinator.com', '2020-12-12', '2020-12-12'),
+(70, 'Illana Pruitt', 'Voluptatem dolorum ', 'Non quisquam necessi', '+1 (248) 333-5702', 47, '\'default.png\'', 'giticujov@mailinator.com', '2020-12-10', '2020-12-10'),
+(71, 'Oliver Maddox', 'Enim sed aut et ea o', 'Omnis enim beatae si', '+1 (564) 959-6778', 80, '\'default.png\'', 'tijavyk@mailinator.com', '2020-10-10', '2020-10-10');
 
 -- --------------------------------------------------------
 
@@ -226,25 +217,34 @@ CREATE TABLE `financial_operations` (
   `reason` varchar(150) NOT NULL,
   `status` tinyint(1) NOT NULL COMMENT '1:import, 0:export',
   `date` datetime NOT NULL DEFAULT current_timestamp(),
-  `month` int(11) GENERATED ALWAYS AS (month(`date`)) VIRTUAL
+  `month` int(11) GENERATED ALWAYS AS (month(`date`)) VIRTUAL,
+  `receipt` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `financial_operations`
 --
 
-INSERT INTO `financial_operations` (`id`, `amount`, `client`, `reason`, `status`, `date`) VALUES
-(75, 93, 'Temporibus non qui i', 'Quod totam mollitia ', 0, '2021-10-15 17:29:23'),
-(76, 71, 'Thane Nelson', 'Aspernatur est ut es', 0, '2021-10-15 17:30:56'),
-(77, 4, 'Thane Nelson', 'Aspernatur vel tenet', 0, '2021-10-15 17:34:16'),
-(78, 94, 'other', 'Saepe sunt ipsum qu', 0, '2021-10-15 18:07:26'),
-(79, 12, 'Thane Nelson', 'Labore esse volupta', 0, '2021-10-15 18:09:02'),
-(80, 44, 'Porro natus voluptas', 'Elit id labore eaqu', 1, '2021-10-15 18:43:20'),
-(81, 96, 'Thane Nelson', 'received salary 10', 0, '2021-10-15 20:43:31'),
-(82, 6248, 'Alana Greenholt', 'received salary 10', 0, '2021-10-15 20:49:56'),
-(83, 55, 'اخر', 'ششش', 0, '2021-10-16 02:32:51'),
-(84, 5601.75, 'Gregg Russel', 'received salary 10', 0, '2021-10-17 12:37:06'),
-(85, 86, 'Ipsam dolor qui unde', 'Ut harum culpa rerum', 1, '2021-10-18 14:19:55');
+INSERT INTO `financial_operations` (`id`, `amount`, `client`, `reason`, `status`, `date`, `receipt`) VALUES
+(75, 93, 'Temporibus non qui i', 'Quod totam mollitia ', 0, '2021-10-15 17:29:23', ''),
+(76, 71, 'Thane Nelson', 'Aspernatur est ut es', 0, '2021-10-15 17:30:56', ''),
+(77, 4, 'Thane Nelson', 'Aspernatur vel tenet', 0, '2021-10-15 17:34:16', ''),
+(78, 94, 'other', 'Saepe sunt ipsum qu', 0, '2021-10-15 18:07:26', ''),
+(79, 12, 'Thane Nelson', 'Labore esse volupta', 0, '2021-10-15 18:09:02', ''),
+(80, 44, 'Porro natus voluptas', 'Elit id labore eaqu', 1, '2021-10-15 18:43:20', ''),
+(81, 96, 'Thane Nelson', 'received salary 10', 0, '2021-10-15 20:43:31', ''),
+(82, 6248, 'Alana Greenholt', 'received salary 10', 0, '2021-10-15 20:49:56', ''),
+(83, 55, 'اخر', 'ششش', 0, '2021-10-16 02:32:51', ''),
+(84, 5601.75, 'Gregg Russel', 'received salary 10', 0, '2021-10-17 12:37:06', ''),
+(85, 86, 'Ipsam dolor qui unde', 'Ut harum culpa rerum', 1, '2021-10-18 14:19:55', ''),
+(86, 69, 'Quidem qui incidunt', 'Qui ut consequatur ', 1, '2021-10-20 18:23:31', ''),
+(87, 43, 'Choose...', 'At corrupti quae re', 0, '2021-10-22 17:25:33', '75'),
+(88, 1111, 'other', '1111', 0, '2021-10-22 17:27:22', '1111'),
+(89, 33, 'other', 'Quidem ullamco dolor', 0, '2021-10-22 17:28:37', '73'),
+(90, 2, 'Illana Pruitt', 'Distinctio Esse vo', 0, '2021-10-22 18:11:26', '3'),
+(91, 54, 'other', 'Et molestias nemo al', 0, '2021-10-22 18:11:47', '88'),
+(92, 72, 'Quibusdam iure in qu', 'Nulla saepe impedit', 1, '2021-10-22 18:32:05', '36'),
+(93, 46, 'Et magna cillum cumq', 'Qui sed numquam volu', 1, '2021-10-22 18:32:11', '33');
 
 -- --------------------------------------------------------
 
@@ -270,7 +270,9 @@ INSERT INTO `individual_sessions` (`id`, `children_id`, `employee_id`, `amount`,
 (6, 15, 52, 5626, 0, '2021-10-15 15:14:51'),
 (7, 16, 67, 11, 59, '2021-10-18 12:11:27'),
 (8, 15, 56, 53, 74, '2021-10-19 00:28:23'),
-(9, 16, 52, 27, 89, '2021-10-19 00:32:08');
+(9, 16, 52, 27, 89, '2021-10-19 00:32:08'),
+(10, 20, 71, 31, 10, '2021-10-22 16:32:45'),
+(11, 19, 70, 96, 55, '2021-10-22 16:34:22');
 
 -- --------------------------------------------------------
 
@@ -362,7 +364,12 @@ INSERT INTO `salary_changes` (`id`, `employee_id`, `amount`, `reason`, `date`, `
 (46, 52, -4, 'absences deductions for 2021-10-16', '2021-10-17 10:36:26', 0),
 (47, 54, -91.25, 'delay deduction for 10', '2021-10-17 10:36:44', 0),
 (48, 56, 25, 'Porro eos reprehend', '2021-10-19 00:18:06', 1),
-(49, 58, 32, 'Temporibus mollit ha', '2021-10-19 00:28:02', 1);
+(49, 58, 32, 'Temporibus mollit ha', '2021-10-19 00:28:02', 1),
+(50, 66, 61, 'Esse elit sit sunt ', '2021-10-19 18:09:07', 1),
+(51, 70, -12, 'Aliqua Deserunt nes', '2021-10-22 16:34:36', 0),
+(52, 70, 53, 'Voluptate quidem eli', '2021-10-22 16:34:44', 1),
+(53, 68, -3, 'خصم تاخير 2021-10-22', '2021-10-22 16:35:39', 0),
+(54, 70, -0.366667, 'delay deduction for 10', '2021-10-22 16:35:49', 0);
 
 -- --------------------------------------------------------
 
@@ -597,31 +604,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `absences_deductions`
 --
 ALTER TABLE `absences_deductions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `attendance_lists`
 --
 ALTER TABLE `attendance_lists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `childrens`
 --
 ALTER TABLE `childrens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `delay_deductions`
 --
 ALTER TABLE `delay_deductions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -633,13 +640,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `financial_operations`
 --
 ALTER TABLE `financial_operations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 
 --
 -- AUTO_INCREMENT for table `individual_sessions`
 --
 ALTER TABLE `individual_sessions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -657,7 +664,7 @@ ALTER TABLE `salaries_received`
 -- AUTO_INCREMENT for table `salary_changes`
 --
 ALTER TABLE `salary_changes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `users`

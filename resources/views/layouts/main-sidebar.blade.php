@@ -1,6 +1,6 @@
 <!-- main-sidebar -->
 		<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
-		<aside class="app-sidebar sidebar-scroll">
+		<aside class="app-sidebar sidebar-scroll" style="transition: all .3s ease;">
 			<div class="main-sidebar-header active">
 				<a class="desktop-logo logo-light active" href="{{ url('/' . $page='index') }}"><img src="{{URL::asset('assets/img/brand/logo.png')}}" class="main-logo" alt="logo"></a>
 				<a class="desktop-logo logo-dark active" href="{{ url('/' . $page='index') }}"><img src="{{URL::asset('assets/img/brand/logo-white.png')}}" class="main-logo dark-theme" alt="logo"></a>
@@ -8,6 +8,7 @@
 				<a class="logo-icon mobile-logo icon-dark active" href="{{ url('/' . $page='index') }}"><img src="{{URL::asset('assets/img/brand/favicon-white.png')}}" class="logo-icon dark-theme" alt="logo"></a>
 			</div>
 			<div class="main-sidemenu">
+				<a class="close-toggle custome-close-nav hidden" onclick="$('body').removeClass('sidenav-toggled')" href="#" ><i class="header-icons fas fa-times"></i></a>
 				<div class="app-sidebar__user clearfix">
 					<div class="dropdown user-pro-body">
 						<div class="">

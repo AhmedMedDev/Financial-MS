@@ -19,7 +19,7 @@
                             <th>رقم الايصال</th>
                             <th>اسم العميل</th>
                             <th>المبلغ</th>
-                            <th>السبب</th>
+                            <th>المقابل</th>
                             <th>التاريخ</th>
                             <th>الاجراءات</th>
                         </tr>
@@ -27,21 +27,16 @@
                     <tbody>
                         @foreach ($imports as $item)
                         <tr>
-                            <th scope="row">{{$item->id}}</th>
+                            <th scope="row">{{$item->receipt}}</th>
                             <td>{{$item->client}}</td>
-                            <td>{{$item->amount}}</td>
+                            <td>{{number_format($item->amount, 2)}} EGP</td>
                             <td>{{$item->reason}}</td>
-                            <td>{{$item->date}}</td>
+                            <td>{{ date('d-M', strtotime($item->date)) }}</td>
                             <td>
                                 <a href="#" class="btn btn-md btn-primary-gradient">
                                     <i class="fas fa-print"></i>
                                 </a>
-                                <button class="btn btn-md btn-info-gradient" data-toggle="modal" data-target="#edit" wire:click.prevent="edit({{$item->id}})">
-                                    <i class="fas fa-pen"></i>
-                                </button>
-                                <a href="#" class="btn btn-md btn-danger-gradient" wire:click.prevent="confirmDelete({{$item->id}})">
-                                    <i class="fas fa-trash-alt"></i>
-                                </a>
+                                @include('include.operations', ['id' => 'id'])
                             </td>
                         </tr>
                         @endforeach

@@ -1,5 +1,17 @@
-function saveAttendance (empID)
-{
+
+
+function toggleActive (empID) {
+
+    $(`#is_attende${empID}`).toggleClass('on')
+
+    $(`#delay_min${empID}`).prop('disabled',!$(`#delay_min${empID}`).prop('disabled'))
+
+    if ($(`#delay_min${empID}`).prop('disabled')) $(`#delay_min${empID}`).val('')
+}
+
+
+function saveAttendance (empID) {
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -38,5 +50,54 @@ function saveAttendance (empID)
             )
         }
     })
+
+}
+
+function receivedSalary (employee_id, name, finalsalary, month) {
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    var receipt = $(`#receipt${employee_id}`).val()
+
+    $.ajax({
+        method : "POST",
+        url  : "receivedSalary",
+        data  : {employee_id, name, finalsalary, month, receipt},
+        cache:false,
+        success: function (data) {
+            if(data.status)
+            {
+                Swal.fire(
+					'Good job!',
+					'You clicked the button!',
+					'success'
+				)
+                // Delete From display
+                $(`#salary${employee_id}`).slideUp(600,function () {
+                    $(`#salary${employee_id}`).remove();
+                });
+            }
+        },
+        error: function (data) {
+            console.log('Error:', data);
+            Swal.fire(
+                'Oops...',
+                'Something went wrong!',
+                'error'
+            )
+        }
+    })
+
+}
+
+function startLoading () 
+{
+    $('.modal-footer').html(`<div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+</div>`)
 
 }

@@ -32,11 +32,11 @@
                                 $amount = $item->day_price;
                                 $day    =  date('l', strtotime($item->date));
 
-                                if ($day == 'Tuesday' || $day == 'Sunday') $amount *= 2;
+                                if ($day == 'Thursday' || $day == 'Sunday') $amount *= 2;
                             @endphp
-                            {{$amount}}
+                            {{number_format($amount, 2)}} EGP
                         </td>
-                        <td>{{ $item->date }}</td>
+                        <td>{{ date('d-M', strtotime($item->date)) }}</td>
                         <td>
                             <button class="btn btn-danger-gradient btn-block"  
                                 wire:click.prevent="deductionFromSalary({{$item->employee_id}},{{$amount}},'{{$item->date}}',{{$item->month}})">
