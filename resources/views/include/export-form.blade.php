@@ -1,7 +1,7 @@
 {{-- Employee --}}
 <div class="form-group">
     <label for="amount">اسم الموظف <span class="tx-danger">*</span></label>
-    <select  class="custom-select" id="inlineFormCustomSelectPref" wire:model="client">
+    <select  class="custom-select @error('client') is-invalid @enderror" id="inlineFormCustomSelectPref" wire:model="client">
       <option selected>Choose...</option>
       <option value="other">other</option>
       @foreach (DB::table('employees')->orderByDesc('id')->get() as $item)
