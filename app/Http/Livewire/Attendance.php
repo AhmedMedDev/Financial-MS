@@ -11,13 +11,6 @@ class Attendance extends Component
     public $is_attende;
     public $delay_min;
 
-    public function saveAttendance () 
-    {
-        
-
-        $this->emit('Success-Alert');
-    }
-
     public function render()
     {
         $this->attendance = DB::select('SELECT * FROM `employees` WHERE id NOT IN (SELECT employee_id FROM `attendance_lists` WHERE DATE(date) = CURDATE())');
