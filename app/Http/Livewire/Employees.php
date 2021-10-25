@@ -45,9 +45,9 @@ class Employees extends Component
 
     public function store ()
     {
-        try{    
-            $this->validate();
+        $this->validate();
 
+        try{    
             DB::table('employees')->insert([
                 'name'              => $this->name,
                 'position'          => $this->position,
@@ -61,14 +61,13 @@ class Employees extends Component
             ]);
 
             $this->resetFields();
-
-            $this->emit('added-successfully');
             $this->emit('Success-Alert');
             
         } catch (\Exception $ex) {
-            $this->emit('added-successfully');
             $this->emit('Error-Alert');
         }
+
+        $this->emit('added-successfully');
     }
 
     public function resetFields ()

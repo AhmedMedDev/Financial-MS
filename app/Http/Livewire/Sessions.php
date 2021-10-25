@@ -40,11 +40,9 @@ class Sessions extends Component
 
     public function store ()
     {
+        $this->validate();
+
         try{    
-            $this->validate();
-
-            session()->flash('Start-Loading', 'Loading');
-
             DB::table('individual_sessions')->insert([
                 'children_id'   => $this->children_id,
                 'employee_id'   => $this->employee_id,
@@ -54,16 +52,13 @@ class Sessions extends Component
             ]);
 
             $this->resetFields();
-
-            session()->forget('Start-Loading');
-            $this->emit('added-successfully');
             $this->emit('Success-Alert');
             
         } catch (\Exception $ex) {
-            session()->forget('Start-Loading');
-            $this->emit('added-successfully');
             $this->emit('Error-Alert');
         }
+
+        $this->emit('added-successfully');
     }
 
     public function edit ($id)

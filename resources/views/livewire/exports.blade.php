@@ -36,7 +36,7 @@
                                 <a href="#" class="btn btn-md btn-primary-gradient">
                                     <i class="fas fa-print"></i>
                                 </a>
-                                @include('include.operations')
+                                @include('include.operations', ['id' => 'id'])
                             </td>
                         </tr>
                         @endforeach

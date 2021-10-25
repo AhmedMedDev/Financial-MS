@@ -37,7 +37,7 @@
                             <td>{{$item->reason}}</td>
                             <td>{{ date('d-M', strtotime($item->date)) }}</td>
                             <td>
-                                @include('include.operations')
+                                @include('include.operations', ['id' => 'change_id'])
                             </td>
                         </tr>
                         @endforeach

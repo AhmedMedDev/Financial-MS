@@ -31,10 +31,9 @@ class Exports extends Component
 
     public function store ()
     {
-        try{    
-            $this->validate();
-            session()->flash('Start-Loading', 'Loading');
+        $this->validate();
 
+        try{    
             DB::table('financial_operations')->insert([
                 'amount'    => $this->amount,
                 'client'    => $this->client,
@@ -44,16 +43,13 @@ class Exports extends Component
             ]);
 
             $this->resetFields();
-
-            session()->forget('Start-Loading');
-            $this->emit('added-successfully');
             $this->emit('Success-Alert');
             
         } catch (\Exception $ex) {
-            session()->forget('Start-Loading');
-            $this->emit('added-successfully');
             $this->emit('Error-Alert');
         }
+
+        $this->emit('added-successfully');
     }
 
     public function resetFields ()
