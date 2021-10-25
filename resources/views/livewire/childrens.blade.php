@@ -49,7 +49,7 @@
                                 <td>{{$item->rank_of_bro}}</td>
                                 <td>{{$item->notes}}</td>
                                 <td>
-                                    @include('include.operations')
+                                @include('include.operations', ['id' => 'id'])
                                 </td>
                             </tr>
                         @endforeach

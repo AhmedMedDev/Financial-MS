@@ -29,21 +29,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($employees as $employee)
+                        @foreach ($employees as $item)
                             <tr>
-                                <th scope="row">{{$employee->id}}</th>
-                                <td>{{$employee->name}}</td>
+                                <th scope="row">{{$item->id}}</th>
+                                <td>{{$item->name}}</td>
                                 <td>
                                     <img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="{{asset('assets/img/photos/1.jpg')}}">
                                 </td>
-                                <td>{{$employee->position}}</td>
-                                <td>{{$employee->qualification}}</td>
-                                <td>{{$employee->date_of_birth}}</td>
-                                <td>{{$employee->phone}}</td>
-                                <td>{{$employee->salary}}</td>
-                                <td>{{$employee->start_date}}</td>
+                                <td>{{$item->position}}</td>
+                                <td>{{$item->qualification}}</td>
+                                <td>{{$item->date_of_birth}}</td>
+                                <td>{{$item->phone}}</td>
+                                <td>{{$item->salary}}</td>
+                                <td>{{$item->start_date}}</td>
                                 <td>
-                                    @include('include.operations')
+                                @include('include.operations', ['id' => 'id'])
                                 </td>
                             </tr>
                         @endforeach

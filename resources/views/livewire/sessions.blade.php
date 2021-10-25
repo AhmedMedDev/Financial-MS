@@ -37,7 +37,7 @@
                             <td>{{$item->remaining}}</td>
                             <td>{{ date('d-M', strtotime($item->date)) }}</td>
                             <td>
-                                @include('include.operations')
+                                @include('include.operations', ['id' => 'session_id'])
                             </td>
                         </tr>
                         @endforeach
