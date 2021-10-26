@@ -9,18 +9,18 @@
 @section('page-header')
 		<div class="left-content">
 			<div>
-				<h2 class="main-content-title tx-24 mg-b-1 mg-b-lg-1">Hi, welcome back!</h2>
-				<p class="mg-b-0">Sales monitoring dashboard template.</p>
+				<h2 class="main-content-title tx-24 mg-b-1 mg-b-lg-1">الصفحة الرئيسية</h2>
+				<p class="mg-b-0">للاطلاع على اخر التطورات</p>
 			</div>
 		</div>
 		<div class="main-dashboard-header-right">
 			<div>
-				<label class="tx-13">Net profit</label>
-				<h5>563,275</h5>
+				<label class="tx-13">صافى ربح هذا العام</label>
+				<h5>00,00</h5>
 			</div>
 			<div>
-				<label class="tx-13">Loss</label>
-				<h5>783,675</h5>
+				<label class="tx-13">خسارة</label>
+				<h5>00,00</h5>
 			</div>
 		</div>
 @endsection
