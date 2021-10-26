@@ -12,21 +12,24 @@ class Delaies extends Component
     public function deductionFromSalary ($employee_id, $amount, $month) 
     {
         try{    
-            // Store at salary_changes
-            DB::table('salary_changes')->insert([
-                'employee_id'   => $employee_id,
-                'amount'        => -$amount,
-                'reason'        => "delay deduction for $month",
-                'status'        => 0,
-            ]);
+            DB::transaction(function () use ($employee_id, $amount, $month) {
 
-            // Make salaries received 
-            DB::table('delay_deductions')->insert([
-                'employee_id' => $employee_id,
-                'month'       => $month
-            ]);
+                // Store at salary_changes
+                DB::table('salary_changes')->insert([
+                    'employee_id'   => $employee_id,
+                    'amount'        => -$amount,
+                    'reason'        => "خصم تاخيرات شهر $month",
+                    'status'        => 0,
+                ]);
 
-            $this->emit('Success-Alert');
+                // Make salaries received 
+                DB::table('delay_deductions')->insert([
+                    'employee_id' => $employee_id,
+                    'month'       => $month
+                ]);
+
+                $this->emit('Success-Alert');
+            });
             
         } catch (\Exception $ex) {
             $this->emit('Error-Alert');
