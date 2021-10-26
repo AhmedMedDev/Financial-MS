@@ -210,7 +210,7 @@
 										<div class="d-flex wd-100p">
 											<div class="main-img-user"><img alt="" src="{{URL::asset('assets/img/faces/6.jpg')}}" class=""></div>
 											<div class="mr-3 my-auto">
-												<h6>Petey Cruiser</h6><span>Premium Member</span>
+												<h6>Harvest-HR</h6><span>Premium Member</span>
 											</div>
 										</div>
 									</div>
