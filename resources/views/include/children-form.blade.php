@@ -64,13 +64,15 @@
     <input type="number" class="form-control @error('rank_of_bro') is-invalid @enderror" wire:model="rank_of_bro"></input>
     @error('rank_of_bro') <span class="error text-danger">{{ $message }}</span> @enderror
   </div>
+  {{-- Address--}}
+  <div class="form-group">
+    <label for="address">العنوان <span class="tx-danger">*</span></label>
+    <textarea type="text" class="form-control @error('address') is-invalid @enderror" placeholder="Textarea" rows="3" wire:model="address"></textarea>
+    @error('address') <span class="error text-danger">{{ $message }}</span> @enderror
+  </div>
   {{-- notes--}}
   <div class="form-group">
     <label for="notes">ملاحظات الاخصائى</label>
     <textarea type="text" class="form-control @error('notes') is-invalid @enderror" placeholder="Textarea" rows="3" wire:model="notes"></textarea>
     @error('notes') <span class="error text-danger">{{ $message }}</span> @enderror
   </div>
-  {{-- Child Image --}}
-  {{-- <div class="col-sm-12 col-md-12">
-    <input type="file" class="dropify" data-height="200" />
-  </div> --}}

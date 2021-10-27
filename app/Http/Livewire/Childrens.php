@@ -23,6 +23,7 @@ class Childrens extends Component
     public $religion;
     public $num_of_bro;
     public $rank_of_bro;
+    public $address;
 
     protected $rules = [
         'child_name'        => 'required',
@@ -36,6 +37,7 @@ class Childrens extends Component
         'religion'          => 'required',
         'num_of_bro'        => 'required',
         'rank_of_bro'       => 'required',
+        'address'           => 'required',
     ];
 
     public function __construct()
@@ -59,6 +61,7 @@ class Childrens extends Component
         // $this->religion         = '';
         $this->num_of_bro       = '';
         $this->rank_of_bro      = '';
+        $this->address          = '';
     }
 
     public function updated($propertyName)
@@ -83,6 +86,7 @@ class Childrens extends Component
                 'religion'          => $this->religion,
                 'num_of_bro'        => $this->num_of_bro,
                 'rank_of_bro'       => $this->rank_of_bro,
+                'address'           => $this->address,
             ]);
 
             $this->resetFields();
@@ -111,6 +115,7 @@ class Childrens extends Component
         $this->religion       = $children->religion;
         $this->num_of_bro     = $children->num_of_bro;
         $this->rank_of_bro    = $children->rank_of_bro;
+        $this->address        = $children->address;
     }
 
     public function update ()
@@ -132,6 +137,7 @@ class Childrens extends Component
                 'religion'          => $this->religion,
                 'num_of_bro'        => $this->num_of_bro,
                 'rank_of_bro'       => $this->rank_of_bro,
+                'address'           => $this->address,
             ]);
 
             $this->resetFields();

@@ -10,7 +10,7 @@
 		<div class="left-content">
 			<div>
 				<h2 class="main-content-title tx-24 mg-b-1 mg-b-lg-1">الصفحة الرئيسية</h2>
-				<p class="mg-b-0">احصائيات سريعةعن اخر التطورات</p>
+				<p class="mg-b-0">احصائيات سريعة عن اخر التطورات</p>
 			</div>
 		</div>
 		<div class="main-dashboard-header-right">
