@@ -20,10 +20,6 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 // Auth::routes(['register' => false]);
 
-Route::get('/test', function () {
-   return DB::table('childrens')->where('id', 21)->first()->child_name;
-});
-
 Route::middleware(['auth'])->group(function () {
 
     Route::view('/', 'index');
