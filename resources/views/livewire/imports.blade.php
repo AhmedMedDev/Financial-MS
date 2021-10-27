@@ -33,9 +33,9 @@
                             <td>{{$item->reason}}</td>
                             <td>{{ date('d-M', strtotime($item->date)) }}</td>
                             <td>
-                                <a href="#" class="btn btn-md btn-primary-gradient">
+                                {{-- <a href="#" class="btn btn-md btn-primary-gradient">
                                     <i class="fas fa-print"></i>
-                                </a>
+                                </a> --}}
                                 @include('include.operations', ['id' => 'id'])
                             </td>
                         </tr>
