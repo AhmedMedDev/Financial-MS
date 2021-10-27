@@ -16,6 +16,7 @@ class Sessions extends Component
     public $amount;
     public $remaining;
     public $date;
+    public $receipt;
 
     protected $rules = [
         'children_id' => 'required',
@@ -48,13 +49,40 @@ class Sessions extends Component
         $this->validate();
 
         try{    
-            DB::table('individual_sessions')->insert([
-                'children_id'   => $this->children_id,
-                'employee_id'   => $this->employee_id,
-                'amount'        => $this->amount,
-                'remaining'     => $this->remaining,
-                'date'          => $this->date,
-            ]);
+            DB::transaction(function () {
+
+                // Store new Session
+                $session_id = DB::table('individual_sessions')->insertGetId([
+                    'children_id'   => $this->children_id,
+                    'employee_id'   => $this->employee_id,
+                    'amount'        => $this->amount,
+                    'remaining'     => $this->remaining,
+                    'date'          => $this->date,
+                ]);
+    
+                // Store new Extra
+                DB::table('salary_changes')->insert([
+                    'employee_id'   => $this->employee_id,
+                    'amount'        => 2/3*$this->amount,
+                    'reason'        => "قيمة جلسة رقم $session_id",
+                    'date'          => $this->date,
+                    'status'        => 1,
+                ]);
+    
+                $client = DB::table('childrens')
+                ->where('id', $this->children_id)
+                ->first()->child_name;
+    
+                // Store new Import
+                DB::table('financial_operations')->insert([
+                    'amount'    => 1/3*$this->amount,
+                    'client'    => $client,
+                    'reason'    => "قيمة جلسة رقم $session_id",
+                    'receipt'   => $this->receipt,
+                    'date'      => $this->date,
+                    'status'    => 1,
+                ]);
+            });
 
             $this->resetFields();
             $this->emit('Success-Alert');
