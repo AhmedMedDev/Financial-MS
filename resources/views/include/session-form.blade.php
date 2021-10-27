@@ -1,3 +1,9 @@
+{{--  --}}
+<div class="form-group">
+  <label for="receipt">رقم الايصال <span class="tx-danger">*</span></label>
+  <input type="number" class="form-control @error('receipt') is-invalid @enderror" id="receipt" wire:model="receipt">
+  @error('receipt') <span class="error text-danger">{{ $message }}</span> @enderror
+</div>
 {{-- Children --}}
 <div class="form-group">
     <label for="amount">اسم الطفل <span class="tx-danger">*</span></label>

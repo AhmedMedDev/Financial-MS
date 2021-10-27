@@ -20,10 +20,14 @@ class Employees extends Component
     public $email;
     public $start_date;
     public $date_of_birth;
+    public $national_id;
+    public $address;
+    public $religion;
 
     public function __construct()
     {
         $this->start_date = date('Y-m-d', strtotime(now()));
+        $this->religion = 'مسلم';
     }
 
     protected $rules = [
@@ -35,7 +39,9 @@ class Employees extends Component
         'email'            => 'nullable|email',
         'start_date'       => 'required|date',
         'date_of_birth'    => 'required|date',
-        // 'avatar'           => 'required|image',
+        'national_id'      => 'required',
+        'address'          => 'required',
+        'religion'         => 'required',
     ];
 
     public function updated($propertyName)
@@ -57,7 +63,9 @@ class Employees extends Component
                 'email'             => $this->email,
                 'start_date'        => $this->start_date,
                 'date_of_birth'     => $this->date_of_birth,
-                // 'avatar'            => $this->avatar,
+                'national_id'       => $this->national_id,
+                'address'           => $this->address,
+                'religion'          => $this->religion,
             ]);
 
             $this->resetFields();
@@ -81,6 +89,9 @@ class Employees extends Component
         $this->email            = '';
         $this->start_date       = '';
         $this->date_of_birth    = '';
+        $this->national_id      = '';
+        $this->address          = '';
+        // $this->religion         = '';
     }
 
     public function edit ($id)
@@ -96,7 +107,9 @@ class Employees extends Component
         $this->email            = $employee->email;
         $this->start_date       = $employee->start_date;
         $this->date_of_birth    = $employee->date_of_birth;
-        // $this->avatar           = $employee->avatar;
+        $this->national_id      = $employee->national_id;
+        $this->address          = $employee->address;
+        $this->religion         = $employee->religion;
     }
 
     public function update ()
@@ -115,7 +128,9 @@ class Employees extends Component
                 'email'             => $this->email,
                 'start_date'        => $this->start_date,
                 'date_of_birth'     => $this->date_of_birth,
-                // 'avatar'            => $this->avatar,
+                'national_id'       => $this->national_id,
+                'address'           => $this->address,
+                'religion'          => $this->religion,
             ]);
 
             $this->resetFields();
