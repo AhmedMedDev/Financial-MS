@@ -12,12 +12,12 @@
     @error('position') <span class="error text-danger">{{ $message }}</span> @enderror
   </div>
 
-    {{-- qualification --}}
-    <div class="form-group">
-      <label>المؤهل <span class="tx-danger">*</span></label>
-      <input type="text" class="form-control @error('qualification') is-invalid @enderror " id="qualification" wire:model="qualification" >
-      @error('qualification') <span class="error text-danger">{{ $message }}</span> @enderror
-    </div>
+  {{-- qualification --}}
+  <div class="form-group">
+    <label>المؤهل <span class="tx-danger">*</span></label>
+    <input type="text" class="form-control @error('qualification') is-invalid @enderror " id="qualification" wire:model="qualification" >
+    @error('qualification') <span class="error text-danger">{{ $message }}</span> @enderror
+  </div>
 
   {{-- Phone --}}
   <div class="form-group">
@@ -35,7 +35,7 @@
 
   {{-- Email --}}
   <div class="form-group">
-    <label>البريد الالكترونى</label>
+    <label>البريد الالكترونى <span class="tx-danger">*</span></label>
     <input type="email" class="form-control @error('email') is-invalid @enderror " id="email" wire:model="email" >
     @error('email') <span class="error text-danger">{{ $message }}</span> @enderror
   </div>
@@ -54,7 +54,26 @@
     @error('date_of_birth') <span class="error text-danger">{{ $message }}</span> @enderror
   </div>
 
-  {{-- Avatar --}}
-  {{-- <div class="col-sm-12 col-md-12">
-    <input type="file" class="dropify" data-height="200" />
-  </div> --}}
+  {{-- national_id --}}
+  <div class="form-group">
+    <label>الرقم القومى <span class="tx-danger">*</span></label>
+    <input type="number" class="form-control @error('national_id') is-invalid @enderror " id="national_id" wire:model="national_id" >
+    @error('national_id') <span class="error text-danger">{{ $message }}</span> @enderror
+  </div>
+
+  {{-- religion--}}
+  <div class="form-group">
+    <label for="religion">الديانة  <span class="tx-danger">*</span></label>
+    <select class="custom-select  @error('religion') is-invalid @enderror" id="inlineFormCustomSelectPref" wire:model="religion">
+      <option selected value="مسلم" > مسلم</option>
+      <option value="مسيحى" > مسيحى</option>
+    </select>
+    @error('religion') <span class="error text-danger">{{ $message }}</span> @enderror
+  </div>
+
+  {{-- Address--}}
+  <div class="form-group">
+    <label for="address">العنوان <span class="tx-danger">*</span></label>
+    <textarea type="text" class="form-control @error('address') is-invalid @enderror" placeholder="Textarea" rows="3" wire:model="address"></textarea>
+    @error('address') <span class="error text-danger">{{ $message }}</span> @enderror
+  </div>
