@@ -39,9 +39,9 @@ class Employees extends Component
         'email'            => 'nullable|email',
         'start_date'       => 'required|date',
         'date_of_birth'    => 'required|date',
-        'national_id'       => 'required',
-        'address'           => 'required',
-        'religion'          => 'required',
+        'national_id'      => 'required',
+        'address'          => 'required',
+        'religion'         => 'required',
     ];
 
     public function updated($propertyName)

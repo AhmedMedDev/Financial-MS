@@ -16,7 +16,6 @@
                 <table class="table text-md-nowrap" >
                     <thead>
                         <tr>
-                            <th>رقم الموظف</th>
                             <th>اسم الموظف</th>
                             <th>الوظيفه</th>
                             <th>المؤهل</th>
@@ -33,8 +32,7 @@
                     <tbody>
                         @foreach ($employees as $item)
                             <tr>
-                                <th scope="row">{{$item->id}}</th>
-                                <td>{{$item->name}}</td>
+                                <th scope="row">{{$item->name}}</th>
                                 <td>{{$item->position}}</td>
                                 <td>{{$item->qualification}}</td>
                                 <td>{{$item->date_of_birth}}</td>
@@ -45,7 +43,7 @@
                                 <td>{{$item->address}}</td>
                                 <td>{{$item->religion}}</td>
                                 <td>
-                                @include('include.operations-dropdown', ['id' => 'id'])
+                                    @include('include.operations-dropdown', ['id' => 'id'])
                                 </td>
                             </tr>
                         @endforeach
