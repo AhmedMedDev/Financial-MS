@@ -61,5 +61,7 @@ $factory->define(Children::class, function ($faker) {
         'rank_of_bro'           => $faker->numberBetween(1,6),
         'address'               => $faker->address,
         'national_id'           => $faker->isbn10(),
+        'monthly_expenses'      => $faker->numberBetween(2000,8000),
+        'bus_expenses'          => $faker->numberBetween(1000,5000),
     ];
 });
