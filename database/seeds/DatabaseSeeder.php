@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Children;
 use App\Models\Employee;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(Employee::class, 15)->create();
+        // factory(Employee::class, 15)->create();
+        factory(Children::class, 15)->create();
     }
 }

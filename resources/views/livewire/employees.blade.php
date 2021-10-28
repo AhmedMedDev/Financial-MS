@@ -22,10 +22,9 @@
                             <th>تاريخ الميلاد</th>
                             <th>الهاتف</th>
                             <th>الراتب</th>
-                            <th>الرقم القومى</th>
-                            <th>الديانه</th>
-                            <th>العنوان</th>
                             <th>تاريخ الالتحاق</th>
+                            <th>الرقم القومى</th>
+                            <th>العنوان</th>
                             <th>اجراءات</th>
                         </tr>
                     </thead>
@@ -41,7 +40,6 @@
                                 <td>{{$item->start_date}}</td>
                                 <td>{{$item->national_id}}</td>
                                 <td>{{$item->address}}</td>
-                                <td>{{$item->religion}}</td>
                                 <td>
                                     @include('include.operations-dropdown', ['id' => 'id'])
                                 </td>

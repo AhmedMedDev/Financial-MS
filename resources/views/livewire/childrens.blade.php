@@ -20,14 +20,8 @@
                             <th>اسم الطفل</th>
                             <th>ولى الامر</th>
                             <th>الهاتف</th>
-                            <th>تاريخ الالتحاق</th>
                             <th>تاريخ الميلاد</th>
-                            <th>الجنسية</th>
-                            <th>النوع</th>
-                            <th>الديانة</th>
-                            <th>ع الاخوات</th>
-                            <th>ترتيبه بينهم</th>
-                            {{-- <th>ملاحظات الاخصائى</th> --}}
+                            <th>الرقم القومى/جواز السفر</th>
                             <th>العنوان</th>
                             <th>اجراءات</th>
                         </tr>
@@ -39,14 +33,8 @@
                                 <td>{{$item->child_name}}</td>
                                 <td>{{$item->parent}}</td>
                                 <td>{{$item->phone}}</td>
-                                <td>{{ date('M-d', strtotime($item->date)) }}</td>
                                 <td>{{$item->date_of_birth}}</td>
-                                <td>{{$item->nationality}}</td>
-                                <td>{{$item->gender}}</td>
-                                <td>{{$item->religion}}</td>
-                                <td>{{$item->num_of_bro}}</td>
-                                <td>{{$item->rank_of_bro}}</td>
-                                {{-- <td>{{$item->notes}}</td> --}}
+                                <td>{{$item->national_id}}</td>
                                 <td>{{$item->address}}</td>
                                 <td>
                                     @include('include.operations-dropdown', ['id' => 'id'])

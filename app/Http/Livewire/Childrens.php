@@ -24,6 +24,8 @@ class Childrens extends Component
     public $num_of_bro;
     public $rank_of_bro;
     public $address;
+    public $monthly_expenses;
+    public $bus_expenses;
 
     protected $rules = [
         'child_name'        => 'required',
@@ -38,13 +40,16 @@ class Childrens extends Component
         'num_of_bro'        => 'required',
         'rank_of_bro'       => 'required',
         'address'           => 'required',
+        'monthly_expenses'  => 'integer',
+        'bus_expenses'      => 'nullable|integer',
     ];
 
     public function __construct()
     {
-        $this->date = date('Y-m-d', strtotime(now()));
-        $this->gender = 'ذكر';
-        $this->religion = 'مسلم';
+        $this->date         = date('Y-m-d', strtotime(now()));
+        $this->gender       = 'ذكر';
+        $this->religion     = 'مسلم';
+        $this->bus_expenses = null;
     }
 
     public function resetFields ()
@@ -62,6 +67,8 @@ class Childrens extends Component
         $this->num_of_bro       = '';
         $this->rank_of_bro      = '';
         $this->address          = '';
+        $this->monthly_expenses = '';
+        $this->bus_expenses     = '';
     }
 
     public function updated($propertyName)
@@ -87,6 +94,8 @@ class Childrens extends Component
                 'num_of_bro'        => $this->num_of_bro,
                 'rank_of_bro'       => $this->rank_of_bro,
                 'address'           => $this->address,
+                'monthly_expenses'  => $this->monthly_expenses,
+                'bus_expenses'      => $this->bus_expenses,
             ]);
 
             $this->resetFields();
@@ -103,19 +112,21 @@ class Childrens extends Component
     {
         $children = DB::table('childrens')->where('id', $id)->first();
 
-        $this->ids            = $children->id;
-        $this->child_name     = $children->child_name;
-        $this->parent         = $children->parent;
-        $this->phone          = $children->phone;
-        $this->notes          = $children->notes;
-        $this->date           = date('Y-m-d', strtotime($children->date));
-        $this->date_of_birth  = $children->date_of_birth;
-        $this->gender         = $children->gender;
-        $this->nationality    = $children->nationality;
-        $this->religion       = $children->religion;
-        $this->num_of_bro     = $children->num_of_bro;
-        $this->rank_of_bro    = $children->rank_of_bro;
-        $this->address        = $children->address;
+        $this->ids                      = $children->id;
+        $this->child_name               = $children->child_name;
+        $this->parent                   = $children->parent;
+        $this->phone                    = $children->phone;
+        $this->notes                    = $children->notes;
+        $this->date                     = date('Y-m-d', strtotime($children->date));
+        $this->date_of_birth            = $children->date_of_birth;
+        $this->gender                   = $children->gender;
+        $this->nationality              = $children->nationality;
+        $this->religion                 = $children->religion;
+        $this->num_of_bro               = $children->num_of_bro;
+        $this->rank_of_bro              = $children->rank_of_bro;
+        $this->address                  = $children->address;
+        $this->monthly_expenses         = $children->monthly_expenses;
+        $this->bus_expenses             = $children->bus_expenses;
     }
 
     public function update ()
@@ -126,18 +137,20 @@ class Childrens extends Component
             DB::table('childrens')
             ->where('id', $this->ids)
             ->update([
-                'child_name'        => $this->child_name,
-                'parent'            => $this->parent,
-                'phone'             => $this->phone,
-                'notes'             => $this->notes,
-                'date'              => $this->date,
-                'date_of_birth'     => $this->date_of_birth,
-                'gender'            => $this->gender,
-                'nationality'       => $this->nationality,
-                'religion'          => $this->religion,
-                'num_of_bro'        => $this->num_of_bro,
-                'rank_of_bro'       => $this->rank_of_bro,
-                'address'           => $this->address,
+                'child_name'             => $this->child_name,
+                'parent'                 => $this->parent,
+                'phone'                  => $this->phone,
+                'notes'                  => $this->notes,
+                'date'                   => $this->date,
+                'date_of_birth'          => $this->date_of_birth,
+                'gender'                 => $this->gender,
+                'nationality'            => $this->nationality,
+                'religion'               => $this->religion,
+                'num_of_bro'             => $this->num_of_bro,
+                'rank_of_bro'            => $this->rank_of_bro,
+                'address'                => $this->address,
+                'monthly_expenses'       => $this->monthly_expenses,
+                'bus_expenses'           => $this->bus_expenses,
             ]);
 
             $this->resetFields();
