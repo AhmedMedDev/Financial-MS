@@ -1,9 +1,11 @@
 <?php
 
+use App\Imports\EmployeeImport;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use Maatwebsite\Excel\Facades\Excel;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,8 @@ Auth::routes();
 // Auth::routes(['register' => false]);
 
 Route::middleware(['auth'])->group(function () {
+
+    Route::post('EmpImport' , 'EmpImportController');
 
     Route::view('/', 'index');
     
