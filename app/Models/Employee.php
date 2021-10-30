@@ -12,13 +12,17 @@ class Employee extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'position',
-        'email',
-        'phone',
-        'avatar',
-        'salary',
-        'start_date',
+        'name'         ,
+        'salary'       ,
+        'national_id'  ,
+        'date_of_birth',
+        'qualification',
+        'address'      ,
+        'religion'     ,
+        'phone'        ,
+        'position'     ,
+        'email'        ,
+        'start_date'   ,
     ];
 
      /**

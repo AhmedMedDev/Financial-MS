@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2021 at 06:39 AM
+-- Generation Time: Oct 28, 2021 at 12:46 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -88,23 +88,33 @@ CREATE TABLE `childrens` (
   `nationality` varchar(20) NOT NULL,
   `religion` varchar(10) NOT NULL,
   `num_of_bro` int(11) NOT NULL,
-  `rank_of_bro` int(11) NOT NULL
+  `rank_of_bro` int(11) NOT NULL,
+  `address` text NOT NULL,
+  `national_id` varchar(50) NOT NULL,
+  `monthly_expenses` int(11) NOT NULL,
+  `bus_expenses` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `childrens`
 --
 
-INSERT INTO `childrens` (`id`, `child_name`, `child_image`, `parent`, `phone`, `date`, `notes`, `date_of_birth`, `gender`, `nationality`, `religion`, `num_of_bro`, `rank_of_bro`) VALUES
-(21, 'شش', 'child_image_defualt.png', 'ششش', '111', '2021-10-23 00:00:00', NULL, '2021-10-23', 'انثى', 'ششش', 'مسلم', 2, 2),
-(22, 'ششش', 'child_image_defualt.png', 'ششش', '1111', '2021-10-23 00:00:00', NULL, '2021-10-23', 'ذكر', 'شش', 'مسلم', 2, 2),
-(23, 'شش', 'child_image_defualt.png', 'شش', '11', '2021-10-23 00:00:00', NULL, '2021-10-23', 'ذكر', 'شش', 'مسلم', 2, 2),
-(24, 'aa', 'child_image_defualt.png', 'aaa', '111', '2021-10-23 00:00:00', NULL, '2021-10-23', 'ذكر', 'qqq', 'مسلم', 1, 1),
-(25, 'aa', 'child_image_defualt.png', 'aa', '11', '2021-10-23 00:00:00', NULL, '2021-10-23', 'ذكر', 'qq', 'مسلم', 1, 1),
-(26, 'aa', 'child_image_defualt.png', 'aa', '11', '2021-10-23 00:00:00', NULL, '2021-10-23', 'ذكر', 'aa', 'مسلم', 2, 2),
-(27, 'aaaaaaaaaaaaaa', 'child_image_defualt.png', 'aa', '11', '2021-10-23 00:00:00', NULL, '2021-10-23', 'ذكر', 'aa', 'مسلم', 1, 1),
-(28, 'aa', 'child_image_defualt.png', 'aa', '11', '2021-10-24 00:00:00', NULL, '2021-10-24', 'ذكر', 'aa', 'مسلم', 1, 1),
-(29, 'aaa', 'child_image_defualt.png', 'aaaa', '111', '2021-02-25 00:00:00', NULL, '2021-10-25', 'ذكر', 'aaa', 'مسلم', 11, 1);
+INSERT INTO `childrens` (`id`, `child_name`, `child_image`, `parent`, `phone`, `date`, `notes`, `date_of_birth`, `gender`, `nationality`, `religion`, `num_of_bro`, `rank_of_bro`, `address`, `national_id`, `monthly_expenses`, `bus_expenses`) VALUES
+(46, 'جوسيت', 'child_image_defualt.png', 'مؤمن عقلة', '+8321936738584', '2015-06-23 00:00:00', NULL, '2002-09-25', 'ذكر', 'ليبى', 'مسيحى', 2, 2, '3153 شارع أنزور العلامي\nغرب الطفيلة', '8459295850', 7902, 2309),
+(47, 'اماندا', 'child_image_defualt.png', 'كاترين الطويسات', '+3006658440138', '2002-06-21 00:00:00', NULL, '2013-05-05', 'ذكر', 'كويتى', 'مسلم', 1, 3, '30 شارع وليد الوشاح\nالسلط', '420769076X', 4860, 4533),
+(48, 'عماد الدين', 'child_image_defualt.png', 'فهمي البلبيسي', '+2867309034675', '2004-01-04 00:00:00', NULL, '1979-10-14', 'ذكر', 'مصرى', 'مسيحى', 6, 5, '5362 شارع آلاء الردايدة\nشمال غور الصافي', '2708770179', 4360, 1968),
+(49, 'ميان', 'child_image_defualt.png', 'فكتور الصنات', '+4187751949742', '1974-10-07 00:00:00', NULL, '1976-03-25', 'ذكر', 'مصرى', 'مسيحى', 6, 2, '81 شارع هانيا العلامي\nجنوب صويلح', '917402678X', 2670, 3865),
+(50, 'راجح', 'child_image_defualt.png', 'المهندس إياد العلامي', '+6383236014105', '2010-02-05 00:00:00', NULL, '1971-09-14', 'ذكر', 'مصرى', 'مسيحى', 0, 1, '0858 شارع أسيد الشطناوي\nشمال بيت راس', '411729508X', 4084, 1942),
+(51, 'ساري', 'child_image_defualt.png', 'الدكتورة مسعدة الرفاعي', '+6489159213257', '1973-08-26 00:00:00', NULL, '2019-01-09', 'انثى', 'ليبى', 'مسيحى', 5, 2, '62048 شارع نجلاء الصمادي\nبيت راس', '2774689570', 2201, 3727),
+(52, 'راجح', 'child_image_defualt.png', 'المهندسة حصه الرفاعي', '+1648337713646', '1972-09-30 00:00:00', NULL, '1990-05-27', 'انثى', 'ليبى', 'مسيحى', 1, 3, '29 شارع سلام المصري بناية رقم 55\nغرب الكرك', '7311010578', 7288, 1687),
+(53, 'بانا', 'child_image_defualt.png', 'عبد الناصر ابو يوسف', '+4216601419799', '2018-07-12 00:00:00', NULL, '2016-06-21', 'انثى', 'ليبى', 'مسيحى', 2, 5, '4660 شارع ميناس وادي\nام قصير', '7512093691', 3250, 1192),
+(54, 'عرفات', 'child_image_defualt.png', 'انوار السلطية', '+6220147785558', '1982-08-03 00:00:00', NULL, '2002-02-14', 'انثى', 'مصرى', 'مسيحى', 2, 2, '12115 شارع اويس العدوان شقة رقم. 51\nوسط الهاشمية', '4986711490', 7068, 3417),
+(55, 'مهدي', 'child_image_defualt.png', 'روزان الروسان', '+7869213277941', '1983-09-25 00:00:00', NULL, '1977-07-10', 'انثى', 'ليبى', 'مسيحى', 4, 2, '03516 شارع صليبا عباد\nشرق غور الصافي', '3872061291', 3289, 1509),
+(56, 'معين', 'child_image_defualt.png', 'وسن الرفاعي', '+2330718610695', '1974-04-20 00:00:00', NULL, '2015-05-11', 'انثى', 'كويتى', 'مسيحى', 6, 2, '61883 شارع ميرنا وادي شقة رقم. 06\nمعان', '2887633708', 4412, 3372),
+(57, 'صبره', 'child_image_defualt.png', 'جاسمن ابوالحاج', '+9561592629053', '1989-05-14 00:00:00', NULL, '1989-01-02', 'انثى', 'كويتى', 'مسيحى', 4, 5, '7541 شارع غصون المشاهره\nساكب', '8802149992', 7331, 4901),
+(58, 'بشارة', 'child_image_defualt.png', 'رواء الشريف', '+6118315898237', '2017-03-13 00:00:00', NULL, '2000-01-14', 'انثى', 'مصرى', 'مسيحى', 2, 4, '8292 شارع مراد الدعجة بناية رقم 33\nالرمثا', '4840519382', 6251, 2410),
+(59, 'نيفين', 'child_image_defualt.png', 'عثمان عباد', '+1681892239755', '1999-04-22 00:00:00', NULL, '1999-03-29', 'انثى', 'كويتى', 'مسيحى', 4, 5, '39465 شارع شوان المشاهره\nغور الصافي', '5765976751', 5290, 2346),
+(60, 'نهيدة', 'child_image_defualt.png', 'المهندس إياد الزوربا', '+9789571811036', '2021-06-07 00:00:00', NULL, '2001-08-14', 'انثى', 'كويتى', 'مسلم', 2, 4, '2739 شارع مينا الغريب\nشرق كريمه', '0553688340', 2367, 1058);
 
 -- --------------------------------------------------------
 
@@ -151,18 +161,32 @@ CREATE TABLE `employees` (
   `start_date` varchar(30) DEFAULT NULL,
   `day_price` int(11) GENERATED ALWAYS AS (`salary` / 26) VIRTUAL,
   `date_of_birth` date NOT NULL,
-  `email` varchar(150) DEFAULT NULL
+  `email` varchar(150) DEFAULT NULL,
+  `national_id` varchar(15) NOT NULL,
+  `address` text NOT NULL,
+  `religion` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`id`, `name`, `position`, `qualification`, `phone`, `salary`, `avatar`, `start_date`, `date_of_birth`, `email`) VALUES
-(72, 'تويا حسن', 'اخصائى', 'تربية عين شمس', '0122353648', 3400, '\'default.png\'', '2021-10-23', '2000-10-10', ''),
-(74, 'محمد حسن', 'اخصائى ضحك', 'هندسة', '01552290548', 5000, '\'default.png\'', '2021-10-23', '2001-09-20', NULL),
-(75, 'Baxter Logan', 'Enim veniam fuga P', 'Beatae eligendi even', '+1 (485) 764-7872', 7600, '\'default.png\'', '2020-12-12', '2020-12-12', ''),
-(76, 'aa', 'aa', 'qqqqq', '11', 11, '\'default.png\'', '2021-10-25', '2021-10-25', NULL);
+INSERT INTO `employees` (`id`, `name`, `position`, `qualification`, `phone`, `salary`, `avatar`, `start_date`, `date_of_birth`, `email`, `national_id`, `address`, `religion`) VALUES
+(138, 'رحمه الحجايا', 'اخصائى', 'ليسانس اداب وتربيه قسم علم نفس', '+4924799405157', 4775, '\'default.png\'', '1972-03-20', '2000-06-28', 'shami.mutaz@example.com', '5016248834', '82 شارع عبادة الشامي\nشمال المفرق', 'مسيحى'),
+(139, 'هنادي البلبيسي', 'اخصائى', 'ليسانس اداب وتربيه قسم علم نفس', '+8222371613306', 2497, '\'default.png\'', '2007-12-11', '1977-01-28', 'tmelhem@example.org', '8964090527', '8221 شارع زياد الريماوي شقة رقم. 00\nالقويسمة', 'مسلم'),
+(140, 'رائد الروسان', 'اخصائى', 'ليسانس اداب وتربيه قسم علم نفس', '+7307414926146', 6293, '\'default.png\'', '1985-08-01', '2017-08-10', 'zaloum.bashar@example.com', '5979789200', '90679 شارع صمود الشمالي بناية رقم 88\nغرب الحصن', 'مسيحى'),
+(141, 'مؤتمن الطويل', 'اخصائى', 'بكالوريوس تربية ', '+8258883745305', 3028, '\'default.png\'', '1975-01-04', '2016-05-13', 'yazan39@example.org', '5102284983', '60017 شارع بدوان السيوف بناية رقم 38\nشرق كفرنجه', 'مسيحى'),
+(142, 'عبيدالله الصرايرة', 'اخصائى', 'ليسانس اداب وتربيه قسم علم نفس', '+4692006650670', 4214, '\'default.png\'', '1993-10-14', '2014-02-28', 'tkanaan@example.com', '2039141243', '1889 شارع صالح الضمور بناية رقم 21\nالحصن', 'مسلم'),
+(143, 'كلوديت المجالي', 'اخصائى', 'ليسانس اداب وتربيه قسم علم نفس', '+6388660901225', 6424, '\'default.png\'', '1993-02-02', '1973-08-20', 'nhamad@example.org', '3178453792', '3715 شارع سمعان العمرية بناية رقم 90\nشمال ايدون', 'مسلم'),
+(144, 'الآنسة سعاد الصمادي', 'اخصائى', 'ليسانس اداب وتربيه قسم علم نفس', '+1050718420904', 7586, '\'default.png\'', '1989-09-04', '2001-01-05', 'ahmad.rabee@example.com', '1076558844', '58303 شارع انتظار بني صقر\nجنوب ايدون', 'مسلم'),
+(145, 'ايسر بني حسن', 'اخصائى', 'بكالوريوس تربية ', '+3146109423958', 2106, '\'default.png\'', '1990-03-02', '1991-11-26', 'abd77@example.org', '6400140387', '42892 شارع انعام ابو يوسف شقة رقم. 30\nشمال القويسمة', 'مسلم'),
+(146, 'بيداء ابو سعده', 'اخصائى', 'بكالوريوس تربية ', '+7835046975785', 2109, '\'default.png\'', '1986-12-27', '1997-11-29', 'jabbas@example.com', '2866167872', '61681 شارع رامز عناسوة شقة رقم. 88\nالمشارع', 'مسيحى'),
+(147, 'رسلان سحاب', 'اخصائى', 'ليسانس اداب وتربيه قسم علم نفس', '+6511865103516', 7943, '\'default.png\'', '1979-06-22', '2016-04-07', 'fobaisi@example.com', '4958065474', '43 شارع رحمه الرشدان بناية رقم 10\nالعقبة', 'مسيحى'),
+(148, 'عزيز العنانبه', 'اخصائى', 'بكالوريوس تربية ', '+3932684628447', 6771, '\'default.png\'', '1990-01-29', '1998-07-23', 'hamad.yazan@example.org', '3878099622', '17922 شارع جمزه العناسوة\nشمال الشهيد عزمي', 'مسيحى'),
+(149, 'صابرين السحاقات', 'اخصائى', 'ليسانس اداب وتربيه قسم علم نفس', '+6265245808539', 4886, '\'default.png\'', '1983-12-20', '1999-12-06', 'saleem44@example.net', '0652584497', '48 شارع جمانة السلطية بناية رقم 28\nمرج الحمام', 'مسلم'),
+(150, 'اماندا الفاخوري', 'اخصائى', 'ليسانس اداب وتربيه قسم علم نفس', '+6051901267160', 3837, '\'default.png\'', '2017-12-01', '2011-12-13', 'kabbadi@example.org', '7286002600', '1625 شارع عبد الفناطسة\nالجبيهه', 'مسيحى'),
+(151, 'بهاء البلبيسي', 'اخصائى', 'بكالوريوس تربية ', '+9727828921045', 7604, '\'default.png\'', '1990-12-12', '2018-02-08', 'amr93@example.com', '3457239487', '14 شارع سمعان العلامي بناية رقم 69\nالزرقاء', 'مسيحى'),
+(152, 'اشراق عجلون', 'اخصائى', 'ليسانس اداب وتربيه قسم علم نفس', '+4491831522675', 6937, '\'default.png\'', '2012-09-12', '1996-09-06', 'babulebbeh@example.net', '5326915170', '35140 شارع ميس الحجايا\nجنوب ايدون', 'مسيحى');
 
 -- --------------------------------------------------------
 
@@ -196,15 +220,6 @@ CREATE TABLE `financial_operations` (
   `receipt` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `financial_operations`
---
-
-INSERT INTO `financial_operations` (`id`, `amount`, `client`, `reason`, `status`, `date`, `receipt`) VALUES
-(99, 111, 'aaa', 'aaaa', 1, '2021-10-25 03:03:02', '1111'),
-(100, 111, 'Baxter Logan', 'aaa', 0, '2021-10-25 03:06:17', '111'),
-(101, 11, 'Baxter Logan', 'aa', 0, '2021-08-25 00:00:00', '11');
-
 -- --------------------------------------------------------
 
 --
@@ -220,14 +235,6 @@ CREATE TABLE `individual_sessions` (
   `date` timestamp NOT NULL DEFAULT current_timestamp(),
   `month` int(11) GENERATED ALWAYS AS (month(`date`)) VIRTUAL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `individual_sessions`
---
-
-INSERT INTO `individual_sessions` (`id`, `children_id`, `employee_id`, `amount`, `remaining`, `date`) VALUES
-(12, 29, 74, 111, 111, '2021-10-25 01:24:50'),
-(13, 27, 75, 11, 11, '2021-10-25 01:26:20');
 
 -- --------------------------------------------------------
 
@@ -297,17 +304,6 @@ CREATE TABLE `salary_changes` (
   `month` int(11) GENERATED ALWAYS AS (month(`date`)) VIRTUAL,
   `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `salary_changes`
---
-
-INSERT INTO `salary_changes` (`id`, `employee_id`, `amount`, `reason`, `date`, `status`) VALUES
-(56, 74, 300, 'aaa', '2021-10-24 16:22:20', 1),
-(57, 74, 211, 'aaa', '2021-10-24 16:34:25', 1),
-(58, 72, 4000, 'aaaa', '2021-09-24 22:00:00', 1),
-(59, 74, -111, 'aaa', '2021-10-25 00:50:11', 0),
-(61, 75, -11, 'aa', '2021-01-24 22:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -386,6 +382,15 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'ِahmed said', 'admin@admin.com', NULL, '$2y$10$vAbz1yIW/8/3LtlyaC23iOZzuNlt4rtWOWuDJpQRTSoUyaYI21L3e', '0RFSty4vyruLWtFNFl4UK8uIn64YaS6DE1IfHPoObN7WRHPr4OMhBTOdAL5e', '2021-10-25 19:33:19', '2021-10-25 19:33:19'),
+(2, 'Harvest-HR', 'algeniefoun@gmail.com', NULL, '$2y$10$eEuQP9eDZ6t6JSZDClkZSeZw6XKSO6d3wmI4J8RT8Oi1ZmUOlYneW', NULL, '2021-10-25 21:08:27', '2021-10-25 21:08:27'),
+(3, 'ahmed', 'ahmed@ahmed.com', NULL, '$2y$10$WpUOOz7TLXNmZcoLxBNHjOyuchtf9PEQQd0YB3wkvzmGa7WodyFQm', NULL, '2021-10-28 05:03:09', '2021-10-28 05:03:09');
 
 -- --------------------------------------------------------
 
@@ -541,31 +546,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `absences_deductions`
 --
 ALTER TABLE `absences_deductions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `attendance_lists`
 --
 ALTER TABLE `attendance_lists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `childrens`
 --
 ALTER TABLE `childrens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `delay_deductions`
 --
 ALTER TABLE `delay_deductions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -577,13 +582,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `financial_operations`
 --
 ALTER TABLE `financial_operations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT for table `individual_sessions`
 --
 ALTER TABLE `individual_sessions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -595,19 +600,19 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `salaries_received`
 --
 ALTER TABLE `salaries_received`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `salary_changes`
 --
 ALTER TABLE `salary_changes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

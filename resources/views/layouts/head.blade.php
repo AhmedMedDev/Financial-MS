@@ -1,3 +1,15 @@
+<meta charset="UTF-8">
+<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+<meta name="Description" content="Financial Mangment System ">
+<meta name="Author" content="Ahmed Med">
+<meta name="description" content=" Financial Mangment System " />
+<meta name="keywords" content=" harvest , harvest center , مركز هارفست , مركز هارفست مدينة نصر , جلسات تخاطب , جلسات تخاطب للاطفال , منتسورى , علاج الاطفال زوى الاحتياجات الخاصة , التأهيل الاكاديمى , التأهيل الحركى , التأهيل الحسى ">
+<meta name="google-site-verification" content="h0u8R7v1liDlWVWoeq5fEsRKlEVpGErc-MFx5CsMeBk" />
+<link rel="icon" href="{{URL::asset('HarFavicon.png')}}">
+<!-- CSRF Token -->
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<!-- Title -->
+<title> Harvest Financial Mangment System </title>
 
 <!-- Icons css -->
 <link href="{{URL::asset('assets/css/icons.css')}}" rel="stylesheet">
