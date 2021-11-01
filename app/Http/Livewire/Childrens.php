@@ -20,6 +20,7 @@ class Childrens extends Component
     public $date_of_birth;
     public $gender;
     public $nationality;
+    public $national_id;
     public $religion;
     public $num_of_bro;
     public $rank_of_bro;
@@ -36,6 +37,7 @@ class Childrens extends Component
         'date_of_birth'     => 'required|date',
         'gender'            => 'required',
         'nationality'       => 'required',
+        'national_id'       => 'required',
         'religion'          => 'required',
         'num_of_bro'        => 'required',
         'rank_of_bro'       => 'required',
@@ -63,6 +65,7 @@ class Childrens extends Component
         $this->date_of_birth    = '';
         // $this->gender           = '';
         $this->nationality      = '';
+        $this->national_id      = '';
         // $this->religion         = '';
         $this->num_of_bro       = '';
         $this->rank_of_bro      = '';
@@ -90,6 +93,7 @@ class Childrens extends Component
                 'date_of_birth'     => $this->date_of_birth,
                 'gender'            => $this->gender,
                 'nationality'       => $this->nationality,
+                'national_id'       => $this->national_id,
                 'religion'          => $this->religion,
                 'num_of_bro'        => $this->num_of_bro,
                 'rank_of_bro'       => $this->rank_of_bro,
@@ -121,6 +125,7 @@ class Childrens extends Component
         $this->date_of_birth            = $children->date_of_birth;
         $this->gender                   = $children->gender;
         $this->nationality              = $children->nationality;
+        $this->national_id              = $children->national_id;
         $this->religion                 = $children->religion;
         $this->num_of_bro               = $children->num_of_bro;
         $this->rank_of_bro              = $children->rank_of_bro;
@@ -145,6 +150,7 @@ class Childrens extends Component
                 'date_of_birth'          => $this->date_of_birth,
                 'gender'                 => $this->gender,
                 'nationality'            => $this->nationality,
+                'national_id'            => $this->national_id,
                 'religion'               => $this->religion,
                 'num_of_bro'             => $this->num_of_bro,
                 'rank_of_bro'            => $this->rank_of_bro,
