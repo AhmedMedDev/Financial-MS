@@ -16,6 +16,6 @@ class ViewsHandlerController extends Controller
     {
         return (view()->exists($page)) 
         ? view($page)
-        :view('404');
+        : view('404');
     }
 }

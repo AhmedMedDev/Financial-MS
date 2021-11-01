@@ -43,6 +43,12 @@
     <input type="text" class="form-control @error('nationality') is-invalid @enderror" wire:model="nationality"></input>
     @error('nationality') <span class="error text-danger">{{ $message }}</span> @enderror
   </div>
+  {{-- national_id --}}
+  <div class="form-group">
+    <label for="national_id">الرقم القومى/جواز السفر <span class="tx-danger">*</span></label>
+    <input type="text" class="form-control @error('national_id') is-invalid @enderror" id="national_id" wire:model="national_id">
+    @error('national_id') <span class="error text-danger">{{ $message }}</span> @enderror
+  </div>
   {{-- religion--}}
   <div class="form-group">
     <label for="religion">الديانة  <span class="tx-danger">*</span></label>

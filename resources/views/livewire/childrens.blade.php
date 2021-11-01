@@ -3,7 +3,7 @@
     @include('livewire.create-children')
     @include('livewire.update-children')
     <!-- End Modal effects-->
-    <div class="card">
+    <div wire:ignore class="card">
         <div class="card-header pb-0">
             <div class="d-flex justify-content-between">
                 <h4 class="card-title mg-b-0">STRIPED ROWS</h4>
@@ -13,7 +13,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table wire:ignore.self class="table text-md-nowrap" id="">{{-- example --}}
+                <table wire:ignore.self class="table text-md-nowrap" id="example1">{{-- example --}}
                     <thead>
                         <tr>
                             <th>رقم الطفل</th>
