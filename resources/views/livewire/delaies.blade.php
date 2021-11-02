@@ -34,10 +34,16 @@
                         </td>
                         <td>{{$item->month}}</td>
                         <td>
-                            <button class="btn btn-danger-gradient btn-block"  
-                                wire:click.prevent="deductionFromSalary({{$item->employee_id}},{{$amount}},{{$item->month}})">
-                                خصم من المرتب
-                            </button>
+                            @if (is_int($item->total_delay / 120))
+                                <button class="btn btn-danger-gradient btn-block"  
+                                    wire:click.prevent="deductionFromSalary({{$item->employee_id}},{{$amount}},{{$item->month}})">
+                                    خصم من المرتب
+                                </button>
+                            @else
+                                <button class="btn btn-secondary-gradient btn-block"  >
+                                    خصم من المرتب
+                                </button>
+                            @endif
                         </td>
                     </tr>
                     @endforeach
