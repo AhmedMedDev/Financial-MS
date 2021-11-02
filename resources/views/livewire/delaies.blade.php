@@ -30,11 +30,11 @@
                         <td>{{$item->name}}</td>
                         <td>{{$item->total_delay}} دقيقة</td>
                         <td> 
-                            {{ number_format($amount = ($item->total_delay / 120 ) * $item->day_price, 2) }} EGP
+                            {{ number_format($amount = ((int)($item->total_delay / 120 )) * $item->day_price, 2) }} EGP
                         </td>
                         <td>{{$item->month}}</td>
                         <td>
-                            @if (is_int($item->total_delay / 120))
+                            @if ($item->total_delay / 120 >= 1)
                                 <button class="btn btn-danger-gradient btn-block"  
                                     wire:click.prevent="deductionFromSalary({{$item->employee_id}},{{$amount}},{{$item->month}})">
                                     خصم من المرتب
