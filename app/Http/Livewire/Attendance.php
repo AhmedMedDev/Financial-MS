@@ -14,9 +14,9 @@ class Attendance extends Component
     public $is_attende;
     public $delay_min;
 
-    public function deleteAttendance ($emp_id)
+    public function deleteAttendance ($id)
     {
-        DB::select("DELETE FROM `attendance_lists` WHERE employee_id = $emp_id AND DATE(date) = CURDATE()");
+        DB::table('attendance_lists')->where('id', $id)->delete();
 
         $this->emit('Toast-Alert');
     }
@@ -25,7 +25,7 @@ class Attendance extends Component
     {
         $this->attendance = DB::select('SELECT * FROM `employees` WHERE id NOT IN (SELECT employee_id FROM `attendance_lists` WHERE DATE(date) = CURDATE())');
 
-        $this->savedAttendance = DB::select('SELECT * FROM `employees` WHERE id IN (SELECT employee_id FROM `attendance_lists` WHERE DATE(date) = CURDATE())');
+        $this->savedAttendance = DB::select('SELECT attendance_lists.*, employees.name , employees.position FROM `attendance_lists`, `employees` WHERE DATE(date) = CURDATE() AND attendance_lists.employee_id = employees.id');
 
         return view('livewire.attendance');
     }
