@@ -36,9 +36,8 @@ function saveAttendance (empID) {
 					'success'
 				)
                 // Delete From display
-                $(`#attendance${empID}`).slideUp(600,function () {
-                    $(`#attendance${empID}`).remove();
-                });
+                livewire.emit('refresh')
+
             }
         },
         error: function (data) {

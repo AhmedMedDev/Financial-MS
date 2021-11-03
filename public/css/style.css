@@ -92,3 +92,12 @@ table.dataTable thead .sorting::before, table.dataTable thead .sorting::after{
 table.dataTable thead .sorting_asc::after, table.dataTable thead .sorting_desc::after {
   opacity: 0;
 }
+.thumbnail{
+  width: 50px !important; 
+  height:50px;
+}
+
+.tabs-style-3 {
+  padding: 0;
+  border: none;
+}

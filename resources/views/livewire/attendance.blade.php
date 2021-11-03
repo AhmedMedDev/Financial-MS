@@ -7,42 +7,27 @@
         <p class="tx-12 tx-gray-500 mb-2">لاتنسى حفظ العميلة بعد الانتهاء</p>
     </div>
     <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-striped mg-b-0 text-md-nowrap">
-                <thead>
-                    <tr>
-                        <th>رقم الموظف</th>
-                        <th>صورة الموظف</th>
-                        <th>اسم الموظف</th>
-                        <th>هل حضر</th>
-                        <th>عدد دقائق التاخير</th>
-                        <th>اجراءات</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($attendance as $item)
-                    <tr id="attendance{{$item->id}}">
-                        <th scope="row">{{$item->id}}</th>
-                        <td>
-                            <img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="{{asset('assets/img/photos/1.jpg')}}">
-                        </td>
-                        <td>{{$item->name}}</td>
-                        <td>
-                            <label class="switch" >
-                                <input type="checkbox" id="is_attende{{$item->id}}" onclick="toggleActive({{$item->id}})">
-                                <span class="slider round"></span>
-                            </label>
-                        </td>
-                        <td>
-                            <input type="number" class="form-control" id="delay_min{{$item->id}}" name="delay_min" placeholder="ادخل عدد الدقائق" disabled>
-                        </td>
-                        <td>
-                            <button class="btn btn-success-gradient btn-block" onclick="saveAttendance({{$item->id}})">تسجيل</button>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div><!-- bd -->
+        <div class="panel panel-primary tabs-style-3">
+            <div class="tab-menu-heading">
+                <div class="tabs-menu ">
+                    <!-- Tabs -->
+                    <ul class="nav panel-tabs">
+                        <li class=""><a href="#tab11" class="active" data-toggle="tab"><i class="fa fa-laptop"></i> تسجيل الحضور</a></li>
+                        <li><a href="#tab12" data-toggle="tab"><i class="fa fa-cube"></i> حذف التسجيل</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel-body tabs-menu-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab11">
+                        @include('include.saveAttendance')
+                    </div>
+                    <div class="tab-pane" id="tab12">
+                        @include('include.deleteAttendance')
+                    </div>
+                </div>
+            </div>
+        </div>
     </div><!-- bd -->
 </div>
+
