@@ -26,6 +26,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('EmpImport' , 'EmpImportController');
 
+    Route::post('ChildImport' , 'ChildrenController');
+
     Route::view('/', 'index');
     
     Route::post('attendance_lists', 'AttendanceListController');
