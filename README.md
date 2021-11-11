@@ -1,4 +1,4 @@
-<p align="center"><img src="http://financial.harvest-center.com/HarFavicon.png" width="400"></p>
+<p align="center"><img src="http://financial.harvest-center.com/HarFavicon.png" width="400" height="400"></p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
