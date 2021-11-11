@@ -13,10 +13,20 @@ class Children extends Model
      */
     protected $fillable = [
         'child_name',
-        'child_image',
         'parent',
         'phone',
         'notes',
+        'date_of_birth',
+        'date',
+        'gender',
+        'nationality',
+        'religion',
+        'num_of_bro',
+        'rank_of_bro',
+        'address',
+        'national_id',
+        'monthly_expenses',
+        'bus_expenses',
     ];
 
      /**
