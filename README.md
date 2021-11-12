@@ -1,4 +1,4 @@
-<p align="center"><img src="http://financial.harvest-center.com/HarFavicon.png" width="400" height="200"></p>
+<p align="center"><img src="http://financial.harvest-center.com/HarFavicon.png" width="400"></p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
@@ -7,19 +7,18 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+## HarFinancial
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+HarFinancial is a financial management system (FMS) is the software and processes an organization uses to manage assets, income and expenses. An FMS performs various functions: reducing accounting errors, maintaining audit trails and ensuring compliance with applicable accounting standards
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## HarFinancial technologies
+
+<p>
+<a href="https://travis-ci.org/laravel/framework"><img src="https://cdn.worldvectorlogo.com/logos/laravel-wordmark-1.svg" alt="Laravel"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://laravelnews.imgix.net/images/laravel-livewire.png?ixlib=php-3.3.1" alt="Livewire"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://laravel.spruko.com/valex/ltr/assets/img/brand/logo.png" alt="Valex"></a>
+</p>
 
 ## Learning Laravel
 
