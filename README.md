@@ -14,8 +14,8 @@ HarFinancial is a financial management system (FMS) is the software and processe
 
 ## HarFinancial technologies
 
-<a href="https://travis-ci.org/laravel/framework"><img src="https://cdn.worldvectorlogo.com/logos/laravel-wordmark-1.svg" alt="Laravel"  width="400"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://laravelnews.imgix.net/images/laravel-livewire.png?ixlib=php-3.3.1" alt="Livewire"  width="400"></a>
+<a href="https://travis-ci.org/laravel/framework"><img src="https://cdn.worldvectorlogo.com/logos/laravel-wordmark-1.svg" alt="Laravel"  width="400"></a> <br/>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://raw.githubusercontent.com/dedoa82/Financial-MS/master/readme_pics/livewire.png" alt="Livewire"  width="400"></a><br/>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://laravel.spruko.com/valex/ltr/assets/img/brand/logo.png" alt="Valex" width="400"></a>
 
 
