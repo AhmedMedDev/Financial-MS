@@ -140,3 +140,19 @@ JOIN attendance_lists ON (employees.id = employee_id)
 WHERE is_attende = 0 
 AND month = MONTH(CURDATE())
 AND employee_id NOT IN (SELECT employee_id FROM absences_deductions WHERE date = DATE(attendance_lists.date))
+
+
+CREATE VIEW absences AS
+SELECT 
+employees.id AS employee_id, 
+employees.avatar,
+employees.name,
+employees.day_price,
+employees.salary,
+DATE(attendance_lists.date) AS date,
+attendance_lists.month,
+attendance_lists.time
+FROM employees
+JOIN attendance_lists ON (employees.id = employee_id) 
+WHERE is_attende = 0 
+AND employee_id NOT IN (SELECT employee_id FROM absences_deductions WHERE date = DATE(attendance_lists.date))
