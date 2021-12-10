@@ -147,6 +147,7 @@ SELECT
 employees.id AS employee_id, 
 employees.avatar,
 employees.name,
+employees.position,
 employees.day_price,
 employees.salary,
 DATE(attendance_lists.date) AS date,
@@ -156,3 +157,37 @@ FROM employees
 JOIN attendance_lists ON (employees.id = employee_id) 
 WHERE is_attende = 0 
 AND employee_id NOT IN (SELECT employee_id FROM absences_deductions WHERE date = DATE(attendance_lists.date))
+
+SELECT
+    `harvest_financial`.`employees`.`id` AS `employee_id`,
+    `harvest_financial`.`employees`.`avatar` AS `avatar`,
+    `harvest_financial`.`employees`.`name` AS `name`,
+    `harvest_financial`.`employees`.`position` AS `position`,
+    `harvest_financial`.`employees`.`day_price` AS `day_price`,
+    `harvest_financial`.`employees`.`salary` AS `salary`,
+    CAST(
+        `harvest_financial`.`attendance_lists`.`date` AS DATE
+    ) AS `date`,
+    `harvest_financial`.`attendance_lists`.`month` AS `month`,
+    `harvest_financial`.`attendance_lists`.`time` AS `time`
+FROM
+    (
+        `harvest_financial`.`employees`
+    JOIN `harvest_financial`.`attendance_lists` ON
+        (
+            `harvest_financial`.`employees`.`id` = `harvest_financial`.`attendance_lists`.`employee_id`
+        )
+    )
+WHERE
+    `harvest_financial`.`attendance_lists`.`is_attende` = 0 AND `harvest_financial`.`attendance_lists`.`month` = MONTH(CURDATE()) AND !(
+        `harvest_financial`.`attendance_lists`.`employee_id` IN(
+        SELECT
+            `harvest_financial`.`absences_deductions`.`employee_id`
+        FROM
+            `harvest_financial`.`absences_deductions`
+        WHERE
+            `harvest_financial`.`absences_deductions`.`date` = CAST(
+                `harvest_financial`.`attendance_lists`.`date` AS DATE
+            )
+    )
+    )
