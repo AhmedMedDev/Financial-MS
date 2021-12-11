@@ -59,7 +59,7 @@
 									<div class="d-flex">
 										<div class="">
 											<h4 class="tx-20 font-weight-bold mb-1 text-white">
-												{{number_format(DB::table('financial_operations')->where('status', 0)->sum('amount'),2)}} EGP
+												{{number_format(DB::table('financial_operations')->where('status', 0)->whereMonth('date', date('m'))->sum('amount'),2)}} EGP
 											</h4>
 											<p class="mb-0 tx-12 text-white op-7">Compared to last week</p>
 										</div>
