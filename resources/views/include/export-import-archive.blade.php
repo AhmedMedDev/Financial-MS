@@ -5,7 +5,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">ارشيف الصادرات و الواردرات</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -23,23 +23,38 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {{-- @foreach ( as $item) --}}
                                             <tr>
-                                                <td>{{ number_format(1000, 2) }} EGP</td>
-                                                <td>{{ number_format(2000, 2) }} EGP</td>
-                                                {{-- <td>{{ date('d-M', strtotime($item->date)) }}</td> --}}
-                                                <td>oct</td>
+                                                <td>
+                                                    <span class="tag tag-red">{{ number_format(28000, 2) }} EGP</span>
+                                                </td>
+                                                <td>
+                                                    <span class="tag tag-success">{{ number_format(15000, 2) }} EGP</span>
+                                                </td>
+                                                <td>يناير</td>
                                             </tr>
-                                        {{-- @endforeach --}}
+                                            <tr>
+                                                <td>
+                                                    <span class="tag tag-red">{{ number_format(3000, 2) }} EGP</span>
+                                                </td>
+                                                <td>
+                                                    <span class="tag tag-success">{{ number_format(23000, 2) }} EGP</span>
+                                                </td>
+                                                <td>فيراير</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="tag tag-red">{{ number_format(34000, 2) }} EGP</span>
+                                                </td>
+                                                <td>
+                                                    <span class="tag tag-success">{{ number_format(15000, 2) }} EGP</span>
+                                                </td>
+                                                <td>نوفمبر</td>
+                                            </tr>
                                     </tbody>
                                 </table>
                             </div><!-- bd -->
                         </div><!-- bd -->
                     </div><!-- bd -->
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
