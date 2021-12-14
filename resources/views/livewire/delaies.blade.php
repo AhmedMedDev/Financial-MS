@@ -8,7 +8,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table text-md-nowrap" id="">{{-- example1 --}}
+            <table class="table text-md-nowrap" id="example1">{{-- example1 --}}
                 <thead>
                     <tr>
                         <th>رقم الموظف</th>

@@ -13,7 +13,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table wire:ignore.self class="table text-md-nowrap" id=""> {{-- example1 --}}
+                <table wire:ignore.self class="table text-md-nowrap" id="example1"> {{-- example1 --}}
                     <thead>
                         <tr>
                             <th>رقم الايصال</th>
