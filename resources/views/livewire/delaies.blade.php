@@ -7,48 +7,26 @@
         <p class="tx-12 tx-gray-500 mb-2">Example of Valex Striped Rows.. <a href="">Learn more</a></p>
     </div>
     <div class="card-body">
-        <div class="table-responsive">
-            <table class="table text-md-nowrap" id="">{{-- example1 --}}
-                <thead>
-                    <tr>
-                        <th>رقم الموظف</th>
-                        <th>صورة الموظف</th>
-                        <th>اسم الموظف</th>
-                        <th>اجمالى دقائق التاخير</th>
-                        <th>قميم الخصم</th>
-                        <th>لشهر</th>
-                        <th>اجراءات</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($delaies as $item)
-                    <tr>
-                        <th scope="row">{{$item->employee_id}}</th>
-                        <td>
-                            <img alt="Responsive image" class="img-thumbnail wd-55p wd-sm-55" src="{{asset('assets/img/photos/1.jpg')}}">
-                        </td>
-                        <td>{{$item->name}}</td>
-                        <td>{{$item->total_delay}} دقيقة</td>
-                        <td> 
-                            {{ number_format($amount = ((int)($item->total_delay / 120 )) * $item->day_price, 2) }} EGP
-                        </td>
-                        <td>{{$item->month}}</td>
-                        <td>
-                            @if ($item->total_delay / 120 >= 1)
-                                <button class="btn btn-danger-gradient btn-block"  
-                                    wire:click.prevent="deductionFromSalary({{$item->employee_id}},{{$amount}},{{$item->month}})">
-                                    خصم من المرتب
-                                </button>
-                            @else
-                                <button class="btn btn-secondary-gradient btn-block"  >
-                                    خصم من المرتب
-                                </button>
-                            @endif
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div><!-- bd -->
-    </div><!-- bd -->
-</div><!-- bd -->
+        <div class="panel panel-primary tabs-style-3">
+            <div class="tab-menu-heading">
+                <div class="tabs-menu ">
+                    <!-- Tabs -->
+                    <ul class="nav panel-tabs">
+                        <li class=""><a href="#tab11" class="active" data-toggle="tab"><i class="fa fa-laptop"></i> غيابات هذا الشهر</a></li>
+                        <li><a href="#tab12" data-toggle="tab"><i class="fa fa-cube"></i> الارشيف</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel-body tabs-menu-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab11">
+                        @include('include.delay.main')
+                    </div>
+                    <div class="tab-pane" id="tab12">
+                        @include('include.delay.archive')
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
