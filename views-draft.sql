@@ -191,3 +191,12 @@ WHERE
             )
     )
     )
+
+CREATE VIEW financial_operation_archives AS
+SELECT 
+month AS final_month, 
+SUM(amount) AS total_export,
+(SELECT SUM(amount) FROM `financial_operations` WHERE status = 1 AND month = final_month) AS total_import 
+FROM `financial_operations` 
+WHERE status = 0 GROUP BY month
+HAVING month != MONTH(CURDATE())
