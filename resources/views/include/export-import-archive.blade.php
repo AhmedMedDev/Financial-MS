@@ -1,7 +1,7 @@
     {{--  --}}
     <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -23,33 +23,23 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach (DB::table('financial_operation_archives')->get() as $item)
                                             <tr>
                                                 <td>
-                                                    <span class="tag tag-red">{{ number_format(28000, 2) }} EGP</span>
+                                                    <span class="tag tag-red">
+                                                        {{ number_format($item->total_export, 2) }}
+                                                        EGP
+                                                    </span>
                                                 </td>
                                                 <td>
-                                                    <span class="tag tag-success">{{ number_format(15000, 2) }} EGP</span>
+                                                    <span class="tag tag-success">
+                                                        {{ number_format($item->total_import, 2) }}
+                                                        EGP
+                                                    </span>
                                                 </td>
-                                                <td>يناير</td>
+                                                <td>{{date('M', $item->final_month)}}</td>
                                             </tr>
-                                            <tr>
-                                                <td>
-                                                    <span class="tag tag-red">{{ number_format(3000, 2) }} EGP</span>
-                                                </td>
-                                                <td>
-                                                    <span class="tag tag-success">{{ number_format(23000, 2) }} EGP</span>
-                                                </td>
-                                                <td>فيراير</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <span class="tag tag-red">{{ number_format(34000, 2) }} EGP</span>
-                                                </td>
-                                                <td>
-                                                    <span class="tag tag-success">{{ number_format(15000, 2) }} EGP</span>
-                                                </td>
-                                                <td>نوفمبر</td>
-                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div><!-- bd -->
@@ -60,4 +50,3 @@
         </div>
     </div>
     {{--  --}}
-
