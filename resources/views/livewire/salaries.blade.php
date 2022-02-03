@@ -8,7 +8,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-striped mg-b-0 text-md-nowrap">
+            <table class="table table-striped mg-b-0 text-md-nowrap" id="example1">
                 <thead>
                     <tr>
                         <th>رقم الموظف</th>

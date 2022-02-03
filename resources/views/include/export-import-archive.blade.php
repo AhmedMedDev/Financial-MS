@@ -23,21 +23,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach (DB::table('financial_operation_archives')->get() as $item)
+                                        @foreach (DB::select('SELECT DISTINCT month FROM `financial_operations`') as $month)
                                             <tr>
                                                 <td>
                                                     <span class="tag tag-red">
-                                                        {{ number_format($item->total_export, 2) }}
+                                                        {{ number_format(DB::selectOne('SELECT SUM(amount) AS total_export FROM `financial_operations` WHERE status = 0 AND month = ?', [(int)$month->month])->total_export, 2) }}
                                                         EGP
                                                     </span>
                                                 </td>
                                                 <td>
                                                     <span class="tag tag-success">
-                                                        {{ number_format($item->total_import, 2) }}
+                                                        {{ number_format(DB::selectOne('SELECT SUM(amount) AS total_import FROM `financial_operations` WHERE status = 1 AND month = ?', [(int)$month->month])->total_import, 2) }}
                                                         EGP
                                                     </span>
                                                 </td>
-                                                <td>{{date('M', $item->final_month)}}</td>
+                                                <td>{{$month->month}}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>

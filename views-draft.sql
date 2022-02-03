@@ -200,3 +200,9 @@ SUM(amount) AS total_export,
 FROM `financial_operations` 
 WHERE status = 0 GROUP BY month
 HAVING month != MONTH(CURDATE())
+
+SELECT SUM(amount) AS total_export FROM `financial_operations` WHERE status = 0 AND month = 1;
+
+SELECT SUM(amount) AS total_import FROM `financial_operations` WHERE status = 1 AND month = 1;
+
+SELECT DISTINCT month FROM `financial_operations`;
