@@ -60,7 +60,7 @@ function receivedSalary (employee_id, name, finalsalary, month) {
         }
     });
 
-    var receipt = $(`#receipt${employee_id}`).val()
+    var receipt = 578;
 
     $.ajax({
         method : "POST",

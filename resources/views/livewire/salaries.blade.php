@@ -19,7 +19,6 @@
                         <th>اجمالى المضاف</th>
                         <th>المرتب الكلى</th>
                         <th>لشهر</th>
-                        <th>رقم الايصال</th>
                         <th>اجراءات</th>
                     </tr>
                 </thead>
@@ -41,9 +40,6 @@
                             {{number_format($finalsalary, 2)}} EGP
                          </td>
                         <td> {{$month}} </td>
-                        <td>
-                            <input type="number" class="form-control" name="receipt" placeholder="ادخل عدد الايصال" id="receipt{{$item->employee_id}}">
-                        </td>
                         <td>
                             <button class="btn btn-info-gradient btn-block" onclick="receivedSalary({{$item->employee_id}},'{{$item->name}}',{{$finalsalary}}, {{$month}})">تم استلام المرتب</button>
                         </td>

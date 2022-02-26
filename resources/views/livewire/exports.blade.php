@@ -12,8 +12,8 @@
             <p class="tx-12 tx-gray-500 mb-2">Example of Valex Striped Rows.. <a href="">Learn more</a></p>
         </div>
         <div class="card-body">
-            <div class="table-responsive">
-                <table wire:ignore.self class="table text-md-nowrap" id="example1">{{-- example1 --}}
+            <div wire:ignore class="table-responsive">
+                <table  class="table text-md-nowrap" id="example1">{{-- example1 --}}
                     <thead>
                         <tr>
                             <th>رقم الايصال</th>
@@ -27,7 +27,7 @@
                     <tbody>
                         @foreach ($exports as $item)
                         <tr>
-                            <th scope="row">{{$item->receipt}}</th>
+                            <th scope="row">00{{$item->id}}</th>
                             <td>{{$item->client}}</td>
                             <td>{{number_format($item->amount, 2)}} EGP</td>
                             <td>{{$item->reason}}</td>
