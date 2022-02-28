@@ -65,8 +65,8 @@ employees.avatar,
 employees.name,
 employees.position,
 employees.salary AS main_salary,
-(SELECT SUM(amount) FROM salary_changes WHERE salary_changes.employee_id = employees.id AND salary_changes.status = 1) AS total_extra,
-(SELECT SUM(amount) FROM salary_changes WHERE salary_changes.employee_id = employees.id AND salary_changes.status = 0) AS total_deduction
+(SELECT SUM(amount) FROM salary_changes WHERE salary_changes.employee_id = employees.id AND salary_changes.status = 1 AND salary_changes.month = MONTH(CURDATE())  ) AS total_extra,
+(SELECT SUM(amount) FROM salary_changes WHERE salary_changes.employee_id = employees.id AND salary_changes.status = 0 AND salary_changes.month = MONTH(CURDATE())  ) AS total_deduction
 FROM employees
 WHERE employees.id NOT IN (SELECT salaries_received.employee_id FROM salaries_received WHERE salaries_received.month = (SELECT MONTH(CURDATE())))
 

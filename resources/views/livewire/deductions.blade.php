@@ -35,7 +35,7 @@
                             <td>{{$item->name}}</td>
                             <td>{{number_format($item->amount, 2)}} EGP</td>
                             <td>{{$item->reason}}</td>
-                            <td>{{ date('d-M', strtotime($item->date)) }}</td>
+                            <td>{{ date('m/d', strtotime($item->date)) }}</td>
                             <td>
                                 @include('include.operations', ['id' => 'change_id'])
                             </td>
