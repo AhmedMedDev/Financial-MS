@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
+use Illuminate\Support\Str;
 
 class Imports extends Component
 {
@@ -28,6 +29,7 @@ class Imports extends Component
     public function __construct()
     {
         $this->date = date('Y-m-d', strtotime(now()));
+        $this->receipt = Str::random(5);
     }
 
     public function updated($propertyName)
